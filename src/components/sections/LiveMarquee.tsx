@@ -7,7 +7,7 @@ export function LiveMarquee() {
       <div className="max-w-7xl mx-auto px-6 mb-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
         <div>
           <span className="text-xs font-mono uppercase tracking-widest text-purple dark:text-saffron block">LIVE HOROLOGICAL STREAM</span>
-          <h2 className="font-ui text-3xl text-midnight dark:text-cream mt-1 tracking-wider">Auspicious Portals & Transits</h2>
+          <h2 className="font-sans text-3xl text-midnight dark:text-cream mt-1 tracking-wider">Auspicious Portals & Transits</h2>
         </div>
         <p className="font-body text-xs text-gray-500 dark:text-gray-400 max-w-xs">
           These celestial shifts are occurring in real-time. Hover/touch to pause the stream and inspect the timings.
@@ -35,8 +35,8 @@ export function LiveMarquee() {
               </span>
 
               <div className="absolute bottom-4 left-4 right-4 z-20">
-                <span className="text-[10px] font-mono text-saffron uppercase tracking-widest">{item.tag}</span>
-                <h4 className="font-ui text-sm text-midnight dark:text-cream mt-0.5 tracking-wide line-clamp-1">{item.title}</h4>
+                <span className="inline-block px-2 py-0.5 mb-1.5 rounded bg-black/50 backdrop-blur-sm border border-white/10 text-[10px] font-mono text-saffron font-bold uppercase tracking-widest shadow-sm">{item.tag}</span>
+                <h4 className="font-sans text-sm md:text-base text-white mt-0.5 font-medium tracking-wide line-clamp-1">{item.title}</h4>
               </div>
             </div>
           ))}
@@ -61,9 +61,8 @@ export function LiveMarquee() {
               </span>
 
               <div className="absolute bottom-4 left-4 right-4 z-20">
-                <span className="text-[10px] font-mono text-purple dark:text-gold uppercase tracking-widest">{item.tag}</span>
-                <h4 className="font-ui text-sm text-midnight dark:text-cream mt-0.5 tracking-wide line-clamp-1">{item.title}</h4>
-
+                <span className="inline-block px-2 py-0.5 mb-1.5 rounded bg-black/50 backdrop-blur-sm border border-white/10 text-[10px] font-mono text-purple-300 dark:text-gold font-bold uppercase tracking-widest shadow-sm">{item.tag}</span>
+                <h4 className="font-sans text-sm md:text-base text-white mt-0.5 font-medium tracking-wide line-clamp-1">{item.title}</h4>
               </div>
             </div>
           ))}

@@ -49,21 +49,31 @@ export function TimingEvaluation() {
     setGeneratedReading(null);
 
     try {
-      const response = await fetch('/api/generate-reading', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: nameInput,
-          dob: dobInput,
-          tob: tobInput,
-          pob: pobInput,
-          query: queryInput,
-          zodiac: zodiacFormSelect
-        })
-      });
-
-      if (!response.ok) throw new Error('API server failed');
-      const data = await response.json();
+      // Provide mock data since backend/engine is removed
+      const data = {
+        reading: {
+          phase: 'Building',
+          phaseTitle: 'Jupiter Transit Expansion & Solar Vitality',
+          phaseVibe: 'A radiant wind is behind you. Propel forward with integrity and steady action.',
+          vibeScore: 88,
+          alignment: {
+            sun: { house: '10th', sign: zodiacFormSelect || 'Aries', status: 'Exalted' },
+            moon: { house: '4th', sign: 'Leo', status: 'Nurturing' },
+            ascendant: `${zodiacFormSelect || 'Aries'} Rising`
+          },
+          favorableHours: ['08:15 AM - 10:30 AM', '05:00 PM - 06:45 PM'],
+          detailedReport: `Dear ${nameInput || 'Seeker'}, your current stars indicate a highly constructive cycle of active creation. This is a crucial time to launch initiatives, initiate difficult conversations, and build foundations.\n\nAs you push forward with your request about "${queryInput || 'general cosmic timing'}", avoid forced timelines. Dedicate your morning hours to structured planning and physical execution.\n\nTrust the timing of your life; you are exactly where your soul needs to learn.`,
+          actionableSteps: [
+            'Initiate the primary project you have been putting off immediately.',
+            'Perform a morning solar physical alignment or gentle stretch.',
+            'Speak with clarity and make structured commitments.'
+          ],
+          luckyColor: 'Saffron Gold',
+          luckyNumber: 3,
+          nakshatra: 'Ashwini'
+        },
+        source: 'Local Demo'
+      };
 
       setGeneratedReading(data.reading);
       setApiSource(data.source);
@@ -77,7 +87,7 @@ export function TimingEvaluation() {
 
   return (
     <>
-      <section className="py-20 px-6 max-w-7xl mx-auto relative z-10" id="timing-check">
+      <section className="py-10 md:py-12 px-6 max-w-7xl mx-auto relative z-10" id="timing-check">
 
 
         {/* Dynamic Birth Chart Input Form Section */}
@@ -87,7 +97,7 @@ export function TimingEvaluation() {
           <div className="lg:col-span-2 space-y-8 flex flex-col justify-center">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-500 block mb-3">Free Evaluation</span>
-              <ScrollFloat containerClassName="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
+              <ScrollFloat containerClassName="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
                 Get your personalized cosmic reading.
               </ScrollFloat>
             </div>
@@ -103,7 +113,7 @@ export function TimingEvaluation() {
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <h5 className="font-ui text-midnight dark:text-white font-medium">Instant Insights</h5>
+                  <h5 className="font-sans text-midnight dark:text-white font-medium">Instant Insights</h5>
                   <p className="text-xs text-gray-500 dark:text-gray-400 font-body">Immediate actionable guidance</p>
                 </div>
               </div>
@@ -112,7 +122,7 @@ export function TimingEvaluation() {
                   <Compass className="w-5 h-5" />
                 </div>
                 <div>
-                  <h5 className="font-ui text-midnight dark:text-white font-medium">100% Private</h5>
+                  <h5 className="font-sans text-midnight dark:text-white font-medium">100% Private</h5>
                   <p className="text-xs text-gray-500 dark:text-gray-400 font-body">Your birth data is encrypted</p>
                 </div>
               </div>
@@ -130,7 +140,7 @@ export function TimingEvaluation() {
                 <Calendar className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-ui text-xl text-midnight dark:text-cream tracking-wide font-medium">Birth Chart Details</h3>
+                <h3 className="font-sans text-xl text-midnight dark:text-cream tracking-wide font-medium">Birth Chart Details</h3>
                 <p className="font-body text-xs text-gray-500 dark:text-gray-400 mt-1">Enter your details to generate your reading</p>
               </div>
             </div>
@@ -232,7 +242,7 @@ export function TimingEvaluation() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-midnight dark:bg-white text-white dark:text-midnight hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white font-ui text-sm tracking-widest uppercase font-bold transition-all shadow-md flex items-center justify-center gap-3 disabled:opacity-75 disabled:pointer-events-none group/submit"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-midnight dark:bg-white text-white dark:text-midnight hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white font-sans text-sm tracking-widest uppercase font-bold transition-all shadow-md flex items-center justify-center gap-3 disabled:opacity-75 disabled:pointer-events-none group/submit"
                 >
                   {isLoading ? (
                     <>
@@ -263,7 +273,7 @@ export function TimingEvaluation() {
                     <Compass className="w-10 h-10 text-purple dark:text-gold animate-pulse" />
                   </div>
 
-                  <h4 className="font-ui text-xl text-cream tracking-widest uppercase">Calculating Chart</h4>
+                  <h4 className="font-sans text-xl text-xl md:text-2xl tracking-widest uppercase">Calculating Chart</h4>
 
                   {/* Dynamic staggered loading messages */}
                   <div className="h-10 mt-2 max-w-md">
@@ -309,7 +319,7 @@ export function TimingEvaluation() {
               {/* Modal Header */}
               <div className="sticky top-0 z-10 bg-ivory/90 dark:bg-midnight/90 backdrop-blur-xl border-b border-gold/10 px-6 py-4 flex items-center justify-between">
                 <div>
-                  <h3 className="font-ui text-lg text-midnight dark:text-cream tracking-wider font-semibold">Your Cosmic Assessment</h3>
+                  <h3 className="font-sans text-lg text-midnight dark:text-cream tracking-wider font-semibold">Your Cosmic Assessment</h3>
                   <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500">For {nameInput} • {zodiacFormSelect}</p>
                 </div>
                 <button
@@ -334,7 +344,7 @@ export function TimingEvaluation() {
 
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-mono text-gray-500">Calculated via: {apiSource}</span>
-                    <div className={`px-4 py-1.5 rounded-full font-ui text-xs tracking-wider uppercase font-semibold ${generatedReading.phase === 'Building'
+                    <div className={`px-4 py-1.5 rounded-full font-sans text-xs tracking-wider uppercase font-semibold ${generatedReading.phase === 'Building'
                       ? 'bg-gold/10 border border-gold/30 text-purple dark:text-gold'
                       : 'bg-saffron/10 border border-saffron/30 text-saffron'
                       }`}>
@@ -350,7 +360,7 @@ export function TimingEvaluation() {
                   <div className="md:col-span-4 flex flex-col items-center justify-center text-center">
                     <div className="w-28 h-28 rounded-full border-4 border-gold/30 border-t-gold flex items-center justify-center relative shadow-inner">
                       <div className="text-center">
-                        <span className="text-3xl font-ui font-bold text-midnight dark:text-cream">{generatedReading.vibeScore}</span>
+                        <span className="text-3xl font-sans font-bold text-midnight dark:text-cream">{generatedReading.vibeScore}</span>
                         <span className="text-[10px] text-gray-500 block uppercase font-mono tracking-widest leading-none mt-0.5">Vibe Score</span>
                       </div>
                     </div>
@@ -358,7 +368,7 @@ export function TimingEvaluation() {
 
                   {/* Vibe headline description */}
                   <div className="md:col-span-8 space-y-2">
-                    <h4 className="font-ui text-xl text-midnight dark:text-cream font-medium">
+                    <h4 className="font-sans text-xl text-midnight dark:text-cream font-medium">
                       {generatedReading.phaseTitle}
                     </h4>
                     <p className="font-body text-xs text-gray-600 dark:text-gray-400 italic">
@@ -370,12 +380,12 @@ export function TimingEvaluation() {
 
                 {/* Standard Planetary Alignments */}
                 <div>
-                  <h4 className="font-ui text-xs uppercase tracking-widest text-purple dark:text-gold mb-3">Planetary Sidereal Alignments</h4>
+                  <h4 className="font-sans text-xs uppercase tracking-widest text-purple dark:text-gold mb-3">Planetary Positions</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
                     <div className="p-4 rounded-2xl bg-cream/20 dark:bg-midnight/20 border border-gold/10 text-center">
                       <span className="text-[10px] font-mono text-gray-500 uppercase block">Sun Coordinates</span>
-                      <span className="text-sm font-ui text-midnight dark:text-cream font-bold mt-1 block">
+                      <span className="text-sm font-sans text-midnight dark:text-cream font-bold mt-1 block">
                         {generatedReading.alignment.sun.sign} ({generatedReading.alignment.sun.house} House)
                       </span>
                       <span className="text-[10px] font-mono text-purple dark:text-gold uppercase mt-0.5 block">
@@ -385,7 +395,7 @@ export function TimingEvaluation() {
 
                     <div className="p-4 rounded-2xl bg-cream/20 dark:bg-midnight/20 border border-gold/10 text-center">
                       <span className="text-[10px] font-mono text-gray-500 uppercase block">Moon Coordinates</span>
-                      <span className="text-sm font-ui text-midnight dark:text-cream font-bold mt-1 block">
+                      <span className="text-sm font-sans text-midnight dark:text-cream font-bold mt-1 block">
                         {generatedReading.alignment.moon.sign} ({generatedReading.alignment.moon.house} House)
                       </span>
                       <span className="text-[10px] font-mono text-purple dark:text-gold uppercase mt-0.5 block">
@@ -395,7 +405,7 @@ export function TimingEvaluation() {
 
                     <div className="p-4 rounded-2xl bg-cream/20 dark:bg-midnight/20 border border-gold/10 text-center flex flex-col justify-center">
                       <span className="text-[10px] font-mono text-gray-500 uppercase block">Lagna Rising</span>
-                      <span className="text-sm font-ui text-midnight dark:text-cream font-bold mt-1 block">
+                      <span className="text-sm font-sans text-midnight dark:text-cream font-bold mt-1 block">
                         {generatedReading.alignment.ascendant}
                       </span>
                     </div>
@@ -408,7 +418,7 @@ export function TimingEvaluation() {
                   <div className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-purple dark:text-gold" />
                     <div>
-                      <span className="text-[10px] font-mono text-gray-500 uppercase">Favorable Horological Hours Today</span>
+                      <span className="text-[10px] font-mono text-gray-500 uppercase">Your Best Hours Today</span>
                       <span className="text-xs text-midnight dark:text-cream font-bold block mt-0.5">
                         Perform important calls or actions during these customized intervals
                       </span>
@@ -425,7 +435,7 @@ export function TimingEvaluation() {
 
                 {/* Full Personal Report Text */}
                 <div className="space-y-4">
-                  <h4 className="font-ui text-xs uppercase tracking-widest text-purple dark:text-gold">Lyrical Jyotish Analysis</h4>
+                  <h4 className="font-sans text-xs uppercase tracking-widest text-purple dark:text-gold">Your Daily Analysis</h4>
                   <div className="font-body text-sm text-gray-700 dark:text-gray-300 leading-relaxed space-y-4 font-light whitespace-pre-line">
                     {generatedReading.detailedReport}
                   </div>
@@ -433,7 +443,7 @@ export function TimingEvaluation() {
 
                 {/* Practical Actionable Remedies */}
                 <div className="border-t border-gold/15 pt-6 space-y-4">
-                  <h4 className="font-ui text-xs uppercase tracking-widest text-purple dark:text-gold">3 Auspicious Actionable Steps</h4>
+                  <h4 className="font-sans text-xs uppercase tracking-widest text-purple dark:text-gold">3 Simple Action Steps</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {generatedReading.actionableSteps.map((step, idx) => (
                       <div key={idx} className="p-4 rounded-2xl bg-cream/35 dark:bg-midnight/25 border border-gold/10 flex gap-2">
@@ -448,11 +458,11 @@ export function TimingEvaluation() {
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gold/10">
                   <div className="text-center p-3 rounded-xl bg-gold/5 border border-gold/10">
                     <span className="text-[10px] font-mono text-gray-500 uppercase block">Lucky Color</span>
-                    <span className="text-xs font-ui font-medium text-midnight dark:text-cream block mt-0.5">{generatedReading.luckyColor}</span>
+                    <span className="text-xs font-sans font-medium text-midnight dark:text-cream block mt-0.5">{generatedReading.luckyColor}</span>
                   </div>
                   <div className="text-center p-3 rounded-xl bg-gold/5 border border-gold/10">
                     <span className="text-[10px] font-mono text-gray-500 uppercase block">Lucky Number</span>
-                    <span className="text-xs font-ui font-medium text-midnight dark:text-cream block mt-0.5">{generatedReading.luckyNumber}</span>
+                    <span className="text-xs font-sans font-medium text-midnight dark:text-cream block mt-0.5">{generatedReading.luckyNumber}</span>
                   </div>
                 </div>
 

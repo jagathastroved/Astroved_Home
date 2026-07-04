@@ -6,12 +6,12 @@ import ScrollFloat from '../ui/ScrollFloat';
 
 export function AuspiciousActions() {
   return (
-    <section className="py-32 px-6 max-w-7xl mx-auto z-10" id="auspicious-actions">
-      <div className="max-w-3xl mx-auto text-center mb-20">
+    <section className="py-16 px-6 max-w-7xl mx-auto z-10" id="auspicious-actions">
+      <div className="max-w-3xl mx-auto text-center mb-12">
         <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-500 block mb-3 font-semibold">
           Auspicious Involvements
         </span>
-        <ScrollFloat containerClassName="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
+        <ScrollFloat containerClassName="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
           Subtle Planetary Corrections.
         </ScrollFloat>
         <p className="font-body text-gray-600 dark:text-gray-400 mt-4 leading-relaxed max-w-xl mx-auto">
@@ -19,29 +19,35 @@ export function AuspiciousActions() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="flex flex-col gap-12">
         
         {/* Card 1: Community Fire Lab */}
-        <SpotlightCard className="group relative overflow-hidden rounded-[2.5rem] bg-white dark:bg-[#110c1c] border border-black/5 dark:border-white/5 shadow-2xl transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]">
-          {/* Decorative background glow */}
-          <div className="absolute -top-32 -left-32 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-amber-500/20 transition-colors duration-700" />
+        <div className="group overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-orange-50/50 to-emerald-50/50 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-white/10 shadow-2xl flex flex-col md:flex-row min-h-[450px]">
+          {/* Background Image (Left side) */}
+          <div className="w-full md:w-[45%] h-[300px] md:h-auto relative overflow-hidden shrink-0">
+            <img 
+              src="https://images.unsplash.com/photo-1542606553-6ce4c16fcde3?auto=format&fit=crop&q=80&w=1000" 
+              alt="Community Fire Lab" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
+            />
+            {/* Soft inner shadow on image edge */}
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-orange-50/50 dark:from-[#0f172a] to-transparent pointer-events-none hidden md:block" />
+          </div>
           
-          <div className="p-10 sm:p-12 relative z-10 h-full flex flex-col justify-between">
+          {/* Content (Right side) */}
+          <div className="w-full md:w-[55%] p-10 sm:p-14 md:p-16 flex flex-col justify-center bg-white/40 dark:bg-transparent backdrop-blur-md">
             <div>
-              <div className="flex items-center justify-between mb-8">
-                <div className="w-14 h-14 rounded-2xl bg-amber-500/10 dark:bg-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
-                  <Flame className="w-6 h-6" />
-                </div>
-                <span className="px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 text-midnight dark:text-white text-[10px] font-mono uppercase tracking-widest font-semibold backdrop-blur-md">
+              <div className="flex items-center mb-4">
+                <span className="text-orange-500 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold">
                   Monthly Ritual
                 </span>
               </div>
               
-              <h3 className="font-ui text-3xl text-midnight dark:text-white tracking-wide mb-4">
+              <h3 className="font-sans text-4xl md:text-5xl lg:text-6xl text-midnight dark:text-cream font-medium tracking-tight mb-6">
                 Community Fire Lab
               </h3>
               
-              <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-sm mb-8">
+              <p className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 mb-10 max-w-md leading-relaxed">
                 Join our shared monthly planetary clearing session. Resident scholars write your intentions onto dry sandalwood bark and offer them to consecrated fire transits.
               </p>
             </div>
@@ -49,36 +55,41 @@ export function AuspiciousActions() {
             <div>
               <button 
                 onClick={() => scrollToSection('birth-form')}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-midnight dark:bg-white text-white dark:text-midnight hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white font-ui text-sm tracking-widest uppercase font-bold transition-all shadow-md flex items-center justify-center gap-3 group/btn"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-orange-500 text-midnight font-sans text-xs sm:text-sm uppercase tracking-widest font-bold hover:bg-orange-400 transition-colors shadow-[0_4px_14px_0_rgba(249,115,22,0.39)]"
               >
-                Enroll Free Intake
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                Enroll Free Intake <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
-        </SpotlightCard>
+        </div>
 
         {/* Card 2: Blessed Essentials Kit */}
-        <SpotlightCard className="group relative overflow-hidden rounded-[2.5rem] bg-white dark:bg-[#110c1c] border border-black/5 dark:border-white/5 shadow-2xl transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]">
-          {/* Decorative background glow */}
-          <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-500/20 transition-colors duration-700" />
+        <div className="group overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-purple-50/50 to-blue-50/50 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-white/10 shadow-2xl flex flex-col md:flex-row min-h-[450px]">
+          {/* Background Image (Left side) */}
+          <div className="w-full md:w-[45%] h-[300px] md:h-auto relative overflow-hidden shrink-0">
+            <img 
+              src="https://images.unsplash.com/photo-1608408843575-d14620f32070?auto=format&fit=crop&q=80&w=1000" 
+              alt="Blessed Essentials Kit" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
+            />
+            {/* Soft inner shadow on image edge */}
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-purple-50/50 dark:from-[#0f172a] to-transparent pointer-events-none hidden md:block" />
+          </div>
           
-          <div className="p-10 sm:p-12 relative z-10 h-full flex flex-col justify-between">
+          {/* Content (Right side) */}
+          <div className="w-full md:w-[55%] p-10 sm:p-14 md:p-16 flex flex-col justify-center bg-white/40 dark:bg-transparent backdrop-blur-md">
             <div>
-              <div className="flex items-center justify-between mb-8">
-                <div className="w-14 h-14 rounded-2xl bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500">
-                  <ShoppingBag className="w-6 h-6" />
-                </div>
-                <span className="px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 text-midnight dark:text-white text-[10px] font-mono uppercase tracking-widest font-semibold backdrop-blur-md">
+              <div className="flex items-center mb-4">
+                <span className="text-purple-500 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold">
                   AstroVed Shop
                 </span>
               </div>
               
-              <h3 className="font-ui text-3xl text-midnight dark:text-white tracking-wide mb-4">
+              <h3 className="font-sans text-4xl md:text-5xl lg:text-6xl text-midnight dark:text-cream font-medium tracking-tight mb-6">
                 Blessed Essentials Kit
               </h3>
               
-              <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-sm mb-8">
+              <p className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 mb-10 max-w-md leading-relaxed">
                 Receive natural mountain herbs, raw brass yantras, and pure copper vessels certified for placement in your northern living zones to stabilize planetary energy.
               </p>
             </div>
@@ -88,14 +99,13 @@ export function AuspiciousActions() {
                 href="https://www.astroved.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-black/5 dark:bg-white/10 text-midnight dark:text-white hover:bg-black/10 dark:hover:bg-white/20 border border-black/5 dark:border-white/10 font-ui text-sm tracking-widest uppercase font-bold transition-all flex items-center justify-center gap-3 group/btn"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-purple-500 text-white font-sans text-xs sm:text-sm uppercase tracking-widest font-bold hover:bg-purple-400 transition-colors shadow-[0_4px_14px_0_rgba(168,85,247,0.39)]"
               >
-                Browse Shop
-                <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                Browse Shop <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </div>
-        </SpotlightCard>
+        </div>
 
       </div>
     </section>

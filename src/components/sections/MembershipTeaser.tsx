@@ -5,7 +5,7 @@ import { scrollToSection } from '../../utils/scroll';
 
 export function MembershipTeaser() {
   return (
-    <section className="py-24 relative overflow-hidden z-10" id="membership">
+    <section className="py-12 md:py-16 relative overflow-hidden z-10" id="membership">
       
       {/* Slow moving ambient gradient field behind the card */}
       <div className="absolute inset-0 pointer-events-none">
@@ -61,18 +61,18 @@ export function MembershipTeaser() {
           <div className="pt-4 max-w-md mx-auto grid grid-cols-2 gap-4 text-left">
             <div className="bg-cream/30 dark:bg-midnight/30 p-4 rounded-2xl border border-gold/10">
               <span className="text-xs font-mono text-purple dark:text-gold block">WEEKLY REMEDIES</span>
-              <span className="text-sm font-ui font-medium text-midnight dark:text-cream mt-1 block">Conducted automatically</span>
+              <span className="text-sm font-sans font-medium text-midnight dark:text-cream mt-1 block">Conducted automatically</span>
             </div>
             <div className="bg-cream/30 dark:bg-midnight/30 p-4 rounded-2xl border border-gold/10">
               <span className="text-xs font-mono text-saffron block">DIRECT HELPLINE</span>
-              <span className="text-sm font-ui font-medium text-midnight dark:text-cream mt-1 block">24/7 Priest Guidance</span>
+              <span className="text-sm font-sans font-medium text-midnight dark:text-cream mt-1 block">24/7 Priest Guidance</span>
             </div>
           </div>
 
           <div className="pt-6">
             <button
               onClick={() => scrollToSection('birth-form')}
-              className="px-8 py-4 rounded-full bg-gradient-to-r from-purple to-indigo text-cream font-ui text-sm tracking-widest uppercase font-semibold border border-gold/30 hover:border-gold/60 transition-all shadow-md active:scale-95 inline-flex items-center gap-2 group"
+              className="px-8 py-4 rounded-full bg-gradient-to-r from-purple to-indigo text-cream font-sans text-sm tracking-widest uppercase font-semibold border border-gold/30 hover:border-gold/60 transition-all shadow-md active:scale-95 inline-flex items-center gap-2 group"
             >
               Inquire Alliance Intake
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

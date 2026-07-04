@@ -4,7 +4,7 @@ import { ArrowRight, MapPin, Calendar, Clock, Sun, Sunset, Moon, MoonStar, Star,
 
 export function PremiumPanchang() {
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden" id="daily-panchang">
+    <section className="relative py-16 md:py-12 md:py-16 overflow-hidden" id="daily-panchang">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[600px] bg-indigo/5 dark:bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -22,7 +22,7 @@ export function PremiumPanchang() {
                 <Sun className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h2 className="font-ui text-2xl md:text-3xl text-midnight dark:text-cream font-bold tracking-wide">
+                <h2 className="font-sans text-2xl md:text-3xl text-midnight dark:text-cream font-bold tracking-wide">
                   Panchang
                 </h2>
                 <div className="flex flex-wrap items-center gap-2 mt-1 text-[13px] font-medium text-slate-500 dark:text-slate-400">
@@ -82,29 +82,29 @@ export function PremiumPanchang() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 blur-[20px] rounded-full pointer-events-none" />
                 <div className="relative z-10 flex justify-between items-center">
                   <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400">Tamil Date</span>
-                  <span className="text-[14px] font-ui font-semibold text-midnight dark:text-cream">Parabhava, Aani 20</span>
+                  <span className="text-[14px] font-sans font-semibold text-midnight dark:text-cream">Parabhava, Aani 20</span>
                 </div>
                 <div className="relative z-10 w-full h-px bg-black/5 dark:bg-white/5" />
                 <div className="relative z-10 flex justify-between items-center">
-                  <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400">Naal</span>
+                  <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400">Day Info (Naal)</span>
                   <span className="text-[13px] font-medium text-slate-700 dark:text-slate-300">Mel Nokku Naal</span>
                 </div>
                 <div className="relative z-10 w-full h-px bg-black/5 dark:bg-white/5" />
                 <div className="relative z-10 flex justify-between items-center">
-                  <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400">Pirai</span>
+                  <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400">Moon Phase</span>
                   <span className="text-[13px] font-medium text-slate-700 dark:text-slate-300">Theipirai</span>
                 </div>
                 <div className="relative z-10 w-full h-px bg-black/5 dark:bg-white/5" />
                 <div className="relative z-10 flex justify-between items-center">
-                  <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1" title="Solar Transit / Season"><Info className="w-3 h-3" /> Ayanam / Ritu</span>
+                  <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1" title="Solar Transit / Season"><Info className="w-3 h-3" /> Season</span>
                   <span className="text-[13px] font-medium text-slate-700 dark:text-slate-300">Uttarayan / Grishma</span>
                 </div>
               </div>
 
               {/* Tithi Timings */}
               <div>
-                <h3 className="text-[14px] font-ui font-bold text-midnight dark:text-cream mb-4 flex items-center gap-2">
-                  <Moon className="w-4 h-4 text-purple dark:text-gold" /> Tithi Details
+                <h3 className="text-[14px] font-sans font-bold text-midnight dark:text-cream mb-4 flex items-center gap-2">
+                  <Moon className="w-4 h-4 text-purple dark:text-gold" /> Lunar Day (Tithi)
                 </h3>
                 <div className="space-y-3 pl-2 border-l-2 border-purple/20 dark:border-gold/20">
                   <div className="pl-4 relative">
@@ -136,19 +136,19 @@ export function PremiumPanchang() {
               <div className="bg-white/70 dark:bg-black/20 p-5 rounded-2xl border border-indigo/10 dark:border-white/5 shadow-sm space-y-3 relative overflow-hidden">
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo/5 blur-[20px] rounded-full pointer-events-none" />
                 <div className="relative z-10 flex justify-between items-center">
-                  <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400">Yoga</span>
+                  <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400">Energy (Yoga)</span>
                   <span className="text-[13px] font-medium text-slate-700 dark:text-slate-300">Siddhi</span>
                 </div>
                 <div className="relative z-10 w-full h-px bg-black/5 dark:bg-white/5" />
                 <div className="relative z-10 flex justify-between items-center">
-                  <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400">Karana</span>
+                  <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400">Half-Lunar Day</span>
                   <span className="text-[13px] font-medium text-slate-700 dark:text-slate-300">Gara</span>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-[14px] font-ui font-bold text-midnight dark:text-cream mb-4 flex items-center gap-2">
-                  <Star className="w-4 h-4 text-indigo dark:text-saffron" /> Nakshatram Details
+                <h3 className="text-[14px] font-sans font-bold text-midnight dark:text-cream mb-4 flex items-center gap-2">
+                  <Star className="w-4 h-4 text-indigo dark:text-saffron" /> Star Details (Nakshatra)
                 </h3>
                 <div className="space-y-3 pl-2 border-l-2 border-indigo/20 dark:border-saffron/20">
                   <div className="pl-4 relative">
@@ -183,7 +183,7 @@ export function PremiumPanchang() {
 
             {/* Column 3: Beautiful Live Chart adapted for both themes */}
             <div className="lg:col-span-4 flex flex-col items-center lg:items-end space-y-6">
-              <h3 className="text-[11px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 font-bold mb-6 flex items-center gap-3 w-full justify-center lg:justify-end">
+              <h3 className="text-[11px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-cream font-bold mb-6 flex items-center gap-3 w-full justify-center lg:justify-end">
                 Chart of Now
                 <span className="h-[1px] w-4 bg-purple/20 dark:bg-gold/20" />
               </h3>
@@ -254,7 +254,7 @@ export function PremiumPanchang() {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-8 py-3.5 rounded-full font-ui font-semibold tracking-wide shadow-lg shadow-orange-500/20 flex items-center justify-center gap-3 transition-all"
+              className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-8 py-3.5 rounded-full font-sans font-semibold tracking-wide shadow-lg shadow-orange-500/20 flex items-center justify-center gap-3 transition-all"
             >
               Get Your Tamil Horoscope
               <ArrowRight className="w-4 h-4" />

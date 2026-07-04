@@ -26,7 +26,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-ivory/80 dark:bg-midnight/80 backdrop-blur-md border-b border-gold/10">
+    <header className="sticky top-0 z-50 bg-gradient-to-br from-ivory/90 via-cream/90 to-amber-50/80 dark:bg-gradient-to-br dark:from-[#0a0514]/95 dark:via-[#1a0b2e]/95 dark:to-[#0a0e17]/95 backdrop-blur-md border-b border-gold/10 transition-colors duration-500">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
           {/* Mobile Menu Toggle (Left Side) */}
@@ -52,10 +52,15 @@ export function Navbar() {
           </button>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-midnight/80 dark:text-cream/80">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           {navLinks.map((link) => (
-            <button key={link.id} onClick={() => handleNavClick(link.id)} className="hover:text-purple dark:text-gold transition-colors font-ui uppercase tracking-widest text-xs">
+            <button 
+              key={link.id} 
+              onClick={() => handleNavClick(link.id)} 
+              className="relative py-1.5 text-midnight/80 dark:text-cream/90 hover:text-purple dark:hover:text-gold transition-colors font-sans uppercase tracking-widest text-[11px] font-semibold group"
+            >
               {link.label}
+              <span className="absolute left-0 bottom-0 w-full h-[1px] bg-purple dark:bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out opacity-70" />
             </button>
           ))}
         </nav>
@@ -94,12 +99,12 @@ export function Navbar() {
           </button>
 
           <button
-            className="hidden md:block px-5 py-2.5 rounded-full border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-xs font-ui tracking-widest uppercase font-semibold hover:bg-gold/5 hover:border-gold/20 transition-all text-center"
+            className="hidden md:block px-5 py-2.5 rounded-full border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-xs font-sans tracking-widest uppercase font-semibold hover:bg-gold/5 hover:border-gold/20 transition-all text-center"
           >
             Login
           </button>
           <button
-            className="hidden md:block px-5 py-2.5 rounded-full bg-gradient-to-r from-purple to-indigo text-cream dark:text-cream text-xs font-ui tracking-widest uppercase font-semibold border border-gold/20 hover:brightness-110 active:scale-95 transition-all shadow-md text-center"
+            className="hidden md:block px-5 py-2.5 rounded-full bg-gradient-to-r from-purple to-indigo text-cream dark:text-cream text-xs font-sans tracking-widest uppercase font-semibold border border-gold/20 hover:brightness-110 active:scale-95 transition-all shadow-md text-center"
           >
             Sign Up
           </button>
@@ -113,7 +118,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden bg-ivory dark:bg-[#0c0f24] border-b border-gold/10"
+            className="md:hidden overflow-hidden bg-ivory dark:bg-[#0f172a] border-b border-gold/10"
           >
             <div className="px-6 py-6 flex flex-col gap-6">
               <nav className="flex flex-col gap-4">
@@ -121,7 +126,7 @@ export function Navbar() {
                   <button 
                     key={link.id} 
                     onClick={() => handleNavClick(link.id)} 
-                    className="text-left font-ui uppercase tracking-widest text-xs text-midnight dark:text-cream hover:text-purple dark:hover:text-gold transition-colors"
+                    className="text-left font-sans uppercase tracking-widest text-xs text-midnight dark:text-cream hover:text-purple dark:hover:text-gold transition-colors"
                   >
                     {link.label}
                   </button>
@@ -129,10 +134,10 @@ export function Navbar() {
               </nav>
               
               <div className="flex flex-col gap-3 pt-6 border-t border-black/5 dark:border-white/5">
-                <button className="w-full py-3 rounded-xl border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-xs font-ui tracking-widest uppercase font-semibold hover:bg-gold/5 transition-all">
+                <button className="w-full py-3 rounded-xl border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-xs font-sans tracking-widest uppercase font-semibold hover:bg-gold/5 transition-all">
                   Login
                 </button>
-                <button className="w-full py-3 rounded-xl bg-gradient-to-r from-purple to-indigo text-cream text-xs font-ui tracking-widest uppercase font-semibold hover:brightness-110 transition-all shadow-md">
+                <button className="w-full py-3 rounded-xl bg-gradient-to-r from-purple to-indigo text-cream text-xs font-sans tracking-widest uppercase font-semibold hover:brightness-110 transition-all shadow-md">
                   Sign Up
                 </button>
               </div>

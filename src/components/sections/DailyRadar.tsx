@@ -13,21 +13,21 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
   const [horoscopeTab, setHoroscopeTab] = useState<'Today' | 'Week' | 'Month'>('Today');
 
   return (
-    <section className="py-24 relative overflow-hidden" id="daily-widget">
+    <section className="py-12 md:py-16 relative overflow-hidden" id="daily-widget">
       {/* Soft background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[300px] bg-amber-500/5 dark:bg-amber-500/10 blur-[100px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-500 block mb-3 font-semibold">
-            Daily Astrological Radar
+            Daily Horoscope
           </span>
-          <ScrollFloat containerClassName="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
+          <ScrollFloat containerClassName="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
             Vedic Signs Horoscope.
           </ScrollFloat>
           <p className="font-body text-gray-600 dark:text-gray-400 mt-4 leading-relaxed max-w-xl mx-auto">
-            Select your Vedic Moon/Sun sign below to fetch real-time guidance and auspicious daily timings directly from our astronomical data stream.
+            Select your sign to get simple daily guidance and know your best times.
           </p>
         </div>
 
@@ -36,7 +36,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
           {/* Left Column: 12 Sign Grid Selector (No Swiping) */}
           <div className="lg:col-span-4 flex flex-col space-y-4">
             <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 font-semibold mb-2">
-              Select Constellation
+              Select Sign
             </span>
             
             <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-3 gap-3">
@@ -66,7 +66,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                     </div>
                     
                     <div className="z-10">
-                      <span className={`block text-[10px] font-ui tracking-wider uppercase font-semibold leading-none transition-colors ${isActive ? 'text-amber-700 dark:text-amber-400' : 'text-midnight/70 dark:text-cream/70 group-hover:text-amber-600 dark:group-hover:text-amber-400'}`}>
+                      <span className={`block text-[10px] font-sans tracking-wider uppercase font-semibold leading-none transition-colors ${isActive ? 'text-amber-700 dark:text-amber-400' : 'text-midnight/70 dark:text-cream/70 group-hover:text-amber-600 dark:group-hover:text-amber-400'}`}>
                         {sign.name}
                       </span>
                     </div>
@@ -94,7 +94,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                     />
                   </div>
                   <div>
-                    <h3 className="font-ui text-2xl sm:text-3xl text-midnight dark:text-cream tracking-wide font-medium flex items-center gap-3">
+                    <h3 className="font-sans text-2xl sm:text-3xl text-midnight dark:text-cream tracking-wide font-medium flex items-center gap-3">
                       {selectedZodiac} <span className="text-amber-500/40 text-xl font-light hidden sm:inline">·</span> <span className="text-gray-400 dark:text-gray-500 text-xl hidden sm:inline">{ZODIAC_SIGNS.find(s => s.name === selectedZodiac)?.sanskrit}</span>
                     </h3>
                     <div className="flex flex-wrap items-center gap-2 mt-3">
@@ -150,7 +150,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                           <Clock className="w-5 h-5" />
                         </div>
                         <div>
-                          <span className="text-[9px] sm:text-[10px] font-mono text-gray-500 uppercase tracking-widest block mb-1">Auspicious Window</span>
+                          <span className="text-[9px] sm:text-[10px] font-mono text-gray-500 uppercase tracking-widest block mb-1">Best Time</span>
                           <span className="text-xs sm:text-sm font-mono text-midnight dark:text-cream font-bold block">
                             {HOROSCOPES[selectedZodiac]?.hours}
                           </span>
@@ -162,7 +162,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                           <Compass className="w-5 h-5" />
                         </div>
                         <div>
-                          <span className="text-[9px] sm:text-[10px] font-mono text-gray-500 uppercase tracking-widest block mb-1">Critical Avoidance</span>
+                          <span className="text-[9px] sm:text-[10px] font-mono text-gray-500 uppercase tracking-widest block mb-1">Watch Out For</span>
                           <span className="text-xs sm:text-sm font-mono text-midnight dark:text-cream font-bold block">
                             {HOROSCOPES[selectedZodiac]?.obstacle}
                           </span>
@@ -176,11 +176,11 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
               {/* Bottom interactive action */}
               <div className="mt-10 pt-8 border-t border-black/5 dark:border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                 <span className="text-xs sm:text-sm font-body text-gray-500 max-w-sm">
-                  Get an advanced customized chart parsing your exact birth time coordinates.
+                  Get a custom chart built just for you.
                 </span>
                 <button
                   onClick={() => onCalculateChart(selectedZodiac)}
-                  className="w-full sm:w-auto px-6 py-4 rounded-xl bg-midnight dark:bg-white text-white dark:text-midnight hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white font-ui text-[10px] sm:text-xs tracking-widest uppercase font-bold transition-all shadow-md flex items-center justify-center gap-3 group/btn flex-shrink-0"
+                  className="w-full sm:w-auto px-6 py-4 rounded-xl bg-midnight dark:bg-white text-white dark:text-midnight hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white font-sans text-[10px] sm:text-xs tracking-widest uppercase font-bold transition-all shadow-md flex items-center justify-center gap-3 group/btn flex-shrink-0"
                 >
                   Calculate Exact {selectedZodiac}
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />

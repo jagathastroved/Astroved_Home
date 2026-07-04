@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 import ScrollFloat from '../ui/ScrollFloat';
-import { CountUp } from '../CountUp';
 import { TESTIMONIALS } from '../../utils/data';
+
+const BRAND_IMAGES = [
+  'https://images.unsplash.com/photo-1542838779-119c636f4618?auto=format&fit=crop&q=80&w=800'
+];
 
 export function Testimonials() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -16,80 +19,79 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section className="py-16 max-w-6xl mx-auto px-6 relative z-10" id="trust-platform">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        
-        {/* Left column - Very small, delicate stats */}
-        <div className="lg:col-span-5 space-y-8">
-          <div>
-            <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-500 font-bold block mb-1">
-              Verified Lineage
-            </span>
-            <ScrollFloat containerClassName="font-ui text-2xl sm:text-3xl text-midnight dark:text-cream leading-tight">
-              Unrivaled Vedic Fidelity
-            </ScrollFloat>
-            <p className="font-body text-xs text-gray-600 dark:text-gray-400 mt-2 leading-relaxed max-w-sm">
-              Our platform marries the mathematical precision of astronomical ephemerides with centuries of authentic lineage study.
+    <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 relative z-10" id="trust-platform">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+        {/* Left Column - Company Branding (4 Image Slices) */}
+        <div className="relative h-[500px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 dark:border-white/5 group flex">
+          {BRAND_IMAGES.map((src, idx) => (
+            <div key={idx} className={`flex-1 relative overflow-hidden ${idx !== BRAND_IMAGES.length - 1 ? 'border-r border-white/20 dark:border-white/10' : ''}`}>
+              <img
+                src={src}
+                alt="Vedic Service"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2s] ease-out"
+              />
+            </div>
+          ))}
+
+          {/* Gradient Overlay & Text */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+          <div className="absolute bottom-6 left-6 right-6">
+            <p className="font-mono text-xs text-white/90 uppercase tracking-widest font-semibold">
+              Authentic Vedic services, trusted since 2000
             </p>
-          </div>
-
-          <div className="space-y-4">
-            <div className="border-l-[1.5px] border-amber-500/30 pl-4 py-0.5">
-              <span className="text-2xl font-ui text-midnight dark:text-cream font-medium block leading-none mb-0.5">
-                <CountUp to={200000} duration={2} suffix="+" />
-              </span>
-              <span className="text-[9px] font-mono text-gray-500 uppercase tracking-widest font-semibold">Active Seekers</span>
-            </div>
-
-            <div className="border-l-[1.5px] border-amber-500/30 pl-4 py-0.5">
-              <span className="text-2xl font-ui text-midnight dark:text-cream font-medium block leading-none mb-0.5">
-                <CountUp to={45} duration={1.5} suffix="k+" />
-              </span>
-              <span className="text-[9px] font-mono text-gray-500 uppercase tracking-widest font-semibold">Intentions Manifested</span>
-            </div>
-
-            <div className="border-l-[1.5px] border-amber-500/30 pl-4 py-0.5">
-              <span className="text-2xl font-ui text-midnight dark:text-cream font-medium block leading-none mb-0.5">
-                <CountUp to={99.8} from={90} duration={1.6} suffix="%" />
-              </span>
-              <span className="text-[9px] font-mono text-gray-500 uppercase tracking-widest font-semibold">Accuracy Rating</span>
-            </div>
           </div>
         </div>
 
-        {/* Right column - Small elegant card */}
-        <div className="lg:col-span-7">
-          <div className="rounded-2xl bg-white/60 dark:bg-[#110c1c]/60 backdrop-blur-md border border-black/5 dark:border-white/5 p-6 sm:p-8 relative overflow-hidden shadow-sm">
-            
-            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-[40px] pointer-events-none" />
-            
-            <div className="min-h-[140px] relative z-10">
+        {/* Right Column - Trust Heading & Current Feedback */}
+        <div className="space-y-10">
+
+          {/* Trust Headers */}
+          <div className="space-y-4">
+            <ScrollFloat containerClassName="font-sans text-4xl md:text-5xl text-midnight dark:text-cream leading-tight">
+              Trusted by millions, for over <span className="text-amber-600 dark:text-amber-500 italic">25 years.</span>
+            </ScrollFloat>
+            <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed text-base md:text-lg max-w-lg">
+              Since 2000, AstroVed has brought simple, authentic astrology and spiritual guidance to seekers in 150+ countries.
+            </p>
+
+            <div className="flex items-center gap-3 pt-2">
+              <div className="flex text-amber-500">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-current" />
+                ))}
+              </div>
+              <p className="font-body text-sm text-midnight dark:text-cream font-medium">
+                4.8 <span className="text-gray-500 dark:text-gray-400 font-normal">average rating · 12,000+ verified reviews</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Premium Testimonials Feedback Card */}
+          <div className="rounded-[2rem] bg-white/60 dark:bg-[#110c1c]/60 backdrop-blur-xl border border-black/5 dark:border-white/5 p-8 md:p-10 relative overflow-hidden shadow-xl">
+
+            {/* Soft background glow */}
+            <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full blur-[50px] pointer-events-none" />
+
+            <div className="min-h-[160px] relative z-10">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTestimonial}
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -10 }}
-                  transition={{ duration: 0.3, ease: 'easeOut' }}
-                  className="space-y-4"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  className="space-y-6 flex flex-col h-full"
                 >
-                  <div className="flex items-center gap-1 text-amber-500">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-3 h-3 fill-current" viewBox="0 0 24 24">
-                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                      </svg>
-                    ))}
-                  </div>
-
-                  <blockquote className="font-body text-sm sm:text-base text-midnight dark:text-cream leading-relaxed italic">
+                  <blockquote className="font-body text-lg text-midnight dark:text-cream leading-relaxed italic flex-grow">
                     "{TESTIMONIALS[activeTestimonial].quote}"
                   </blockquote>
 
                   <div>
-                    <h4 className="font-ui text-xs text-midnight dark:text-cream uppercase tracking-widest font-bold">
+                    <h4 className="font-sans text-sm text-midnight dark:text-cream uppercase tracking-widest font-bold">
                       {TESTIMONIALS[activeTestimonial].name}
                     </h4>
-                    <p className="font-mono text-[9px] text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                    <p className="font-mono text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-widest mt-1">
                       {TESTIMONIALS[activeTestimonial].role} · {TESTIMONIALS[activeTestimonial].stats}
                     </p>
                   </div>
@@ -97,36 +99,36 @@ export function Testimonials() {
               </AnimatePresence>
             </div>
 
-            {/* Tiny Controls */}
-            <div className="flex items-center justify-between pt-4 mt-4 border-t border-black/5 dark:border-white/5 relative z-10">
-              
-              <div className="flex items-center gap-1">
+            {/* Controls */}
+            <div className="flex items-center justify-between pt-6 mt-6 border-t border-black/5 dark:border-white/10 relative z-10">
+
+              <div className="flex items-center gap-1.5">
                 {TESTIMONIALS.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setActiveTestimonial(idx)}
                     className="p-1"
                   >
-                    <span className={`block h-[3px] rounded-full transition-all duration-300 ${activeTestimonial === idx ? 'bg-amber-500 w-4' : 'bg-black/10 dark:bg-white/10 w-2 hover:bg-amber-500/50'}`} />
+                    <span className={`block h-[3px] rounded-full transition-all duration-300 ${activeTestimonial === idx ? 'bg-amber-500 w-6' : 'bg-black/10 dark:bg-white/10 w-2 hover:bg-amber-500/50'}`} />
                   </button>
                 ))}
               </div>
 
-              <div className="flex gap-1.5">
+              <div className="flex gap-2">
                 <button
                   onClick={() => setActiveTestimonial((prev) => (prev > 0 ? prev - 1 : TESTIMONIALS.length - 1))}
-                  className="w-7 h-7 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-midnight dark:text-cream hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-midnight dark:text-cream hover:bg-amber-500 hover:text-white hover:border-amber-500 active:scale-95 transition-all"
                 >
-                  <ArrowLeft className="w-3 h-3" />
+                  <ArrowLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setActiveTestimonial((prev) => (prev < TESTIMONIALS.length - 1 ? prev + 1 : 0))}
-                  className="w-7 h-7 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-midnight dark:text-cream hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-midnight dark:text-cream hover:bg-amber-500 hover:text-white hover:border-amber-500 active:scale-95 transition-all"
                 >
-                  <ArrowRight className="w-3 h-3" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
-              
+
             </div>
 
           </div>

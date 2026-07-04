@@ -121,11 +121,8 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
   }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale]);
 
   useEffect(() => {
-    // Listen for clicks globally to apply to any interactive element
+    // Listen for clicks globally and apply to all clicks
     const handleClick = (e: MouseEvent) => {
-      const isInteractive = (e.target as HTMLElement).closest('button, a, [role="button"], input[type="submit"], input[type="button"], label');
-      if (!isInteractive) return; // Only trigger for interactive elements
-
       const now = performance.now();
       // Using clientX/clientY because canvas is position: fixed
       const x = e.clientX;

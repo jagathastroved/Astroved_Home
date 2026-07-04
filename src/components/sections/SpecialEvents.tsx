@@ -49,21 +49,21 @@ export function SpecialEvents() {
   }, []);
 
   return (
-    <section className="py-24 bg-ivory dark:bg-[#08040f] relative overflow-hidden transition-colors duration-500">
+    <section className="py-12 md:py-16 bg-ivory dark:bg-[#08040f] relative overflow-hidden transition-colors duration-500">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 block mb-4">
             SPECIAL EVENTS
           </span>
-          <ScrollFloat containerClassName="font-ui text-4xl md:text-5xl text-midnight dark:text-cream mb-6 leading-tight">
+          <ScrollFloat containerClassName="font-sans text-4xl md:text-5xl text-midnight dark:text-cream mb-6 leading-tight">
             Powerful Fire Rituals at the Perfect Moment
           </ScrollFloat>
           <p className="font-body text-gray-700 dark:text-gray-400 text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
             These events are matched with this month's special planetary changes and festivals. Once the time passes, the chance is gone.
           </p>
-          <a href="#" className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-ui text-sm uppercase tracking-widest font-semibold hover:gap-3 transition-all">
+          <a href="#" className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-sans text-sm uppercase tracking-widest font-semibold hover:gap-3 transition-all">
             View all special events <ArrowRight className="w-4 h-4" />
           </a>
         </div>
@@ -85,13 +85,13 @@ export function SpecialEvents() {
                     <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 font-semibold drop-shadow-sm dark:drop-shadow-md">
                       {ev.tagline}
                     </span>
-                    <h3 className="font-ui text-4xl md:text-5xl text-midnight dark:text-white font-bold drop-shadow-sm dark:drop-shadow-lg leading-tight transition-colors duration-500">
+                    <h3 className="font-sans text-4xl md:text-5xl text-midnight dark:text-cream font-bold drop-shadow-sm dark:drop-shadow-lg leading-tight transition-colors duration-500">
                       {ev.title}
                     </h3>
                     <p className="font-mono text-sm text-gray-700 dark:text-white/80 pb-4 drop-shadow-sm dark:drop-shadow transition-colors duration-500">
                       {ev.deadline}
                     </p>
-                    <button className="px-8 py-4 rounded-full bg-amber-500 hover:bg-amber-400 text-black font-ui text-sm uppercase tracking-widest font-bold transition-all flex items-center gap-2 group/btn shadow-[0_4px_20px_rgba(245,158,11,0.3)] dark:shadow-[0_0_20px_rgba(245,158,11,0.4)]">
+                    <button className="px-8 py-4 rounded-full bg-amber-500 hover:bg-amber-400 text-black font-sans text-sm uppercase tracking-widest font-bold transition-all flex items-center gap-2 group/btn shadow-[0_4px_20px_rgba(245,158,11,0.3)] dark:shadow-[0_0_20px_rgba(245,158,11,0.4)]">
                       {ev.cta}
                       <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </button>

@@ -18,11 +18,9 @@ import { Testimonials } from './components/sections/Testimonials';
 import { FAQ } from './components/sections/FAQ';
 import { LeadCapture } from './components/sections/LeadCapture';
 import { Footer } from './components/sections/Footer';
-import { ServicesSections } from './components/sections/ServicesSections';
 import { scrollToSection } from './utils/scroll';
 import ClickSpark from './components/ui/ClickSpark';
 import { ScrollToTop } from './components/ui/ScrollToTop';
-import ScrollFloat from './components/ui/ScrollFloat';
 
 export default function App() {
   return (
@@ -37,45 +35,23 @@ export default function App() {
 
         <Navbar />
 
-        <main className="relative z-10 pt-20">
+        <main className="relative z-10 pt-10">
           <HeroSection />
           <SpecialEvents />
           <UptimesDowntimes />
-          <ServicesSections />
-          <PremiumPanchang />
-          <LiveHorologicalStream />
-          <TrustTicker />
           <ExpertChart />
-          <TimingEvaluation />
-          <TrustStats />
+          <LiveHorologicalStream />
           <AuspiciousActions />
-
-          <section className="py-32 relative overflow-hidden" id="rituals-beam">
-            {/* Soft background glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[400px] bg-amber-500/5 dark:bg-amber-500/10 blur-[100px] rounded-full pointer-events-none" />
-
-            <div className="text-center max-w-3xl mx-auto mb-20 relative z-10 px-6">
-              <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-500 block mb-3 font-semibold">
-                Consecrated Transmission
-              </span>
-              <ScrollFloat containerClassName="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
-                Rituals Run On Your Behalf.
-              </ScrollFloat>
-              <p className="font-body text-gray-600 dark:text-gray-400 mt-4 leading-relaxed">
-                The precise path of a remote ritual. See exactly how we route your physical intention directly from our client core to the traditional temples.
-              </p>
-            </div>
-
-            <div className="max-w-5xl mx-auto relative z-10 px-4">
-              <RitualAnimatedBeam />
-            </div>
-          </section>
-
-          <AncestralHealing />
+          <RitualAnimatedBeam />
+          <PremiumPanchang />
+          <TrustTicker />
+          <TimingEvaluation />
           <DailyRadar onCalculateChart={(zodiac) => { scrollToSection('birth-form'); }} />
+          <AncestralHealing />
           <Testimonials />
-          <FAQ />
+          <TrustStats />
           <LeadCapture />
+          <FAQ />
         </main>
 
         <Footer />

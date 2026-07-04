@@ -33,19 +33,19 @@ const portals = [
 
 export function AuspiciousPortals() {
   return (
-    <section className="relative py-24 bg-[#0c0618] overflow-hidden z-10" id="portals">
+    <section className="relative py-12 md:py-16 bg-[#0c0618] overflow-hidden z-10" id="portals">
       {/* Background glow effects */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <div className="inline-flex items-center gap-2 mb-4">
             <div className="w-8 h-px bg-gradient-to-r from-transparent to-amber-400" />
             <span className="font-mono text-xs uppercase tracking-widest text-amber-400">Live Timing</span>
             <div className="w-8 h-px bg-gradient-to-l from-transparent to-amber-400" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-serif text-4xl md:text-5xl mb-6">
             Auspicious <em className="text-amber-400 not-italic font-medium">Portals & Transits</em>
           </h2>
           <p className="text-white/60 text-lg">
@@ -75,7 +75,7 @@ export function AuspiciousPortals() {
                     </div>
                   </div>
                   
-                  <h3 className="text-2xl font-serif text-white mb-3 group-hover:text-amber-100 transition-colors">
+                  <h3 className="text-2xl font-serif text-white mb-3 group-hover:text-2xl md:text-3xl transition-colors">
                     {portal.title}
                   </h3>
                   

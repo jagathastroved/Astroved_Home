@@ -12,11 +12,11 @@ export function SacredJourneys() {
   };
 
   return (
-    <section className="py-24 bg-cream/10 dark:bg-midnight/30 border-t border-gold/10 overflow-hidden" id="sacred-journeys">
+    <section className="py-12 md:py-16 bg-cream/10 dark:bg-midnight/30 border-t border-gold/10 overflow-hidden" id="sacred-journeys">
       <div className="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
         <div>
           <span className="text-xs font-mono uppercase tracking-widest text-purple dark:text-saffron block">PHYSICAL PILGRIMAGE</span>
-          <h2 className="font-ui text-3xl text-midnight dark:text-cream mt-1 tracking-wider">Sacred Vedic Journeys</h2>
+          <h2 className="font-sans text-3xl text-midnight dark:text-cream mt-1 tracking-wider">Sacred Vedic Journeys</h2>
         </div>
         <div className="flex flex-col items-end gap-4">
           <p className="font-body text-xs text-gray-500 dark:text-gray-400 max-w-sm text-right">
@@ -45,7 +45,7 @@ export function SacredJourneys() {
           <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-midnight/20 to-transparent z-10" />
           <div className="absolute bottom-6 left-6 z-20 text-cream">
             <span className="text-[10px] font-mono text-saffron uppercase tracking-widest">Himalayan high alt</span>
-            <h3 className="font-ui text-xl mt-1 tracking-wider">Guided Temple Tours</h3>
+            <h3 className="font-sans text-2xl md:text-3xl mt-1 tracking-wider">Guided Temple Tours</h3>
           </div>
         </div>
 
@@ -58,7 +58,7 @@ export function SacredJourneys() {
           <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-midnight/20 to-transparent z-10" />
           <div className="absolute bottom-6 left-6 z-20 text-cream">
             <span className="text-[10px] font-mono text-purple dark:text-gold uppercase tracking-widest">Tamil Nadu Consecrations</span>
-            <h3 className="font-ui text-xl mt-1 tracking-wider">Festival Consecrated Travel</h3>
+            <h3 className="font-sans text-2xl md:text-3xl mt-1 tracking-wider">Festival Consecrated Travel</h3>
           </div>
         </div>
 
@@ -71,7 +71,7 @@ export function SacredJourneys() {
           <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-midnight/20 to-transparent z-10" />
           <div className="absolute bottom-6 left-6 z-20 text-cream">
             <span className="text-[10px] font-mono text-saffron uppercase tracking-widest">Varanasi Sunrise</span>
-            <h3 className="font-ui text-xl mt-1 tracking-wider">Sunrise River Ceremonies</h3>
+            <h3 className="font-sans text-2xl md:text-3xl mt-1 tracking-wider">Sunrise River Ceremonies</h3>
           </div>
         </div>
 
@@ -84,7 +84,7 @@ export function SacredJourneys() {
           <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-midnight/20 to-transparent z-10" />
           <div className="absolute bottom-6 left-6 z-20 text-cream">
             <span className="text-[10px] font-mono text-purple dark:text-gold uppercase tracking-widest">Western Ghats peak</span>
-            <h3 className="font-ui text-xl mt-1 tracking-wider">Mountain Cave Shrines</h3>
+            <h3 className="font-sans text-2xl md:text-3xl mt-1 tracking-wider">Mountain Cave Shrines</h3>
           </div>
         </div>
 
