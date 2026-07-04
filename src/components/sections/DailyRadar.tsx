@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Clock, Compass, ArrowRight } from 'lucide-react';
 import { ZODIAC_SIGNS, HOROSCOPES } from '../../utils/data';
+import ScrollFloat from '../ui/ScrollFloat';
 
 interface DailyRadarProps {
   onCalculateChart: (zodiac: string) => void;
@@ -22,9 +23,9 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
           <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-500 block mb-3 font-semibold">
             Daily Astrological Radar
           </span>
-          <h2 className="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
-            Vedic Signs <em className="text-amber-600 dark:text-amber-400 italic">Horoscope.</em>
-          </h2>
+          <ScrollFloat containerClassName="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
+            Vedic Signs Horoscope.
+          </ScrollFloat>
           <p className="font-body text-gray-600 dark:text-gray-400 mt-4 leading-relaxed max-w-xl mx-auto">
             Select your Vedic Moon/Sun sign below to fetch real-time guidance and auspicious daily timings directly from our astronomical data stream.
           </p>

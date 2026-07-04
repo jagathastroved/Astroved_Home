@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Flame, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Flame, Clock, CalendarDays, ArrowRight } from 'lucide-react';
+import ScrollFloat from '../ui/ScrollFloat';
 
 const events = [
   {
@@ -56,9 +57,9 @@ export function SpecialEvents() {
           <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 block mb-4">
             SPECIAL EVENTS
           </span>
-          <h2 className="font-ui text-4xl md:text-5xl text-midnight dark:text-cream mb-6 leading-tight">
-            Powerful Fire Rituals at the <em className="text-amber-600 dark:text-amber-400 not-italic font-medium">Perfect Moment</em>
-          </h2>
+          <ScrollFloat containerClassName="font-ui text-4xl md:text-5xl text-midnight dark:text-cream mb-6 leading-tight">
+            Powerful Fire Rituals at the Perfect Moment
+          </ScrollFloat>
           <p className="font-body text-gray-700 dark:text-gray-400 text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
             These events are matched with this month's special planetary changes and festivals. Once the time passes, the chance is gone.
           </p>

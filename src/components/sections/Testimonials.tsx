@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
+import ScrollFloat from '../ui/ScrollFloat';
 import { CountUp } from '../CountUp';
 import { TESTIMONIALS } from '../../utils/data';
 
@@ -24,9 +25,9 @@ export function Testimonials() {
             <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-500 font-bold block mb-1">
               Verified Lineage
             </span>
-            <h2 className="font-ui text-2xl sm:text-3xl text-midnight dark:text-cream leading-tight">
+            <ScrollFloat containerClassName="font-ui text-2xl sm:text-3xl text-midnight dark:text-cream leading-tight">
               Unrivaled Vedic Fidelity
-            </h2>
+            </ScrollFloat>
             <p className="font-body text-xs text-gray-600 dark:text-gray-400 mt-2 leading-relaxed max-w-sm">
               Our platform marries the mathematical precision of astronomical ephemerides with centuries of authentic lineage study.
             </p>

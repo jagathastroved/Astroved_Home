@@ -1,5 +1,6 @@
 import React from 'react';
 import { Activity, Sun, Moon, Home, Clock, ArrowRight } from 'lucide-react';
+import ScrollFloat from '../ui/ScrollFloat';
 
 const CARDS = [
   {
@@ -58,9 +59,9 @@ export function UptimesDowntimes() {
           <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
             Cosmic Timing Engine
           </span>
-          <h2 className="font-ui text-4xl md:text-5xl text-midnight dark:text-cream mb-6 tracking-wide">
-            Navigate your life with <em className="text-amber-600 dark:text-amber-400 font-medium italic">absolute precision.</em>
-          </h2>
+          <ScrollFloat containerClassName="font-ui text-4xl md:text-5xl text-midnight dark:text-cream mb-6 tracking-wide">
+            Navigate your life with absolute precision.
+          </ScrollFloat>
           <p className="font-body text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
             Discover your exact cosmic phase. Push forward aggressively during your peak expansion cycles, and rest or reflect during your karmic clearing periods.
           </p>

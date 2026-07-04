@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Compass, ArrowRight, Calendar, User, Clock, MapPin, Sparkles, Send, X } from 'lucide-react';
+import { Compass, ArrowRight, Calendar, User, Clock, MapPin, Sparkles, Send, X, Target, Activity } from 'lucide-react';
+import ScrollFloat from '../ui/ScrollFloat';
 import { SpotlightCard } from '../SpotlightCard';
 import { scrollToSection } from '../../utils/scroll';
 import { ZODIAC_SIGNS } from '../../utils/data';
@@ -21,7 +22,7 @@ export function TimingEvaluation() {
   const [pobInput, setPobInput] = useState('');
   const [queryInput, setQueryInput] = useState('');
   const [zodiacFormSelect, setZodiacFormSelect] = useState('Aries');
-  
+
   const [isLoading, setIsLoading] = useState(false);
   const [loadingStep, setLoadingStep] = useState(0);
   const [generatedReading, setGeneratedReading] = useState<CosmicReading | null>(null);
@@ -63,7 +64,7 @@ export function TimingEvaluation() {
 
       if (!response.ok) throw new Error('API server failed');
       const data = await response.json();
-      
+
       setGeneratedReading(data.reading);
       setApiSource(data.source);
       setIsReadingModalOpen(true);
@@ -81,21 +82,21 @@ export function TimingEvaluation() {
 
         {/* Dynamic Birth Chart Input Form Section */}
         <div id="birth-form" className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 relative">
-          
+
           {/* Left Side: Related Content */}
           <div className="lg:col-span-2 space-y-8 flex flex-col justify-center">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-500 block mb-3">Free Evaluation</span>
-              <h3 className="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
-                Get your personalized <em className="text-amber-600 dark:text-amber-400 italic">cosmic reading.</em>
-              </h3>
+              <ScrollFloat containerClassName="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
+                Get your personalized cosmic reading.
+              </ScrollFloat>
             </div>
-            
+
             <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed text-base">
-              Find out exactly what planetary energies are influencing you right now. 
+              Find out exactly what planetary energies are influencing you right now.
               Our system uses your exact birth details to provide accurate, actionable guidance for your career, relationships, and major decisions.
             </p>
-            
+
             <div className="space-y-5 pt-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-amber-500/10 dark:bg-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400">
@@ -120,10 +121,10 @@ export function TimingEvaluation() {
 
           {/* Right Side: Attractive Form */}
           <div className="lg:col-span-3 rounded-[2.5rem] bg-white dark:bg-[#110c1c] backdrop-blur-xl border border-black/5 dark:border-white/5 shadow-2xl p-8 sm:p-12 relative overflow-hidden group">
-            
+
             {/* Subtle glow effect in the background of the form */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-700" />
-            
+
             <div className="flex items-center gap-4 mb-10 relative z-10">
               <div className="w-12 h-12 rounded-2xl bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 flex items-center justify-center text-amber-600 dark:text-amber-400">
                 <Calendar className="w-5 h-5" />
@@ -136,14 +137,14 @@ export function TimingEvaluation() {
 
             <form onSubmit={handleGenerateReading} className="space-y-6 relative z-10">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                
+
                 <div className="space-y-2">
                   <label className="text-[10px] font-mono uppercase tracking-[0.1em] text-gray-500 dark:text-gray-400 flex items-center gap-2">
                     <User className="w-3.5 h-3.5 text-amber-500" />
                     Full Name <span className="text-amber-500">*</span>
                   </label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     required
                     placeholder="e.g. John Doe"
                     value={nameInput}
@@ -152,15 +153,15 @@ export function TimingEvaluation() {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
+                <div className="grid grid-cols-5 gap-4">
+                  <div className="col-span-2 space-y-2">
                     <label className="text-[10px] font-mono uppercase tracking-[0.1em] text-gray-500 dark:text-gray-400 block">
                       Zodiac Sign
                     </label>
-                    <select 
+                    <select
                       value={zodiacFormSelect}
                       onChange={(e) => setZodiacFormSelect(e.target.value)}
-                      className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 rounded-xl px-3 py-3 text-sm text-midnight dark:text-white focus:outline-none focus:border-amber-500/50 transition-all appearance-none cursor-pointer"
+                      className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 rounded-xl px-4 py-3 text-sm text-midnight dark:text-white focus:outline-none focus:border-amber-500/50 transition-all appearance-none cursor-pointer"
                     >
                       {ZODIAC_SIGNS.map((sign) => (
                         <option key={sign.name} value={sign.name}>
@@ -170,16 +171,16 @@ export function TimingEvaluation() {
                     </select>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="col-span-3 space-y-2">
                     <label className="text-[10px] font-mono uppercase tracking-[0.1em] text-gray-500 dark:text-gray-400 block">
                       Birth Date <span className="text-amber-500">*</span>
                     </label>
-                    <input 
-                      type="date" 
+                    <input
+                      type="date"
                       required
                       value={dobInput}
                       onChange={(e) => setDobInput(e.target.value)}
-                      className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 rounded-xl px-3 py-[11px] text-sm text-midnight dark:text-white focus:outline-none focus:border-amber-500/50 transition-all"
+                      className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 rounded-xl px-4 py-3 text-sm text-midnight dark:text-white focus:outline-none focus:border-amber-500/50 transition-all"
                     />
                   </div>
                 </div>
@@ -189,8 +190,8 @@ export function TimingEvaluation() {
                     <Clock className="w-3.5 h-3.5 text-amber-500" />
                     Time of Birth (Optional)
                   </label>
-                  <input 
-                    type="time" 
+                  <input
+                    type="time"
                     value={tobInput}
                     onChange={(e) => setTobInput(e.target.value)}
                     className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 rounded-xl px-4 py-3 text-sm text-midnight dark:text-white focus:outline-none focus:border-amber-500/50 transition-all"
@@ -202,8 +203,8 @@ export function TimingEvaluation() {
                     <MapPin className="w-3.5 h-3.5 text-amber-500" />
                     Place of Birth (Optional)
                   </label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     placeholder="City, Country"
                     value={pobInput}
                     onChange={(e) => setPobInput(e.target.value)}
@@ -218,7 +219,7 @@ export function TimingEvaluation() {
                   <Sparkles className="w-3.5 h-3.5 text-amber-500" />
                   What is your main question or focus?
                 </label>
-                <textarea 
+                <textarea
                   rows={3}
                   placeholder="e.g. I am planning a major career switch next month. Is this a good time?"
                   value={queryInput}
@@ -248,39 +249,39 @@ export function TimingEvaluation() {
               </div>
             </form>
 
-          {/* Detailed Loading Overlay with Micro-steps */}
-          <AnimatePresence>
-            {isLoading && (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="absolute inset-0 bg-midnight/90 backdrop-blur-sm z-30 flex flex-col items-center justify-center p-6 text-center"
-              >
-                <div className="w-24 h-24 rounded-full border border-gold/20 flex items-center justify-center relative mb-6">
-                  <div className="absolute inset-0 rounded-full border-2 border-gold/40 border-t-transparent animate-spin" />
-                  <Compass className="w-10 h-10 text-purple dark:text-gold animate-pulse" />
-                </div>
-                
-                <h4 className="font-ui text-xl text-cream tracking-widest uppercase">Calculating Chart</h4>
-                
-                {/* Dynamic staggered loading messages */}
-                <div className="h-10 mt-2 max-w-md">
-                  <AnimatePresence mode="wait">
-                    <motion.p 
-                      key={loadingStep}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="font-mono text-xs text-saffron"
-                    >
-                      {LOADING_STEPS[loadingStep]}
-                    </motion.p>
-                  </AnimatePresence>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            {/* Detailed Loading Overlay with Micro-steps */}
+            <AnimatePresence>
+              {isLoading && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute inset-0 bg-midnight/90 backdrop-blur-sm z-30 flex flex-col items-center justify-center p-6 text-center"
+                >
+                  <div className="w-24 h-24 rounded-full border border-gold/20 flex items-center justify-center relative mb-6">
+                    <div className="absolute inset-0 rounded-full border-2 border-gold/40 border-t-transparent animate-spin" />
+                    <Compass className="w-10 h-10 text-purple dark:text-gold animate-pulse" />
+                  </div>
+
+                  <h4 className="font-ui text-xl text-cream tracking-widest uppercase">Calculating Chart</h4>
+
+                  {/* Dynamic staggered loading messages */}
+                  <div className="h-10 mt-2 max-w-md">
+                    <AnimatePresence mode="wait">
+                      <motion.p
+                        key={loadingStep}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="font-mono text-xs text-saffron"
+                      >
+                        {LOADING_STEPS[loadingStep]}
+                      </motion.p>
+                    </AnimatePresence>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
           </div>
         </div>
@@ -290,15 +291,15 @@ export function TimingEvaluation() {
       <AnimatePresence>
         {isReadingModalOpen && generatedReading && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-hidden">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsReadingModalOpen(false)}
               className="absolute inset-0 bg-midnight/80 backdrop-blur-md"
             />
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -311,7 +312,7 @@ export function TimingEvaluation() {
                   <h3 className="font-ui text-lg text-midnight dark:text-cream tracking-wider font-semibold">Your Cosmic Assessment</h3>
                   <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500">For {nameInput} • {zodiacFormSelect}</p>
                 </div>
-                <button 
+                <button
                   onClick={() => setIsReadingModalOpen(false)}
                   className="p-2 rounded-full hover:bg-gold/10 text-midnight dark:text-cream transition-colors"
                 >
@@ -321,7 +322,7 @@ export function TimingEvaluation() {
 
               {/* Modal Body */}
               <div className="p-6 md:p-8 space-y-8">
-                
+
                 {/* Header Banner */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-gold/10">
                   <div>
@@ -333,11 +334,10 @@ export function TimingEvaluation() {
 
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-mono text-gray-500">Calculated via: {apiSource}</span>
-                    <div className={`px-4 py-1.5 rounded-full font-ui text-xs tracking-wider uppercase font-semibold ${
-                      generatedReading.phase === 'Building' 
-                        ? 'bg-gold/10 border border-gold/30 text-purple dark:text-gold' 
-                        : 'bg-saffron/10 border border-saffron/30 text-saffron'
-                    }`}>
+                    <div className={`px-4 py-1.5 rounded-full font-ui text-xs tracking-wider uppercase font-semibold ${generatedReading.phase === 'Building'
+                      ? 'bg-gold/10 border border-gold/30 text-purple dark:text-gold'
+                      : 'bg-saffron/10 border border-saffron/30 text-saffron'
+                      }`}>
                       {generatedReading.phase} Phase
                     </div>
                   </div>
@@ -345,7 +345,7 @@ export function TimingEvaluation() {
 
                 {/* Main Vibe & Score panel */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-cream/40 dark:bg-midnight/30 p-6 rounded-3xl border border-gold/10">
-                  
+
                   {/* Score circle */}
                   <div className="md:col-span-4 flex flex-col items-center justify-center text-center">
                     <div className="w-28 h-28 rounded-full border-4 border-gold/30 border-t-gold flex items-center justify-center relative shadow-inner">
@@ -372,7 +372,7 @@ export function TimingEvaluation() {
                 <div>
                   <h4 className="font-ui text-xs uppercase tracking-widest text-purple dark:text-gold mb-3">Planetary Sidereal Alignments</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    
+
                     <div className="p-4 rounded-2xl bg-cream/20 dark:bg-midnight/20 border border-gold/10 text-center">
                       <span className="text-[10px] font-mono text-gray-500 uppercase block">Sun Coordinates</span>
                       <span className="text-sm font-ui text-midnight dark:text-cream font-bold mt-1 block">

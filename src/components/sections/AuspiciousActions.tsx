@@ -2,17 +2,18 @@ import React from 'react';
 import { ArrowRight, ArrowUpRight, Flame, ShoppingBag } from 'lucide-react';
 import { SpotlightCard } from '../SpotlightCard';
 import { scrollToSection } from '../../utils/scroll';
+import ScrollFloat from '../ui/ScrollFloat';
 
 export function AuspiciousActions() {
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto z-10" id="low-commit-actions">
+    <section className="py-32 px-6 max-w-7xl mx-auto z-10" id="auspicious-actions">
       <div className="max-w-3xl mx-auto text-center mb-20">
         <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-500 block mb-3 font-semibold">
           Auspicious Involvements
         </span>
-        <h2 className="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
-          Subtle Planetary <em className="text-amber-600 dark:text-amber-400 italic">Corrections.</em>
-        </h2>
+        <ScrollFloat containerClassName="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
+          Subtle Planetary Corrections.
+        </ScrollFloat>
         <p className="font-body text-gray-600 dark:text-gray-400 mt-4 leading-relaxed max-w-xl mx-auto">
           No heavy initial commitment required. Begin your journey by participating in our monthly group energy circles or incorporating sacred tools into your daily routine.
         </p>

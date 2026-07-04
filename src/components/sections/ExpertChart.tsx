@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Grid, FileText, ScrollText } from 'lucide-react';
+import ScrollFloat from '../ui/ScrollFloat';
 
 const EXPERTS = [
   {
@@ -38,9 +39,9 @@ export function ExpertChart() {
           <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
             Consult Our Vedic Masters
           </span>
-          <h2 className="font-ui text-4xl md:text-5xl text-midnight dark:text-cream mb-6 tracking-wide">
-            Your destiny, decoded by <em className="text-amber-600 dark:text-amber-400 font-medium italic">authentic scholars.</em>
-          </h2>
+          <ScrollFloat containerClassName="font-ui text-4xl md:text-5xl text-midnight dark:text-cream mb-6 tracking-wide">
+            Your destiny, decoded by authentic scholars.
+          </ScrollFloat>
           <p className="font-body text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-8">
             Connect directly with our most senior astrologers in India. Receive highly personalized guidance, exhaustive transit reports, or unlock your ancient Nadi leaf to conquer your karma.
           </p>
