@@ -1,27 +1,30 @@
 import { ZodiacSign, LiveMomentCard } from '../types';
+import { aquarius, aries, cancer, capricorn, gemini, leo, libra, pisces, sagittarius, scorpio, taurus, virgo } from '../assets/Signs/index';
 
 export const ZODIAC_SIGNS: ZodiacSign[] = [
-  { name: 'Aries', symbol: '♈', sanskrit: 'Mesha', ruler: 'Mars (Mangala)', element: 'Fire', description: 'Action-oriented, brave, and always ready to lead the way.', imageUrl: 'https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Taurus', symbol: '♉', sanskrit: 'Vrishabha', ruler: 'Venus (Shukra)', element: 'Earth', description: 'Patient, reliable, and focused on building a secure future.', imageUrl: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Gemini', symbol: '♊', sanskrit: 'Mithuna', ruler: 'Mercury (Budha)', element: 'Air', description: 'Quick-witted, highly adaptable, and excellent at communication.', imageUrl: 'https://images.unsplash.com/photo-1543728741-ee98a285d634?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Cancer', symbol: '♋', sanskrit: 'Karka', ruler: 'Moon (Chandra)', element: 'Water', description: 'Caring, deeply emotional, and focused on family and home.', imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Leo', symbol: '♌', sanskrit: 'Simha', ruler: 'Sun (Surya)', element: 'Fire', description: 'Creative, generous, and a natural born leader with a warm heart.', imageUrl: 'https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Virgo', symbol: '♍', sanskrit: 'Kanya', ruler: 'Mercury (Budha)', element: 'Earth', description: 'Detail-oriented, helpful, and highly organized in daily life.', imageUrl: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Libra', symbol: '♎', sanskrit: 'Tula', ruler: 'Venus (Shukra)', element: 'Air', description: 'Charming, fair-minded, and always seeking balance and harmony.', imageUrl: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Scorpio', symbol: '♏', sanskrit: 'Vrishchika', ruler: 'Mars / Ketu', element: 'Water', description: 'Passionate, focused, and capable of deep personal transformation.', imageUrl: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Sagittarius', symbol: '♐', sanskrit: 'Dhanus', ruler: 'Jupiter (Guru)', element: 'Fire', description: 'Optimistic, adventurous, and always seeking to learn and explore.', imageUrl: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Capricorn', symbol: '♑', sanskrit: 'Makara', ruler: 'Saturn (Shani)', element: 'Earth', description: 'Hardworking, responsible, and dedicated to achieving their goals.', imageUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Aquarius', symbol: '♒', sanskrit: 'Kumbha', ruler: 'Saturn / Rahu', element: 'Air', description: 'Innovative, independent, and focused on helping the community.', imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Pisces', symbol: '♓', sanskrit: 'Meena', ruler: 'Jupiter / Ketu', element: 'Water', description: 'Imaginative, empathetic, and deeply connected to their emotions.', imageUrl: 'https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&q=80&w=600' }
+  { name: 'Aries', sanskrit: 'Mesha', ruler: 'Mars (Mangala)', element: 'Fire', description: 'Action-oriented, brave, and always ready to lead the way.', imageUrl: aries },
+  { name: 'Taurus', sanskrit: 'Vrishabha', ruler: 'Venus (Shukra)', element: 'Earth', description: 'Patient, reliable, and focused on building a secure future.', imageUrl: taurus },
+  { name: 'Gemini', sanskrit: 'Mithuna', ruler: 'Mercury (Budha)', element: 'Air', description: 'Quick-witted, highly adaptable, and excellent at communication.', imageUrl: gemini },
+  { name: 'Cancer', sanskrit: 'Karka', ruler: 'Moon (Chandra)', element: 'Water', description: 'Caring, deeply emotional, and focused on family and home.', imageUrl: cancer },
+  { name: 'Leo', sanskrit: 'Simha', ruler: 'Sun (Surya)', element: 'Fire', description: 'Creative, generous, and a natural born leader with a warm heart.', imageUrl: leo },
+  { name: 'Virgo', sanskrit: 'Kanya', ruler: 'Mercury (Budha)', element: 'Earth', description: 'Detail-oriented, helpful, and highly organized in daily life.', imageUrl: virgo },
+  { name: 'Libra', sanskrit: 'Tula', ruler: 'Venus (Shukra)', element: 'Air', description: 'Charming, fair-minded, and always seeking balance and harmony.', imageUrl: libra },
+  { name: 'Scorpio', sanskrit: 'Vrishchika', ruler: 'Mars / Ketu', element: 'Water', description: 'Passionate, focused, and capable of deep personal transformation.', imageUrl: scorpio },
+  { name: 'Sagittarius', sanskrit: 'Dhanus', ruler: 'Jupiter (Guru)', element: 'Fire', description: 'Optimistic, adventurous, and always seeking to learn and explore.', imageUrl: sagittarius },
+  { name: 'Capricorn', sanskrit: 'Makara', ruler: 'Saturn (Shani)', element: 'Earth', description: 'Hardworking, responsible, and dedicated to achieving their goals.', imageUrl: capricorn },
+  { name: 'Aquarius', sanskrit: 'Kumbha', ruler: 'Saturn / Rahu', element: 'Air', description: 'Innovative, independent, and focused on helping the community.', imageUrl: aquarius },
+  { name: 'Pisces', sanskrit: 'Meena', ruler: 'Jupiter / Ketu', element: 'Water', description: 'Imaginative, empathetic, and deeply connected to their emotions.', imageUrl: pisces }
 ];
 
+import { ChandraMoon, guru_pushya_yoga, pradosham, Rahu_Ketu_Node_shift, sun_transit } from '../assets/Auspicious_portal/index';
+
 export const LIVE_MOMENTS: LiveMomentCard[] = [
-  { id: '1', title: 'Guru Pushya Yoga Portal', tag: 'Double Wealth Transit', urgency: 'Limited Seats', image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=600' },
-  { id: '2', title: 'Rahu-Ketu Node Shift', tag: '18-Month Cycle Launch', urgency: 'Auspicious Portal', image: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?auto=format&fit=crop&q=80&w=600' },
-  { id: '3', title: 'Pradosham Karma Cleansing', tag: 'Twilight Energy Peak', urgency: 'Next 24 Hours', image: 'https://images.unsplash.com/photo-1436891620584-37651490b414?auto=format&fit=crop&q=80&w=600' },
-  { id: '4', title: 'Surya Sun Transit in Gemini', tag: 'Intellectual Solar Inflow', urgency: 'This Week', image: 'https://images.unsplash.com/photo-1502481851512-e9e2529bbbf9?auto=format&fit=crop&q=80&w=600' },
+  { id: '1', title: 'Guru Pushya Yoga Portal', tag: 'Double Wealth Transit', urgency: 'Limited Seats', image: guru_pushya_yoga },
+  { id: '2', title: 'Rahu-Ketu Node Shift', tag: '18-Month Cycle Launch', urgency: 'Auspicious Portal', image: Rahu_Ketu_Node_shift },
+  { id: '3', title: 'Pradosham Karma Cleansing', tag: 'Twilight Energy Peak', urgency: 'Next 24 Hours', image: pradosham },
+  { id: '4', title: 'Surya Sun Transit in Gemini', tag: 'Intellectual Solar Inflow', urgency: 'This Week', image: sun_transit },
   { id: '5', title: 'Saturn Retrograde Pivot', tag: 'Dharma Alignment Check', urgency: 'Closes in 3 days', image: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?auto=format&fit=crop&q=80&w=600' },
-  { id: '6', title: 'Chandra Moon Nakshatra Pushya', tag: 'Highest Healing Day', urgency: 'Auspicious Portal', image: 'https://images.unsplash.com/photo-1532960401447-7dd05bef20b0?auto=format&fit=crop&q=80&w=600' }
+  { id: '6', title: 'Chandra Moon Nakshatra Pushya', tag: 'Highest Healing Day', urgency: 'Auspicious Portal', image: ChandraMoon }
 ];
 
 export const HOROSCOPES: Record<string, { Today: string; Week: string; Month: string; hours: string; obstacle: string }> = {

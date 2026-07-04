@@ -85,11 +85,12 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
 
       sparksRef.current = sparksRef.current.filter((spark) => {
         const elapsed = timestamp - spark.startTime;
-        if (elapsed >= duration) {
+        const sparkDuration = spark.duration || duration;
+        if (elapsed >= sparkDuration) {
           return false;
         }
 
-        const progress = elapsed / duration;
+        const progress = elapsed / sparkDuration;
         const eased = easeFunc(progress);
 
         const distance = eased * sparkRadius * extraScale;
@@ -128,11 +129,16 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
       const x = e.clientX;
       const y = e.clientY;
 
+      // On mobile devices, use a much shorter duration
+      const isMobile = window.innerWidth < 768;
+      const currentDuration = isMobile ? Math.min(250, duration) : duration;
+
       const newSparks = Array.from({ length: sparkCount }, (_, i) => ({
         x,
         y,
         angle: (2 * Math.PI * i) / sparkCount,
-        startTime: now
+        startTime: now,
+        duration: currentDuration
       }));
 
       sparksRef.current.push(...newSparks);

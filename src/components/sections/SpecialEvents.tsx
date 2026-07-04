@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Flame, Clock, CalendarDays, ArrowRight } from 'lucide-react';
 import ScrollFloat from '../ui/ScrollFloat';
-
+import { jupiter_welth, murugan_SE, rekease_old_karma } from '../../assets/Special_events/index';
 const events = [
   {
     id: 1,
@@ -9,6 +9,7 @@ const events = [
     tagline: "Clear Obstacles from Your Path",
     deadline: "Closes Tonight",
     cta: "Join Now",
+    image: murugan_SE,
     bgGradient: "from-orange-100 via-rose-50 to-purple-100 dark:from-orange-900/60 dark:via-red-900/60 dark:to-purple-900/60",
     iconColor: "text-orange-500 dark:text-orange-400"
   },
@@ -18,6 +19,7 @@ const events = [
     tagline: "Release Old Karma and Blocks",
     deadline: "Starts in 2 Days",
     cta: "Save My Spot",
+    image: rekease_old_karma,
     bgGradient: "from-indigo-100 via-purple-50 to-fuchsia-100 dark:from-indigo-900/60 dark:via-purple-900/60 dark:to-fuchsia-900/60",
     iconColor: "text-purple-500 dark:text-purple-400"
   },
@@ -26,8 +28,9 @@ const events = [
     title: "Jupiter Wealth Ritual",
     tagline: "Attract Money and Good Luck",
     deadline: "Limited Space",
-    cta: "Get Started",
-    bgGradient: "from-amber-100 via-yellow-50 to-emerald-100 dark:from-amber-900/60 dark:via-yellow-900/60 dark:to-emerald-900/60",
+    cta: "Secure Blessing",
+    image: jupiter_welth,
+    bgGradient: "from-amber-100 via-yellow-50 to-orange-100 dark:from-amber-900/60 dark:via-yellow-900/60 dark:to-orange-900/60",
     iconColor: "text-amber-500 dark:text-amber-400"
   }
 ];
@@ -75,6 +78,7 @@ export function SpecialEvents() {
           <div className="relative w-full h-full flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             {events.map((ev, idx) => (
               <div key={ev.id} className="w-full h-full flex-shrink-0 relative">
+                <img src={ev.image} alt={ev.title} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay" />
                 {/* Background Gradient / Placeholder for image */}
                 <div className={`absolute inset-0 bg-gradient-to-r ${ev.bgGradient} opacity-90 dark:opacity-80 mix-blend-normal dark:mix-blend-screen transition-colors duration-500`} />
                 <div className="absolute inset-0 bg-white/40 dark:bg-black/60 transition-colors duration-500" /> {/* Responsive overlay for text readability */}

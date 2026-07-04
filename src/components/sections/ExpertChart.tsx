@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import ScrollFloat from '../ui/ScrollFloat';
+import { consultation, palm_leaf, personal_report } from '../../assets/vedic_master/index';
 
 const EXPERTS = [
   {
@@ -8,7 +9,7 @@ const EXPERTS = [
     title: "Live Master Consultations",
     desc: "Speak face-to-face with a senior Vedic scholar. Receive immediate clarity on your career, relationships, and immediate planetary remedies.",
     cta: "Book Consultation",
-    image: "https://images.unsplash.com/photo-1601058268499-e52658b8bb88?auto=format&fit=crop&q=80&w=800",
+    image: consultation,
     titleColor: "text-blue-400"
   },
   {
@@ -16,7 +17,7 @@ const EXPERTS = [
     title: "Ancient Palm Leaf Readings",
     desc: "Access the precise karmic blueprints inscribed for you by the Maharishis thousands of years ago, complete with soul-cleansing remedies.",
     cta: "Unlock Destiny",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e5f4af415?auto=format&fit=crop&q=80&w=800",
+    image: palm_leaf,
     titleColor: "text-emerald-400"
   },
   {
@@ -24,7 +25,7 @@ const EXPERTS = [
     title: "Personal Reports",
     desc: "Written reports on your career, marriage and wealth, and the dasha (planetary cycle) periods shaping the years ahead.",
     cta: "See reports",
-    image: "https://images.unsplash.com/photo-1528318269466-6ea4a4be5a1e?auto=format&fit=crop&q=80&w=800",
+    image: personal_report,
     titleColor: "text-rose-400"
   }
 ];
@@ -58,10 +59,10 @@ export function ExpertChart() {
               className="rounded-[2.5rem] flex flex-col group cursor-pointer overflow-hidden relative h-auto md:min-h-[450px] border border-black/5 dark:border-white/10 shadow-xl bg-[#0a0e17]"
             >
               <div className="relative h-[200px] md:absolute md:inset-0 md:h-full z-0 overflow-hidden shrink-0">
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-out" 
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-out"
                 />
                 <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-[#0a0e17]/80 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
               </div>

@@ -121,12 +121,12 @@ export function Navbar() {
             className="md:hidden overflow-hidden bg-ivory dark:bg-[#0f172a] border-b border-gold/10"
           >
             <div className="px-6 py-6 flex flex-col gap-6">
-              <nav className="flex flex-col gap-4">
+              <nav className="flex flex-col gap-3">
                 {navLinks.map((link) => (
                   <button 
                     key={link.id} 
                     onClick={() => handleNavClick(link.id)} 
-                    className="text-left font-sans uppercase tracking-widest text-xs text-midnight dark:text-cream hover:text-purple dark:hover:text-gold transition-colors"
+                    className="w-full text-left px-4 py-3 rounded-xl border border-black/5 dark:border-white/5 bg-white/50 dark:bg-white/5 backdrop-blur-md font-sans uppercase tracking-widest text-xs text-midnight dark:text-cream hover:border-purple/30 dark:hover:border-gold/30 hover:bg-purple/5 dark:hover:bg-gold/5 hover:text-purple dark:hover:text-gold transition-all shadow-sm"
                   >
                     {link.label}
                   </button>

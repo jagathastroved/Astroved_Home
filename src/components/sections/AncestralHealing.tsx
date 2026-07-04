@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowRight, Moon, Flame } from 'lucide-react';
 import { scrollToSection } from '../../utils/scroll';
 import ScrollFloat from '../ui/ScrollFloat';
+import { naga_dosha, tarpanam } from '../../assets/Karma_Resolution/index';
 
 const DOSHAS = [
   {
@@ -10,7 +11,7 @@ const DOSHAS = [
     title: 'Pitru Dosha & Tarpanam',
     desc: "Liberate your forefathers and clear inherited karmic debt, performed in your family's name on the most powerful Amavasya (new moon) powertimes.",
     cta: 'Resolve Pitru Dosha',
-    image: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=1000',
+    image: tarpanam,
     icon: Moon,
     badge: 'Ancestral Lineage'
   },
@@ -19,7 +20,7 @@ const DOSHAS = [
     title: 'Naga Dosha Remedies',
     desc: 'Honour the serpent deities, or Naga, to clear blocks to progeny, health and prosperity.',
     cta: 'Clear Naga Dosha',
-    image: 'https://images.unsplash.com/photo-1582500057220-a61250325d7b?auto=format&fit=crop&q=80&w=1000',
+    image: naga_dosha,
     icon: Flame,
     badge: 'Karmic Cleansing'
   }

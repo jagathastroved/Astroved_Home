@@ -5,6 +5,7 @@ import { fadeUp, stagger } from '../../utils/animations';
 import TextType from '../ui/TextType';
 import CountUp from '../ui/CountUp';
 import { scrollToSection } from '../../utils/scroll';
+import { spiritual_journey, your_desnity } from '../../assets/Banner_image/index';
 
 const BANNERS = [
   {
@@ -19,7 +20,7 @@ const BANNERS = [
     titleHighlight: "Destiny",
     description: "Unlock the secrets of your Vedic birth chart. Get personalized daily horoscopes, exact planetary transits, and auspicious timing radars.",
     buttonText: "Read Chart",
-    image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=1000",
+    image: your_desnity,
     bg: "bg-indigo-50 dark:bg-[#111827]",
     accent: "text-indigo-600 dark:text-[#a78bfa]"
   },
@@ -30,7 +31,7 @@ const BANNERS = [
     titleHighlight: "Journeys",
     description: "Join guided tours to ancient Indian temples and connect with your spirituality.",
     buttonText: "Explore Tours",
-    image: "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?auto=format&fit=crop&q=80&w=1000",
+    image: spiritual_journey,
     bg: "bg-emerald-50 dark:bg-[#1b2f23]",
     accent: "text-emerald-600 dark:text-[#34d399]"
   }

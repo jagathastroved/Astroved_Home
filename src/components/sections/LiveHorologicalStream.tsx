@@ -1,5 +1,6 @@
 import React from 'react';
 import { LIVE_MOMENTS } from '../../utils/data';
+import { ChandraMoon, guru_pushya_yoga, pradosham, Rahu_Ketu_Node_shift, sun_transit } from '../../assets/Auspicious_portal/index';
 
 
 export function LiveHorologicalStream() {
@@ -24,13 +25,7 @@ export function LiveHorologicalStream() {
         {/* Row 1 - Left to Right */}
         <div className="flex w-fit animate-[marquee_40s_linear_infinite] hover:[animation-play-state:paused] gap-4 py-1">
           {[...LIVE_MOMENTS, ...LIVE_MOMENTS, ...LIVE_MOMENTS].map((item, idx) => {
-            const cosmicImages = [
-              "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&q=80&w=800",
-              "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?auto=format&fit=crop&q=80&w=800",
-              "https://images.unsplash.com/photo-1532767153582-b1a0e5145009?auto=format&fit=crop&q=80&w=800",
-              "https://images.unsplash.com/photo-1464802686167-b939a6910659?auto=format&fit=crop&q=80&w=800",
-              "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=800"
-            ];
+            const cosmicImages = [ChandraMoon, guru_pushya_yoga, pradosham, Rahu_Ketu_Node_shift, sun_transit];
             const imgUrl = cosmicImages[idx % cosmicImages.length];
 
             return (

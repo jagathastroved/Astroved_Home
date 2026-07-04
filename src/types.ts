@@ -26,7 +26,6 @@ export type Theme = 'light' | 'dark';
 
 export interface ZodiacSign {
   name: string;
-  symbol: string;
   sanskrit: string;
   ruler: string;
   element: 'Fire' | 'Earth' | 'Air' | 'Water';
