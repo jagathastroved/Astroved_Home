@@ -3,10 +3,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 import ScrollFloat from '../ui/ScrollFloat';
 import { TESTIMONIALS } from '../../utils/data';
+import { astro_service } from '../../assets/astroved_service/index';
 
-const BRAND_IMAGES = [
-  'https://images.unsplash.com/photo-1542838779-119c636f4618?auto=format&fit=crop&q=80&w=800'
-];
+const BRAND_IMAGES = [astro_service];
 
 export function Testimonials() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -34,13 +33,8 @@ export function Testimonials() {
             </div>
           ))}
 
-          {/* Gradient Overlay & Text */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-          <div className="absolute bottom-6 left-6 right-6">
-            <p className="font-mono text-xs text-white/90 uppercase tracking-widest font-semibold">
-              Authentic Vedic services, trusted since 2000
-            </p>
-          </div>
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
         </div>
 
         {/* Right Column - Trust Heading & Current Feedback */}

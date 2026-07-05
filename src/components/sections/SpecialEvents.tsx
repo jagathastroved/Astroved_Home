@@ -57,7 +57,7 @@ export function SpecialEvents() {
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-8">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 block mb-4">
+          <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
             SPECIAL EVENTS
           </span>
           <ScrollFloat containerClassName="font-sans text-4xl md:text-5xl text-midnight dark:text-cream mb-6 leading-tight">
@@ -72,39 +72,49 @@ export function SpecialEvents() {
         </div>
 
         {/* Premium Carousel */}
-        <div className="relative rounded-3xl overflow-hidden border border-black/5 dark:border-white/10 shadow-2xl bg-white dark:bg-white/5 backdrop-blur-xl group h-[400px] md:h-[500px]">
+        <div className="relative rounded-3xl overflow-hidden border border-black/10 shadow-2xl bg-[#0b0e14] group h-auto md:h-[500px]">
 
           {/* Slides Container */}
           <div className="relative w-full h-full flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             {events.map((ev, idx) => (
-              <div key={ev.id} className="w-full h-full flex-shrink-0 relative">
-                <img src={ev.image} alt={ev.title} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay" />
-                {/* Background Gradient / Placeholder for image */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${ev.bgGradient} opacity-90 dark:opacity-80 mix-blend-normal dark:mix-blend-screen transition-colors duration-500`} />
-                <div className="absolute inset-0 bg-white/40 dark:bg-black/60 transition-colors duration-500" /> {/* Responsive overlay for text readability */}
+              <div key={ev.id} className="w-full h-full flex-shrink-0 flex flex-col md:block relative bg-[#0b0e14]">
+                <div className="relative w-full h-[280px] md:h-full md:absolute md:inset-0 md:w-[70%]">
+                  <img src={ev.image} alt={ev.title} className="w-full h-full object-cover object-center md:object-left" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0b0e14]/60 to-[#0b0e14] md:bg-gradient-to-r md:via-[#0b0e14]/60 md:to-[#0b0e14] z-10" />
+                </div>
 
                 {/* Content */}
-                <div className="absolute inset-0 flex flex-col justify-end md:justify-center p-8 md:p-16 md:pl-[50%] z-20">
-                  <div className="space-y-4 text-left">
-                    <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 font-semibold drop-shadow-sm dark:drop-shadow-md">
+                <div className="relative md:absolute md:inset-y-0 md:right-0 flex flex-col justify-start md:justify-center p-8 pb-16 md:p-16 lg:p-24 w-full md:w-[50%] z-20">
+                  <div className="flex flex-col items-start md:items-end text-left md:text-right space-y-4 md:space-y-3">
+
+                    {/* Mobile Tagline Badge */}
+                    <div className="md:hidden border border-white/20 rounded-full px-4 py-1.5 text-[10px] uppercase tracking-widest text-white/80 bg-white/5 font-mono mb-2">
+                      {ev.tagline}
+                    </div>
+                    {/* Desktop Tagline */}
+                    <span className="hidden md:block text-xs md:text-sm font-serif italic text-amber-500 font-medium">
                       {ev.tagline}
                     </span>
-                    <h3 className="font-sans text-4xl md:text-5xl text-midnight dark:text-cream font-bold drop-shadow-sm dark:drop-shadow-lg leading-tight transition-colors duration-500">
+
+                    <h3 className={`font-sans md:font-serif text-3xl md:text-3xl lg:text-4xl font-bold md:uppercase tracking-wide md:tracking-wider leading-tight ${ev.iconColor} md:text-white md:dark:text-white`}>
                       {ev.title}
                     </h3>
-                    <p className="font-mono text-sm text-gray-700 dark:text-white/80 pb-4 drop-shadow-sm dark:drop-shadow transition-colors duration-500">
+
+                    <p className="font-sans text-[13px] md:text-xs text-gray-300 md:text-gray-400 pb-4 md:pb-2 leading-relaxed">
                       {ev.deadline}
                     </p>
-                    <button className="px-8 py-4 rounded-full bg-amber-500 hover:bg-amber-400 text-black font-sans text-sm uppercase tracking-widest font-bold transition-all flex items-center gap-2 group/btn shadow-[0_4px_20px_rgba(245,158,11,0.3)] dark:shadow-[0_0_20px_rgba(245,158,11,0.4)]">
+
+                    {/* Desktop Button */}
+                    <button className="hidden md:flex px-6 py-2.5 rounded-full bg-amber-400 hover:bg-amber-500 text-black font-sans text-xs font-bold transition-all items-center gap-2 group/btn">
                       {ev.cta}
                       <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
-                  </div>
-                </div>
 
-                {/* Decorative Icon (Stand-in for the God/Image) */}
-                <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 opacity-40 dark:opacity-30 pointer-events-none hidden md:block z-10 transition-opacity duration-500">
-                  <Flame className={`w-96 h-96 ${ev.iconColor} blur-2xl transition-colors duration-500`} />
+                    {/* Mobile Text Link */}
+                    <button className="md:hidden pt-2 text-white font-sans text-[11px] uppercase font-bold tracking-widest flex items-center gap-2 group/btn">
+                      {ev.cta} <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -113,24 +123,24 @@ export function SpecialEvents() {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/50 dark:bg-black/30 backdrop-blur-md border border-black/10 dark:border-white/20 flex items-center justify-center text-midnight dark:text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-white/80 dark:hover:bg-black/50 z-30 shadow-md"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-white transition-all hover:bg-black/60 z-30"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/50 dark:bg-black/30 backdrop-blur-md border border-black/10 dark:border-white/20 flex items-center justify-center text-midnight dark:text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-white/80 dark:hover:bg-black/50 z-30 shadow-md"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-white transition-all hover:bg-black/60 z-30"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5" />
           </button>
 
           {/* Dots */}
-          <div className="absolute bottom-6 right-6 md:right-16 md:left-auto flex items-center gap-2 z-30">
+          <div className="absolute bottom-6 right-8 md:right-12 flex items-center gap-2 z-30">
             {events.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-2 rounded-full transition-all duration-300 ${currentSlide === idx ? 'w-8 bg-amber-500 dark:bg-amber-400' : 'w-2 bg-black/20 hover:bg-black/40 dark:bg-white/40 dark:hover:bg-white/60'}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${currentSlide === idx ? 'w-6 bg-amber-400' : 'w-1.5 bg-white/40 hover:bg-white/60'}`}
               />
             ))}
           </div>

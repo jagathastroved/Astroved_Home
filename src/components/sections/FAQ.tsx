@@ -40,12 +40,12 @@ export function FAQ() {
 
   return (
     <section className="py-16 px-6 max-w-7xl mx-auto z-10 relative overflow-hidden" id="faq-section">
-      
+
       {/* Background ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[300px] bg-purple-500/5 dark:bg-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="text-center max-w-3xl mx-auto mb-8 relative z-10">
-        <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-purple-600 dark:text-purple-400 font-bold block mb-3">
+        <span className="font-2xl uppercase tracking-[0.25em] text-purple-600 dark:text-purple-400 font-bold block mb-3">
           Common Questions
         </span>
         <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight">
@@ -61,13 +61,12 @@ export function FAQ() {
         {FAQ_DATA.map((item) => {
           const isOpen = openFaqId === item.id;
           return (
-            <div 
-              key={item.id} 
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                isOpen 
-                  ? 'border-amber-500/30 bg-white/80 dark:bg-white/10 backdrop-blur-md shadow-lg shadow-amber-500/5' 
-                  : 'border-black/5 dark:border-white/5 bg-white/40 dark:bg-white/5 backdrop-blur-md hover:border-amber-500/20 hover:bg-white/60 dark:hover:bg-white/10'
-              }`}
+            <div
+              key={item.id}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
+                ? 'border-amber-500/30 bg-white/80 dark:bg-white/10 backdrop-blur-md shadow-lg shadow-amber-500/5'
+                : 'border-black/5 dark:border-white/5 bg-white/40 dark:bg-white/5 backdrop-blur-md hover:border-amber-500/20 hover:bg-white/60 dark:hover:bg-white/10'
+                }`}
             >
               <button
                 onClick={() => setOpenFaqId(isOpen ? null : item.id)}

@@ -48,7 +48,7 @@ export function HoverGlow() {
 
   return (
     <motion.div
-      className="fixed inset-0 pointer-events-none z-[99] overflow-hidden mix-blend-normal"
+      className="hidden md:block fixed inset-0 pointer-events-none z-[99] overflow-hidden mix-blend-normal"
       initial={{ opacity: 0 }}
       animate={{ opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.5 }}

@@ -19,24 +19,24 @@ export function TrustStats() {
 
   return (
     <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-10 md:py-12 overflow-hidden bg-ivory dark:bg-midnight transition-colors duration-500 border-y border-black/5 dark:border-white/5">
-      
+
       {/* Premium Animated Background Elements */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-amber-500/10 dark:bg-amber-500/5 blur-[100px] pointer-events-none rounded-[100%]" />
 
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
         className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-4 gap-16 lg:gap-12 items-center"
       >
-        
+
         {/* Title Area */}
         <motion.div variants={itemVariants} className="text-center md:text-left relative">
           <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-12 bg-gradient-to-b from-amber-400 to-amber-600 rounded-full hidden md:block" />
           <span className="text-xs font-mono uppercase tracking-[0.25em] text-amber-600 dark:text-amber-500 font-bold block mb-2">ESTABLISHED DHARMA</span>
-          <span className="font-sans text-2xl md:text-3xl text-midnight dark:text-cream font-medium tracking-wide">AstroVed<br className="hidden md:block"/> Verified</span>
+          <span className="font-sans text-2xl md:text-3xl text-midnight dark:text-cream font-medium tracking-wide">AstroVed<br className="hidden md:block" /> Verified</span>
         </motion.div>
 
         {/* Stat 1 */}

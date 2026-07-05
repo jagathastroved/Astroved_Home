@@ -26,11 +26,11 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-br from-ivory/90 via-cream/90 to-amber-50/80 dark:bg-gradient-to-br dark:from-[#0a0514]/95 dark:via-[#1a0b2e]/95 dark:to-[#0a0e17]/95 backdrop-blur-md border-b border-gold/10 transition-colors duration-500">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-indigo-50/95 via-purple-50/95 to-pink-50/95 dark:bg-gradient-to-r dark:from-indigo-950/95 dark:via-purple-950/95 dark:to-[#0a0e17]/95 backdrop-blur-md border-b border-gold/10 transition-colors duration-500">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
           {/* Mobile Menu Toggle (Left Side) */}
-          <button 
+          <button
             className="md:hidden p-2 -ml-2 rounded-full border border-gold/25 text-purple dark:text-saffron hover:bg-gold/10 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -38,15 +38,15 @@ export function Navbar() {
           </button>
 
           {/* AstroVed Official Logo */}
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="cursor-pointer hover:opacity-80 transition-opacity"
             aria-label="Scroll to top"
           >
-            <img 
-              src="https://cdn.astroved.com/images/images-av/AstroVed-Logo.svg" 
-              alt="AstroVed Logo" 
-              className="h-8 sm:h-10 w-auto object-contain brightness-100 dark:brightness-110" 
+            <img
+              src="https://cdn.astroved.com/images/images-av/AstroVed-Logo.svg"
+              alt="AstroVed Logo"
+              className="h-8 sm:h-10 w-auto object-contain brightness-100 dark:brightness-110"
               id="astroved-logo-nav"
             />
           </button>
@@ -54,9 +54,9 @@ export function Navbar() {
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           {navLinks.map((link) => (
-            <button 
-              key={link.id} 
-              onClick={() => handleNavClick(link.id)} 
+            <button
+              key={link.id}
+              onClick={() => handleNavClick(link.id)}
               className="relative py-1.5 text-midnight/80 dark:text-cream/90 hover:text-purple dark:hover:text-gold transition-colors font-sans uppercase tracking-widest text-[11px] font-semibold group"
             >
               {link.label}
@@ -114,25 +114,25 @@ export function Navbar() {
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden bg-ivory dark:bg-[#0f172a] border-b border-gold/10"
+            className="md:hidden overflow-hidden bg-gradient-to-br from-indigo-50/95 via-purple-50/95 to-pink-50/95 dark:bg-gradient-to-r dark:from-indigo-950/95 dark:via-purple-950/95 dark:to-[#0a0e17]/95 border-b border-gold/10"
           >
             <div className="px-6 py-6 flex flex-col gap-6">
               <nav className="flex flex-col gap-3">
                 {navLinks.map((link) => (
-                  <button 
-                    key={link.id} 
-                    onClick={() => handleNavClick(link.id)} 
+                  <button
+                    key={link.id}
+                    onClick={() => handleNavClick(link.id)}
                     className="w-full text-left px-4 py-3 rounded-xl border border-black/5 dark:border-white/5 bg-white/50 dark:bg-white/5 backdrop-blur-md font-sans uppercase tracking-widest text-xs text-midnight dark:text-cream hover:border-purple/30 dark:hover:border-gold/30 hover:bg-purple/5 dark:hover:bg-gold/5 hover:text-purple dark:hover:text-gold transition-all shadow-sm"
                   >
                     {link.label}
                   </button>
                 ))}
               </nav>
-              
+
               <div className="flex flex-col gap-3 pt-6 border-t border-black/5 dark:border-white/5">
                 <button className="w-full py-3 rounded-xl border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-xs font-sans tracking-widest uppercase font-semibold hover:bg-gold/5 transition-all">
                   Login

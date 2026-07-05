@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Clock, Compass, ArrowRight } from 'lucide-react';
 import { ZODIAC_SIGNS, HOROSCOPES } from '../../utils/data';
 import ScrollFloat from '../ui/ScrollFloat';
+import TargetCursor from '../ui/TargetCursor';
 
 interface DailyRadarProps {
   onCalculateChart: (zodiac: string) => void;
@@ -14,13 +15,22 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
 
   return (
     <section className="py-12 md:py-16 relative overflow-hidden" id="daily-widget">
+      <TargetCursor 
+        targetSelector=".cursor-target" 
+        spinDuration={2}
+        hideDefaultCursor={false}
+        parallaxOn={true}
+        cursorColor="#f59e0b" // amber-500
+        cursorColorOnTarget="#f59e0b"
+      />
+      
       {/* Soft background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[300px] bg-amber-500/5 dark:bg-amber-500/10 blur-[100px] rounded-full pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
+
         <div className="text-center max-w-3xl mx-auto mb-8">
-          <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-500 block mb-3 font-semibold">
+          <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
             Daily Horoscope
           </span>
           <ScrollFloat containerClassName="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
@@ -32,13 +42,13 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full max-w-6xl mx-auto">
-          
+
           {/* Left Column: 12 Sign Grid Selector (No Swiping) */}
           <div className="lg:col-span-4 flex flex-col space-y-4">
             <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 font-semibold mb-2">
               Select Sign
             </span>
-            
+
             <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-3 gap-3">
               {ZODIAC_SIGNS.map((sign) => {
                 const isActive = selectedZodiac === sign.name;
@@ -46,25 +56,24 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                   <button
                     key={sign.name}
                     onClick={() => setSelectedZodiac(sign.name)}
-                    className={`relative p-4 rounded-[1.5rem] text-center flex flex-col items-center justify-center gap-3 transition-all duration-300 group ${
-                      isActive 
-                        ? 'bg-white dark:bg-[#110c1c] shadow-xl scale-[1.02] border border-amber-500/30' 
-                        : 'bg-white/50 dark:bg-white/5 backdrop-blur-md border border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-[#110c1c] hover:shadow-lg hover:scale-[1.02]'
-                    }`}
+                    className={`cursor-target relative p-4 rounded-[1.5rem] text-center flex flex-col items-center justify-center gap-3 transition-all duration-300 group ${isActive
+                      ? 'bg-white dark:bg-[#110c1c] shadow-xl scale-[1.02] border border-amber-500/30'
+                      : 'bg-white/50 dark:bg-white/5 backdrop-blur-md border border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-[#110c1c] hover:shadow-lg hover:scale-[1.02]'
+                      }`}
                   >
                     {isActive && (
-                      <motion.div 
+                      <motion.div
                         layoutId="activeZodiacGlow"
                         className="absolute inset-0 rounded-[1.5rem] bg-amber-500/5 dark:bg-amber-500/10 z-0 pointer-events-none"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
-                    
+
                     <div className="relative z-10 w-12 h-12 rounded-full p-0.5 bg-white dark:bg-midnight shadow-sm">
                       <div className={`absolute inset-0 rounded-full border-2 transition-colors duration-300 ${isActive ? 'border-amber-400 dark:border-amber-500' : 'border-transparent group-hover:border-amber-400/50'}`} />
                       <img src={sign.imageUrl} alt={sign.name} className="w-full h-full rounded-full object-cover" />
                     </div>
-                    
+
                     <div className="z-10">
                       <span className={`block text-[10px] font-sans tracking-wider uppercase font-semibold leading-none transition-colors ${isActive ? 'text-amber-700 dark:text-amber-400' : 'text-midnight/70 dark:text-cream/70 group-hover:text-amber-600 dark:group-hover:text-amber-400'}`}>
                         {sign.name}
@@ -80,15 +89,15 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
           <div className="lg:col-span-8 relative group h-full">
             {/* Ambient glow behind card */}
             <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/20 to-purple-500/20 rounded-[3rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
-            
+
             <div className="h-full rounded-[2.5rem] bg-white/90 dark:bg-[#110c1c]/90 backdrop-blur-2xl p-8 sm:p-12 border border-black/5 dark:border-white/5 relative overflow-hidden shadow-2xl transition-all duration-500 flex flex-col">
-              
+
               {/* Visual sign banner */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-black/5 dark:border-white/5 pb-8 mb-8">
                 <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shadow-lg border border-black/5 dark:border-white/10 hidden sm:block flex-shrink-0">
-                    <img 
-                      src={ZODIAC_SIGNS.find(s => s.name === selectedZodiac)?.imageUrl} 
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-lg border border-black/5 dark:border-white/10 flex-shrink-0">
+                    <img
+                      src={ZODIAC_SIGNS.find(s => s.name === selectedZodiac)?.imageUrl}
                       alt={selectedZodiac}
                       className="w-full h-full object-cover"
                     />
@@ -116,11 +125,10 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                       <button
                         key={tab}
                         onClick={() => setHoroscopeTab(tab)}
-                        className={`flex-1 sm:flex-none px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] font-bold transition-all duration-300 ${
-                          isActive 
-                            ? 'bg-white dark:bg-midnight text-amber-600 dark:text-amber-400 shadow-sm' 
-                            : 'text-gray-500 hover:text-midnight dark:hover:text-cream'
-                        }`}
+                        className={`flex-1 sm:flex-none px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] font-bold transition-all duration-300 ${isActive
+                          ? 'bg-white dark:bg-midnight text-amber-600 dark:text-amber-400 shadow-sm'
+                          : 'text-gray-500 hover:text-midnight dark:hover:text-cream'
+                          }`}
                       >
                         {tab}
                       </button>

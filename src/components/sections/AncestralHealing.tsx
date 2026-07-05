@@ -31,7 +31,7 @@ export function AncestralHealing() {
     <section className="py-12 md:py-16 px-6 max-w-7xl mx-auto z-10" id="ancestral-healing">
       {/* Header Section */}
       <div className="text-center max-w-3xl mx-auto mb-8 relative z-10">
-        <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-500 block mb-3 font-semibold">
+        <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
           Karma Resolution
         </span>
         <ScrollFloat containerClassName="font-sans text-4xl md:text-5xl font-medium text-midnight dark:text-cream leading-tight tracking-wide mb-6">

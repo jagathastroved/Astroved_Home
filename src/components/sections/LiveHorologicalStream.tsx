@@ -11,7 +11,7 @@ export function LiveHorologicalStream() {
 
       <div className="max-w-7xl mx-auto px-6 mb-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-4 relative z-20">
         <div>
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-500 block">LIVE HOROLOGICAL STREAM</span>
+          <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">LIVE HOROLOGICAL STREAM</span>
           <h2 className="font-sans text-3xl text-midnight dark:text-cream mt-1 tracking-wider">Auspicious Portals & Transits</h2>
         </div>
       </div>

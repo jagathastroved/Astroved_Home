@@ -48,9 +48,9 @@ export default function App() {
           <RitualAnimatedBeam />
           <PremiumPanchang />
           <TrustTicker />
-          <TimingEvaluation />
           <DailyRadar onCalculateChart={(zodiac) => { scrollToSection('birth-form'); }} />
           <AncestralHealing />
+          <TimingEvaluation />
           <Testimonials />
           <TrustStats />
           <LeadCapture />

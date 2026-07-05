@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Star, ArrowRight, Check } from 'lucide-react';
+import { AnimatedGrid } from '../ui/AnimatedGrid';
+import { AnimatedCard } from '../ui/AnimatedCard';
 
 export function LeadCapture() {
   const [isYearly, setIsYearly] = useState(true);
@@ -15,7 +17,7 @@ export function LeadCapture() {
 
         {/* Headers */}
         <div className="text-center mb-8 relative z-10">
-          <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-600 dark:text-amber-500 font-bold bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full inline-flex items-center gap-2 mb-6">
+          <span className="font-2xl uppercase tracking-[0.25em] text-amber-600 dark:text-amber-500 font-bold bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full inline-flex items-center gap-2 mb-6">
             <Sparkles className="w-3 h-3" /> Select Your Path
           </span>
           <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight">
@@ -51,10 +53,10 @@ export function LeadCapture() {
         </div>
 
         {/* 3-Column Pricing Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch relative z-10">
+        <AnimatedGrid className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch relative z-10">
 
           {/* Bronze Tier (Free Lead Capture) */}
-          <div className="bg-white/60 dark:bg-[#110c1c]/60 backdrop-blur-md border border-black/5 dark:border-white/5 rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full relative overflow-hidden group">
+          <AnimatedCard className="bg-white/60 dark:bg-[#110c1c]/60 backdrop-blur-md border border-black/5 dark:border-white/5 rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full relative overflow-hidden group">
             {/* Subtle highlight */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-[40px] pointer-events-none transition-all group-hover:bg-amber-500/10" />
 
@@ -102,10 +104,10 @@ export function LeadCapture() {
               <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
               <span className="text-[9px] font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400">4.8★ from 12k+ reviews</span>
             </div>
-          </div>
+          </AnimatedCard>
 
           {/* Seeker Tier */}
-          <div className="bg-white/60 dark:bg-[#110c1c]/60 backdrop-blur-md border border-black/5 dark:border-white/5 rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full">
+          <AnimatedCard className="bg-white/60 dark:bg-[#110c1c]/60 backdrop-blur-md border border-black/5 dark:border-white/5 rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full">
             <h3 className="font-sans text-xl text-midnight dark:text-cream font-medium">Seeker Tier</h3>
             <p className="font-body text-xs text-gray-500 dark:text-gray-400 mt-2">Essential astrological guidance</p>
 
@@ -126,14 +128,14 @@ export function LeadCapture() {
             <button className="w-full py-4 mt-auto rounded-full border border-black/10 dark:border-white/10 font-sans text-xs uppercase tracking-widest font-bold text-midnight dark:text-cream hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
               Begin Journey
             </button>
-          </div>
+          </AnimatedCard>
 
           {/* Premium Tier */}
-          <div className="bg-gradient-to-b from-amber-500/10 to-amber-500/5 dark:from-amber-500/20 dark:to-transparent backdrop-blur-xl border border-amber-500/30 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden transition-colors duration-500 flex flex-col h-full">
+          <AnimatedCard className="bg-gradient-to-b from-amber-500/10 to-amber-500/5 dark:from-amber-500/20 dark:to-transparent backdrop-blur-xl border border-amber-500/30 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden transition-colors duration-500 flex flex-col h-full">
 
             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/20 blur-[50px] pointer-events-none" />
 
-            <div className="absolute top-4 right-4 bg-amber-500 text-white dark:text-midnight font-mono text-[9px] uppercase tracking-widest px-3 py-1 rounded-full font-bold shadow-md">
+            <div className="absolute top-4 right-4 bg-amber-500 text-white dark:text-midnight font-xl uppercase tracking-widest px-3 py-1 rounded-full font-bold shadow-md">
               Most Popular
             </div>
 
@@ -157,9 +159,9 @@ export function LeadCapture() {
             <button className="w-full py-4 mt-auto rounded-full bg-midnight dark:bg-white text-white dark:text-midnight font-sans text-xs uppercase tracking-widest font-bold hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white transition-colors shadow-lg shadow-amber-500/20">
               Join The Alliance
             </button>
-          </div>
+          </AnimatedCard>
 
-        </div>
+        </AnimatedGrid>
 
       </div>
     </section>

@@ -19,17 +19,17 @@ export function LiveMarquee() {
         {/* Row 1 - Left to Right */}
         <div className="animate-marquee gap-4 flex py-1">
           {[...LIVE_MOMENTS, ...LIVE_MOMENTS].map((item, idx) => (
-            <div 
+            <div
               key={`${item.id}-r1-${idx}`}
               className="w-64 h-44 rounded-3xl relative overflow-hidden flex-shrink-0 group border border-gold/10 shadow-sm"
             >
-              <img 
-                src={item.image} 
-                alt={item.title} 
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              <img
+                src={item.image}
+                alt={item.title}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent z-10" />
-              
+
               <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-gold text-midnight font-mono text-[9px] font-bold tracking-wider z-20 shadow-md">
                 {item.urgency}
               </span>
@@ -45,17 +45,17 @@ export function LiveMarquee() {
         {/* Row 2 - Right to Left */}
         <div className="animate-marquee-reverse gap-4 flex py-1">
           {[...LIVE_MOMENTS, ...LIVE_MOMENTS].reverse().map((item, idx) => (
-            <div 
+            <div
               key={`${item.id}-r2-${idx}`}
               className="w-64 h-44 rounded-3xl relative overflow-hidden flex-shrink-0 group border border-gold/10 shadow-sm"
             >
-              <img 
-                src={item.image} 
-                alt={item.title} 
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              <img
+                src={item.image}
+                alt={item.title}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent z-10" />
-              
+
               <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-saffron text-midnight font-mono text-[9px] font-bold tracking-wider z-20 shadow-md">
                 {item.urgency}
               </span>

@@ -8,7 +8,7 @@ export function AuspiciousActions() {
   return (
     <section className="py-16 px-6 max-w-7xl mx-auto z-10" id="auspicious-actions">
       <div className="max-w-3xl mx-auto text-center mb-12">
-        <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber-600 dark:text-amber-500 block mb-3 font-semibold">
+        <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
           Auspicious Involvements
         </span>
         <ScrollFloat containerClassName="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
@@ -38,7 +38,7 @@ export function AuspiciousActions() {
           <div className="w-full md:w-[55%] p-10 sm:p-14 md:p-16 flex flex-col justify-center bg-white/40 dark:bg-transparent backdrop-blur-md">
             <div>
               <div className="flex items-center mb-4">
-                <span className="text-orange-500 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold">
+                <span className="text-orange-500 font-2xl sm:text-xl uppercase tracking-[0.2em] font-bold">
                   Monthly Ritual
                 </span>
               </div>
@@ -80,7 +80,7 @@ export function AuspiciousActions() {
           <div className="w-full md:w-[55%] p-10 sm:p-14 md:p-16 flex flex-col justify-center bg-white/40 dark:bg-transparent backdrop-blur-md">
             <div>
               <div className="flex items-center mb-4">
-                <span className="text-purple-500 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold">
+                <span className="text-purple-500 font-2xl sm:text-xl uppercase tracking-[0.2em] font-bold">
                   AstroVed Shop
                 </span>
               </div>

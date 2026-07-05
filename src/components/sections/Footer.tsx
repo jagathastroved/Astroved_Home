@@ -3,14 +3,14 @@ import { scrollToSection } from '../../utils/scroll';
 
 export function Footer() {
   return (
-    <footer className="relative z-10 bg-gradient-to-br from-ivory via-cream to-amber-50/30 dark:bg-gradient-to-br dark:from-[#0a0514] dark:via-[#1a0b2e] dark:to-[#0a0e17] backdrop-blur-xl border-t border-purple/10 dark:border-white/10 py-16 px-6 transition-all duration-500 overflow-hidden">
+    <footer className="relative z-10 bg-gradient-to-br from-ivory via-cream to-amber-50/30 dark:bg-gradient-to-br dark:from-[#0a0514] dark:via-[#1a0b2e] dark:to-[#0a0e17] backdrop-blur-xl border-t border-purple/10 dark:border-white/10 py-10 md:py-16 px-6 transition-all duration-500 overflow-hidden">
 
       {/* Subtle background glow effect */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-purple/5 dark:bg-gold/5 rounded-[100%] blur-[100px] pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+      <div className="relative max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-x-4 gap-y-8 md:gap-8 lg:gap-12 mb-8 md:mb-12">
         {/* Logo & claim column */}
-        <div className="lg:col-span-3 space-y-6">
+        <div className="col-span-2 md:col-span-1 lg:col-span-3 space-y-4 md:space-y-6">
           <div className="flex items-center gap-4">
             <div className="bg-white/50 dark:bg-transparent p-2 rounded-xl dark:rounded-none shadow-sm dark:shadow-none border border-purple/5 dark:border-none transition-all">
               <button
@@ -32,7 +32,7 @@ export function Footer() {
         </div>
 
         {/* QUICK LINKS */}
-        <div className="lg:col-span-2 space-y-5">
+        <div className="col-span-1 lg:col-span-2 space-y-3 md:space-y-5">
           <h4 className="font-sans text-[13px] font-bold uppercase tracking-[0.1em] text-midnight dark:text-cream">Explore</h4>
           <ul className="space-y-3.5 text-[13px] text-slate-600 dark:text-slate-400 font-medium">
             <li><button onClick={() => scrollToSection('timing-check')} className="hover:text-indigo dark:hover:text-gold transition-colors text-left">Timing Check</button></li>
@@ -45,7 +45,7 @@ export function Footer() {
         </div>
 
         {/* SUPPORT */}
-        <div className="lg:col-span-2 space-y-5">
+        <div className="col-span-1 lg:col-span-2 space-y-3 md:space-y-5">
           <h4 className="font-sans text-[13px] font-bold uppercase tracking-[0.1em] text-midnight dark:text-cream">Support</h4>
           <ul className="space-y-3.5 text-[13px] text-slate-600 dark:text-slate-400 font-medium">
             <li><a href="mailto:support@astroved.com" className="hover:text-indigo dark:hover:text-gold transition-colors">support@astroved.com</a></li>
@@ -57,7 +57,7 @@ export function Footer() {
         </div>
 
         {/* CONNECT */}
-        <div className="lg:col-span-2 space-y-5">
+        <div className="col-span-1 lg:col-span-2 space-y-3 md:space-y-5">
           <h4 className="font-sans text-[13px] font-bold uppercase tracking-[0.1em] text-midnight dark:text-cream">Connect</h4>
 
           <div className="space-y-4 text-[13px] text-slate-600 dark:text-slate-400 font-medium">
@@ -85,7 +85,7 @@ export function Footer() {
         </div>
 
         {/* ADDRESS */}
-        <div className="lg:col-span-3 space-y-5">
+        <div className="col-span-1 lg:col-span-3 space-y-3 md:space-y-5">
           <h4 className="font-sans text-[13px] font-bold uppercase tracking-[0.1em] text-midnight dark:text-cream">Corporate Office</h4>
           <div className="space-y-3 text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
             <p className="flex gap-2">

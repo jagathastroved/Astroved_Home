@@ -96,7 +96,7 @@ export function TimingEvaluation() {
           {/* Left Side: Related Content */}
           <div className="lg:col-span-2 space-y-8 flex flex-col justify-center">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-500 block mb-3">Free Evaluation</span>
+              <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4 mb-3">Free Evaluation</span>
               <ScrollFloat containerClassName="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
                 Get your personalized cosmic reading.
               </ScrollFloat>
