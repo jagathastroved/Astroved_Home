@@ -89,21 +89,21 @@ export function SpecialEvents() {
         </div>
 
         {/* Carousel Container */}
-        <div 
+        <div
           className="relative group px-0 touch-pan-y"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
           <div className="overflow-hidden rounded-[2.5rem] bg-[#0b0e14] border border-white/5 hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out" 
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {events.map((ev) => (
                 <div key={ev.id} className="w-full flex-shrink-0">
                   <div className="group/card flex flex-col md:flex-row min-h-[450px] relative">
-                    
+
                     {/* Background Image (Desktop) */}
                     <div className="hidden md:block absolute top-0 bottom-0 left-0 w-[65%] overflow-hidden pointer-events-none">
                       <img
@@ -161,30 +161,29 @@ export function SpecialEvents() {
           </div>
 
           {/* Navigation Buttons (Placed inside the card bounds) */}
-          <button 
-            onClick={prevSlide} 
+          <button
+            onClick={prevSlide}
             className="absolute left-2 md:left-4 top-[35%] md:top-1/2 -translate-y-1/2 bg-black/50 border border-white/20 p-2 md:p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 backdrop-blur-sm"
           >
             <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
           </button>
-          <button 
-            onClick={nextSlide} 
+          <button
+            onClick={nextSlide}
             className="absolute right-2 md:right-4 top-[35%] md:top-1/2 -translate-y-1/2 bg-black/50 border border-white/20 p-2 md:p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 backdrop-blur-sm"
           >
             <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
           </button>
 
           {/* Dots Indicator */}
-          <div className="absolute bottom-8 right-16 flex justify-end gap-2 z-20">
+          <div className="absolute bottom-4 md:bottom-8 left-0 right-0 md:left-auto md:right-16 flex justify-center md:justify-end gap-2 z-20 pointer-events-none">
             {events.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  currentIndex === idx 
-                    ? 'bg-amber-400 w-6' 
-                    : 'bg-white/30 hover:bg-white/50 w-1.5'
-                }`}
+                className={`h-1.5 rounded-full transition-all duration-300 pointer-events-auto ${currentIndex === idx
+                  ? 'bg-amber-400 w-6'
+                  : 'bg-white/30 hover:bg-white/50 w-1.5'
+                  }`}
               />
             ))}
           </div>
