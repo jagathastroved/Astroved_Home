@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../ThemeProvider';
@@ -9,12 +9,14 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Timing Check', id: 'timing-check' },
-    { label: 'Live Transits', id: 'live-moments' },
-    { label: 'Our Guidance', id: 'guidance-services' },
-    { label: 'Daily Horoscope', id: 'daily-widget' },
-    { label: 'FAQ', id: 'faq-section' },
-    { label: 'Membership', id: 'membership' },
+    { label: 'Special Events', id: 'special-events' },
+    { label: 'Ancestral Healing', id: 'ancestral-healing' },
+    { label: 'Products', id: 'products' },
+    { label: 'Pilgrimages', id: 'pilgrimages' },
+    { label: 'Services', id: 'services' },
+    { label: 'Memberships', id: 'membership' },
+    { label: 'Your Timing', id: 'daily-widget' },
+    { label: 'Right Time', id: 'daily-panchang' },
   ];
 
   const handleNavClick = (id: string) => {
@@ -26,9 +28,9 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-indigo-50/95 via-purple-50/95 to-pink-50/95 dark:bg-gradient-to-r dark:from-indigo-950/95 dark:via-purple-950/95 dark:to-[#0a0e17]/95 backdrop-blur-md border-b border-gold/10 transition-colors duration-500">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-3">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-indigo-50/95 via-purple-50/95 to-pink-50/95 dark:bg-gradient-to-r dark:from-indigo-950/95 dark:via-purple-950/95 dark:to-[#0a0e17]/95 backdrop-blur-md border-b border-black dark:border-gold/10 transition-colors duration-500">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+        <div className="flex-1 flex items-center gap-3">
           {/* Mobile Menu Toggle (Left Side) */}
           <button
             className="md:hidden p-2 -ml-2 rounded-full border border-gold/25 text-purple dark:text-saffron hover:bg-gold/10 transition-colors"
@@ -52,20 +54,28 @@ export function Navbar() {
           </button>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-3 lg:gap-5 text-sm font-medium mt-2">
           {navLinks.map((link) => (
             <button
               key={link.id}
               onClick={() => handleNavClick(link.id)}
-              className="relative py-1.5 text-midnight/80 dark:text-cream/90 hover:text-purple dark:hover:text-gold transition-colors font-sans uppercase tracking-widest text-[11px] font-semibold group"
+              className="relative px-2 py-1.5 text-midnight/80 dark:text-cream/90 hover:text-amber-600 dark:hover:text-amber-400 transition-colors font-sans uppercase tracking-widest text-[9px] lg:text-[10px] font-semibold group whitespace-nowrap"
             >
               {link.label}
-              <span className="absolute left-0 bottom-0 w-full h-[1px] bg-purple dark:bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out opacity-70" />
+
+              {/* Top Left Bracket */}
+              <span className="absolute top-0 left-0 w-1.5 h-1.5 sm:w-2 sm:h-2 border-t-[2px] border-l-[2px] border-amber-500 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 -translate-y-2 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5" />
+              {/* Top Right Bracket */}
+              <span className="absolute top-0 right-0 w-1.5 h-1.5 sm:w-2 sm:h-2 border-t-[2px] border-r-[2px] border-amber-500 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 -translate-y-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              {/* Bottom Left Bracket */}
+              <span className="absolute bottom-0 left-0 w-1.5 h-1.5 sm:w-2 sm:h-2 border-b-[2px] border-l-[2px] border-amber-500 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 translate-y-2 group-hover:-translate-x-0.5 group-hover:translate-y-0.5" />
+              {/* Bottom Right Bracket */}
+              <span className="absolute bottom-0 right-0 w-1.5 h-1.5 sm:w-2 sm:h-2 border-b-[2px] border-r-[2px] border-amber-500 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 translate-y-2 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
             </button>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex-1 flex items-center justify-end gap-3 sm:gap-4">
           {/* Clean responsive theme toggle with layout transition icon */}
           <button
             id="theme-toggle-btn"
@@ -99,14 +109,9 @@ export function Navbar() {
           </button>
 
           <button
-            className="hidden md:block px-5 py-2.5 rounded-full border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-xs font-sans tracking-widest uppercase font-semibold hover:bg-gold/5 hover:border-gold/20 transition-all text-center"
+            className="hidden md:block px-5 py-2 rounded-[2rem] border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-[10px] sm:text-xs font-sans tracking-widest uppercase font-semibold hover:bg-gold/5 hover:border-gold/20 transition-all shadow-sm whitespace-nowrap"
           >
-            Login
-          </button>
-          <button
-            className="hidden md:block px-5 py-2.5 rounded-full bg-gradient-to-r from-purple to-indigo text-cream dark:text-cream text-xs font-sans tracking-widest uppercase font-semibold border border-gold/20 hover:brightness-110 active:scale-95 transition-all shadow-md text-center"
-          >
-            Sign Up
+            Sign In
           </button>
         </div>
       </div>
@@ -135,10 +140,7 @@ export function Navbar() {
 
               <div className="flex flex-col gap-3 pt-6 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)]">
                 <button className="w-full py-3 rounded-xl border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-xs font-sans tracking-widest uppercase font-semibold hover:bg-gold/5 transition-all">
-                  Login
-                </button>
-                <button className="w-full py-3 rounded-xl bg-[#a855f7] hover:bg-[#9333ea] text-white text-xs font-sans tracking-widest uppercase font-semibold transition-all shadow-md">
-                  Sign Up
+                  Sign In
                 </button>
               </div>
             </div>

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ArrowRight, ArrowUpRight, Flame, ShoppingBag } from 'lucide-react';
 import { scrollToSection } from '../../utils/scroll';
 import ScrollFloat from '../ui/ScrollFloat';
@@ -64,7 +64,7 @@ export function AuspiciousActions() {
         </div>
 
         {/* Card 2: Energized Products */}
-        <div className="group overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-purple-50/50 to-blue-50/50 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-2xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 flex flex-col md:flex-row h-auto md:h-[320px]">
+        <div id="products" className="group overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-purple-50/50 to-blue-50/50 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-2xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 flex flex-col md:flex-row h-auto md:h-[320px]">
           {/* Background Image (Left side) */}
           <div className="w-full md:w-[45%] h-[250px] md:h-auto relative overflow-hidden shrink-0">
             <img
@@ -108,7 +108,7 @@ export function AuspiciousActions() {
         </div>
 
         {/* Card 3: Pilgrimage Tours */}
-        <div className="group overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-blue-50/50 to-cyan-50/50 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-2xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 flex flex-col md:flex-row h-auto md:h-[320px]">
+        <div id="pilgrimages" className="group overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-blue-50/50 to-cyan-50/50 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-2xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 flex flex-col md:flex-row h-auto md:h-[320px]">
           {/* Background Image (Left side) */}
           <div className="w-full md:w-[45%] h-[250px] md:h-auto relative overflow-hidden shrink-0">
             <img

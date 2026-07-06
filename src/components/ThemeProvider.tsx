@@ -12,8 +12,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem('theme');
     if (saved === 'light' || saved === 'dark') return saved;
-    // Default to dark theme for this application
-    return 'dark';
+    // Default to light theme for this application
+    return 'light';
   });
 
   useEffect(() => {

@@ -1,10 +1,10 @@
-﻿import React from 'react';
+import React from 'react';
 
 const TRUST_STATS = [
-  "Since 2000 Â· 25 years",
+  "Since 2000 · 25 years",
   "Trusted by millions worldwide",
   "Performed by Vedic priests",
-  "4.8â˜… Â· 12,000+ reviews",
+  "4.8★ · 12,000+ reviews",
   "Birth data encrypted"
 ];
 
@@ -17,7 +17,7 @@ export function TrustTicker() {
             {TRUST_STATS.map((stat, idx) => (
               <React.Fragment key={`${groupIdx}-${idx}`}>
                 <span className="mx-8 md:mx-12">{stat}</span>
-                <span className="opacity-50">â€¢</span>
+                <span className="opacity-50">•</span>
               </React.Fragment>
             ))}
           </React.Fragment>

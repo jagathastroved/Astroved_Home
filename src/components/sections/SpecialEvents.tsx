@@ -54,7 +54,7 @@ export function SpecialEvents() {
   }, []);
 
   return (
-    <section className="py-12 md:py-16 relative overflow-hidden transition-colors duration-500 z-10">
+    <section id="special-events" className="py-12 md:py-16 relative overflow-hidden transition-colors duration-500 z-10">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Header */}
@@ -81,8 +81,8 @@ export function SpecialEvents() {
                 <div key={ev.id} className="w-full flex-shrink-0">
                   <div className="group/card flex flex-col md:flex-row min-h-[450px] relative">
                     
-                    {/* Background Image (Left side) */}
-                    <div className="absolute top-0 bottom-0 left-0 w-full md:w-[65%] h-[300px] md:h-auto overflow-hidden pointer-events-none">
+                    {/* Background Image (Desktop) */}
+                    <div className="hidden md:block absolute top-0 bottom-0 left-0 w-[65%] overflow-hidden pointer-events-none">
                       <img
                         src={ev.image}
                         alt={ev.title}
@@ -94,10 +94,23 @@ export function SpecialEvents() {
                       />
                     </div>
 
-                    {/* Content (Right side) */}
-                    <div className="w-full md:w-[45%] ml-auto p-8 sm:p-12 md:p-16 flex flex-col justify-center items-end text-right z-10 relative pt-[320px] md:pt-16">
+                    {/* Background Image (Mobile) */}
+                    <div className="md:hidden absolute top-0 left-0 w-full h-[450px] overflow-hidden pointer-events-none">
+                      <img
+                        src={ev.image}
+                        alt={ev.title}
+                        className="w-full h-full object-cover"
+                        style={{
+                          WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
+                          maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)'
+                        }}
+                      />
+                    </div>
+
+                    {/* Content (Right side on desktop, Bottom/Center on mobile) */}
+                    <div className="w-full md:w-[45%] ml-auto p-8 sm:p-12 md:p-16 flex flex-col justify-center items-center md:items-end text-center md:text-right z-10 relative pt-[360px] md:pt-16">
                       <div className="w-full">
-                        <div className="flex items-center justify-end mb-4">
+                        <div className="flex items-center justify-center md:justify-end mb-4">
                           <span className={`font-serif italic text-xl md:text-2xl text-amber-500 dark:text-amber-400`}>
                             {ev.tagline}
                           </span>
@@ -112,7 +125,7 @@ export function SpecialEvents() {
                         </p>
                       </div>
 
-                      <div className="mt-4">
+                      <div className="mt-4 flex justify-center md:justify-end w-full">
                         <button className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-amber-400 text-black font-sans text-sm font-bold hover:bg-amber-500 transition-colors">
                           {ev.cta} <ArrowRight className="w-4 h-4" />
                         </button>

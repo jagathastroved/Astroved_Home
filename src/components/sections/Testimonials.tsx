@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 import ScrollFloat from '../ui/ScrollFloat';
@@ -19,46 +19,23 @@ export function Testimonials() {
 
   return (
     <section className="py-6 md:py-8 md:py-16 max-w-7xl mx-auto px-6 relative z-10" id="trust-platform">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="flex flex-col gap-12 items-center">
 
-        {/* Left Column - Company Branding (4 Image Slices) */}
-        <div className="relative h-[500px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] group flex">
-          {BRAND_IMAGES.map((src, idx) => (
-            <div key={idx} className={`flex-1 relative overflow-hidden ${idx !== BRAND_IMAGES.length - 1 ? 'border-r border-white/20 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)]' : ''}`}>
-              <img
-                src={src}
-                alt="Vedic Service"
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2s] ease-out"
-              />
-            </div>
-          ))}
-
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+        {/* Top Section - Full Graphic */}
+        <div className="w-full relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] group">
+          <img
+            src={BRAND_IMAGES[0]}
+            alt="Vedic Service"
+            className="w-full h-auto object-contain transform group-hover:scale-[1.02] transition-transform duration-[2s] ease-out"
+          />
+          <div className="absolute inset-0 pointer-events-none rounded-[2.5rem] ring-1 ring-inset ring-white/10" />
         </div>
 
-        {/* Right Column - Trust Heading & Current Feedback */}
-        <div className="space-y-10">
-
-          {/* Trust Headers */}
-          <div className="space-y-4">
-            <ScrollFloat containerClassName="font-sans text-4xl md:text-5xl text-midnight dark:text-cream leading-tight">
-              Trusted by millions, for over <span className="text-amber-600 dark:text-amber-500 italic">25 years.</span>
-            </ScrollFloat>
-            <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed text-base md:text-lg max-w-lg">
-              Since 2000, AstroVed has brought simple, authentic astrology and spiritual guidance to seekers in 150+ countries.
-            </p>
-
-            <div className="flex items-center gap-3 pt-2">
-              <div className="flex text-amber-500">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
-                ))}
-              </div>
-              <p className="font-body text-sm text-midnight dark:text-cream font-medium">
-                4.8 <span className="text-gray-500 dark:text-gray-400 font-normal">average rating Â· 12,000+ verified reviews</span>
-              </p>
-            </div>
+        {/* Bottom Section - Premium Testimonials Feedback Card */}
+        <div className="w-full max-w-4xl space-y-6">
+          <div className="text-center space-y-2 mb-8">
+            <h3 className="font-sans text-2xl md:text-3xl text-midnight dark:text-cream font-bold">What Our Users Say</h3>
+            <p className="text-gray-500 dark:text-gray-400">Real stories from our global community</p>
           </div>
 
           {/* Premium Testimonials Feedback Card */}
@@ -86,7 +63,7 @@ export function Testimonials() {
                       {TESTIMONIALS[activeTestimonial].name}
                     </h4>
                     <p className="font-mono text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-widest mt-1">
-                      {TESTIMONIALS[activeTestimonial].role} Â· {TESTIMONIALS[activeTestimonial].stats}
+                      {TESTIMONIALS[activeTestimonial].role} · {TESTIMONIALS[activeTestimonial].stats}
                     </p>
                   </div>
                 </motion.div>
