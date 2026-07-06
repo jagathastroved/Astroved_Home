@@ -36,27 +36,29 @@ const events = [
 ];
 
 export function SpecialEvents() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % events.length);
+    setCurrentIndex((prev) => (prev === events.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? events.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? events.length - 1 : prev - 1));
   };
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="py-12 md:py-16 bg-ivory dark:bg-[#08040f] relative overflow-hidden transition-colors duration-500">
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+    <section className="py-12 md:py-16 relative overflow-hidden transition-colors duration-500 z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
             SPECIAL EVENTS
           </span>
@@ -66,85 +68,95 @@ export function SpecialEvents() {
           <p className="font-body text-gray-700 dark:text-gray-400 text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
             These events are matched with this month's special planetary changes and festivals. Once the time passes, the chance is gone.
           </p>
-          <a href="#" className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-sans text-sm uppercase tracking-widest font-semibold hover:gap-3 transition-all">
-            View all special events <ArrowRight className="w-4 h-4" />
-          </a>
         </div>
 
-        {/* Premium Carousel */}
-        <div className="relative rounded-3xl overflow-hidden border border-black/10 shadow-2xl bg-[#0b0e14] group h-auto md:h-[500px]">
-
-          {/* Slides Container */}
-          <div className="relative w-full h-full flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            {events.map((ev, idx) => (
-              <div key={ev.id} className="w-full h-full flex-shrink-0 flex flex-col md:block relative bg-[#0b0e14]">
-                <div className="relative w-full h-[280px] md:h-full md:absolute md:inset-0 md:w-[70%]">
-                  <img src={ev.image} alt={ev.title} className="w-full h-full object-cover object-center md:object-left" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0b0e14]/60 to-[#0b0e14] md:bg-gradient-to-r md:via-[#0b0e14]/60 md:to-[#0b0e14] z-10" />
-                </div>
-
-                {/* Content */}
-                <div className="relative md:absolute md:inset-y-0 md:right-0 flex flex-col justify-start md:justify-center p-8 pb-16 md:p-16 lg:p-24 w-full md:w-[50%] z-20">
-                  <div className="flex flex-col items-start md:items-end text-left md:text-right space-y-4 md:space-y-3">
-
-                    {/* Mobile Tagline Badge */}
-                    <div className="md:hidden border border-white/20 rounded-full px-4 py-1.5 text-[10px] uppercase tracking-widest text-white/80 bg-white/5 font-mono mb-2">
-                      {ev.tagline}
+        {/* Carousel Container */}
+        <div className="relative group px-0">
+          <div className="overflow-hidden rounded-[2.5rem] bg-[#0b0e14] border border-white/5 hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out" 
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {events.map((ev) => (
+                <div key={ev.id} className="w-full flex-shrink-0">
+                  <div className="group/card flex flex-col md:flex-row min-h-[450px] relative">
+                    
+                    {/* Background Image (Left side) */}
+                    <div className="w-full md:w-[60%] h-[300px] md:h-auto relative overflow-hidden shrink-0">
+                      <img
+                        src={ev.image}
+                        alt={ev.title}
+                        className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-[1500ms] ease-out"
+                      />
+                      {/* Gradient mask to blend image into the dark background on the right */}
+                      <div className="absolute inset-y-0 right-0 w-32 md:w-48 bg-gradient-to-l from-[#0b0e14] to-transparent pointer-events-none" />
+                      <div className="absolute inset-x-0 bottom-0 h-32 md:h-0 bg-gradient-to-t from-[#0b0e14] to-transparent pointer-events-none md:hidden" />
                     </div>
-                    {/* Desktop Tagline */}
-                    <span className="hidden md:block text-xs md:text-sm font-serif italic text-amber-500 font-medium">
-                      {ev.tagline}
-                    </span>
 
-                    <h3 className={`font-sans md:font-serif text-3xl md:text-3xl lg:text-4xl font-bold md:uppercase tracking-wide md:tracking-wider leading-tight ${ev.iconColor} md:text-white md:dark:text-white`}>
-                      {ev.title}
-                    </h3>
+                    {/* Content (Right side) */}
+                    <div className="w-full md:w-[40%] p-8 sm:p-12 md:p-16 flex flex-col justify-center items-end text-right bg-[#0b0e14] z-10 relative">
+                      <div className="w-full">
+                        <div className="flex items-center justify-end mb-4">
+                          <span className={`font-serif italic text-xl md:text-2xl text-amber-500 dark:text-amber-400`}>
+                            {ev.tagline}
+                          </span>
+                        </div>
 
-                    <p className="font-sans text-[13px] md:text-xs text-gray-300 md:text-gray-400 pb-4 md:pb-2 leading-relaxed">
-                      {ev.deadline}
-                    </p>
+                        <h3 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white font-bold tracking-wider mb-6 leading-tight uppercase">
+                          {ev.title}
+                        </h3>
 
-                    {/* Desktop Button */}
-                    <button className="hidden md:flex px-6 py-2.5 rounded-full bg-amber-400 hover:bg-amber-500 text-black font-sans text-xs font-bold transition-all items-center gap-2 group/btn">
-                      {ev.cta}
-                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
+                        <p className="font-sans text-sm md:text-base text-gray-400 mb-8">
+                          {ev.deadline}
+                        </p>
+                      </div>
 
-                    {/* Mobile Text Link */}
-                    <button className="md:hidden pt-2 text-white font-sans text-[11px] uppercase font-bold tracking-widest flex items-center gap-2 group/btn">
-                      {ev.cta} <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
+                      <div className="mt-4">
+                        <button className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-amber-400 text-black font-sans text-sm font-bold hover:bg-amber-500 transition-colors">
+                          {ev.cta} <ArrowRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-white transition-all hover:bg-black/60 z-30"
+          {/* Navigation Buttons (Placed inside the card bounds) */}
+          <button 
+            onClick={prevSlide} 
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 border border-white/20 p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 hidden md:block backdrop-blur-sm"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-white transition-all hover:bg-black/60 z-30"
+          <button 
+            onClick={nextSlide} 
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 border border-white/20 p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 hidden md:block backdrop-blur-sm"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
 
-          {/* Dots */}
-          <div className="absolute bottom-6 right-8 md:right-12 flex items-center gap-2 z-30">
+          {/* Dots Indicator */}
+          <div className="absolute bottom-8 right-16 flex justify-end gap-2 z-20">
             {events.map((_, idx) => (
               <button
                 key={idx}
-                onClick={() => setCurrentSlide(idx)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${currentSlide === idx ? 'w-6 bg-amber-400' : 'w-1.5 bg-white/40 hover:bg-white/60'}`}
+                onClick={() => setCurrentIndex(idx)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  currentIndex === idx 
+                    ? 'bg-amber-400 w-6' 
+                    : 'bg-white/30 hover:bg-white/50 w-1.5'
+                }`}
               />
             ))}
           </div>
+        </div>
 
+        <div className="text-center mt-12">
+          <a href="#" className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-sans text-sm uppercase tracking-widest font-semibold hover:gap-3 transition-all">
+            View all special events <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </div>
     </section>

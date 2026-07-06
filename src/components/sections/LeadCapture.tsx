@@ -5,10 +5,10 @@ import { AnimatedGrid } from '../ui/AnimatedGrid';
 import { AnimatedCard } from '../ui/AnimatedCard';
 
 export function LeadCapture() {
-  const [isYearly, setIsYearly] = useState(true);
+  const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <section className="relative py-16 px-6 overflow-hidden border-t border-black/5 dark:border-white/5 bg-ivory dark:bg-midnight transition-colors duration-500" id="membership">
+    <section className="relative py-16 px-6 overflow-hidden border-t border-black/5 dark:border-white/5 transition-colors duration-500 z-10" id="membership">
 
       {/* Background ambient glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[600px] bg-amber-500/10 dark:bg-amber-500/5 blur-[150px] rounded-full pointer-events-none" />
@@ -56,7 +56,7 @@ export function LeadCapture() {
         <AnimatedGrid className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch relative z-10">
 
           {/* Bronze Tier (Free Lead Capture) */}
-          <AnimatedCard className="bg-white/60 dark:bg-[#110c1c]/60 backdrop-blur-md border border-black/5 dark:border-white/5 rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full relative overflow-hidden group">
+          <AnimatedCard className="bg-white dark:bg-[#110c1c] border border-black/5 dark:border-white/5 rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full relative overflow-hidden group">
             {/* Subtle highlight */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-[40px] pointer-events-none transition-all group-hover:bg-amber-500/10" />
 
@@ -107,7 +107,7 @@ export function LeadCapture() {
           </AnimatedCard>
 
           {/* Seeker Tier */}
-          <AnimatedCard className="bg-white/60 dark:bg-[#110c1c]/60 backdrop-blur-md border border-black/5 dark:border-white/5 rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full">
+          <AnimatedCard className="bg-white dark:bg-[#110c1c] border border-black/5 dark:border-white/5 rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full">
             <h3 className="font-sans text-xl text-midnight dark:text-cream font-medium">Seeker Tier</h3>
             <p className="font-body text-xs text-gray-500 dark:text-gray-400 mt-2">Essential astrological guidance</p>
 
@@ -131,7 +131,7 @@ export function LeadCapture() {
           </AnimatedCard>
 
           {/* Premium Tier */}
-          <AnimatedCard className="bg-gradient-to-b from-amber-500/10 to-amber-500/5 dark:from-amber-500/20 dark:to-transparent backdrop-blur-xl border border-amber-500/30 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden transition-colors duration-500 flex flex-col h-full">
+          <AnimatedCard className="bg-amber-50 dark:bg-[#1a150c] border border-amber-500/50 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden transition-colors duration-500 flex flex-col h-full">
 
             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/20 blur-[50px] pointer-events-none" />
 

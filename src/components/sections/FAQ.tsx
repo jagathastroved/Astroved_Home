@@ -64,8 +64,8 @@ export function FAQ() {
             <div
               key={item.id}
               className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
-                ? 'border-amber-500/30 bg-white/80 dark:bg-white/10 backdrop-blur-md shadow-lg shadow-amber-500/5'
-                : 'border-black/5 dark:border-white/5 bg-white/40 dark:bg-white/5 backdrop-blur-md hover:border-amber-500/20 hover:bg-white/60 dark:hover:bg-white/10'
+                ? 'border-amber-500/30 bg-white dark:bg-[#1a1f3c] shadow-lg shadow-amber-500/5'
+                : 'border-black/5 dark:border-white/5 bg-white dark:bg-[#110c1c] hover:border-amber-500/20 hover:bg-gray-50 dark:hover:bg-[#1a1f3c]'
                 }`}
             >
               <button

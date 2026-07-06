@@ -62,7 +62,7 @@ export function Testimonials() {
           </div>
 
           {/* Premium Testimonials Feedback Card */}
-          <div className="rounded-[2rem] bg-white/60 dark:bg-[#110c1c]/60 backdrop-blur-xl border border-black/5 dark:border-white/5 p-8 md:p-10 relative overflow-hidden shadow-xl">
+          <div className="rounded-[2rem] bg-white dark:bg-[#110c1c] border border-black/5 dark:border-white/5 p-8 md:p-10 relative overflow-hidden shadow-xl">
 
             {/* Soft background glow */}
             <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full blur-[50px] pointer-events-none" />

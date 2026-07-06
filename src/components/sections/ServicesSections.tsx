@@ -11,7 +11,7 @@ export function ServicesSections() {
       <div className="absolute top-[60%] right-0 w-1/4 h-1/4 bg-amber-500/5 dark:bg-amber-900/10 blur-[120px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* SECTION 2: Personalized Guidance */}
         <section className="mb-32">
           <div className="text-center mb-16">
@@ -80,7 +80,7 @@ export function ServicesSections() {
             <HoverGlowCard
               icon={Zap}
               badgeText="CONSECRATED POWER"
-              title="Energized Products"
+              title="AstroVed Shop"
               description="Enhance your aura and environment with authentic yantras, rudrakshas, and gemstones energized in powerful rituals."
               buttonText="Shop Products"
               glowColor="rgba(16, 185, 129, 0.25)" // Emerald glow

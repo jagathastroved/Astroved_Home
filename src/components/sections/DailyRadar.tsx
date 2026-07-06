@@ -58,7 +58,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                     onClick={() => setSelectedZodiac(sign.name)}
                     className={`cursor-target relative p-4 rounded-[1.5rem] text-center flex flex-col items-center justify-center gap-3 transition-all duration-300 group ${isActive
                       ? 'bg-white dark:bg-[#110c1c] shadow-xl scale-[1.02] border border-amber-500/30'
-                      : 'bg-white/50 dark:bg-white/5 backdrop-blur-md border border-black/5 dark:border-white/5 hover:bg-white dark:hover:bg-[#110c1c] hover:shadow-lg hover:scale-[1.02]'
+                      : 'bg-white dark:bg-[#110c1c] border border-black/5 dark:border-white/5 hover:border-amber-500/20 hover:shadow-lg hover:scale-[1.02]'
                       }`}
                   >
                     {isActive && (
@@ -90,7 +90,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
             {/* Ambient glow behind card */}
             <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/20 to-purple-500/20 rounded-[3rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
 
-            <div className="h-full rounded-[2.5rem] bg-white/90 dark:bg-[#110c1c]/90 backdrop-blur-2xl p-8 sm:p-12 border border-black/5 dark:border-white/5 relative overflow-hidden shadow-2xl transition-all duration-500 flex flex-col">
+            <div className="h-full rounded-[2.5rem] bg-white dark:bg-[#110c1c] p-8 sm:p-12 border border-black/5 dark:border-white/5 relative overflow-hidden shadow-2xl transition-all duration-500 flex flex-col">
 
               {/* Visual sign banner */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-black/5 dark:border-white/5 pb-8 mb-8">

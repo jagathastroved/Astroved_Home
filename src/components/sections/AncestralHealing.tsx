@@ -3,15 +3,15 @@ import { motion } from 'motion/react';
 import { ArrowRight, Moon, Flame } from 'lucide-react';
 import { scrollToSection } from '../../utils/scroll';
 import ScrollFloat from '../ui/ScrollFloat';
-import { naga_dosha, tarpanam } from '../../assets/Karma_Resolution/index';
+import { naga_dosha, Pitru_dosha } from '../../assets/Karma_Resolution/index';
 
 const DOSHAS = [
   {
     id: 'pitru',
-    title: 'Pitru Dosha & Tarpanam',
-    desc: "Liberate your forefathers and clear inherited karmic debt, performed in your family's name on the most powerful Amavasya (new moon) powertimes.",
+    title: 'Pitru Dosha Remedies',
+    desc: 'Clear the ancestral afflictions and inherited karmic debts that block your progress. Pacify your forefathers to invite harmony, prosperity, and peace into your family lineage.',
     cta: 'Resolve Pitru Dosha',
-    image: tarpanam,
+    image: Pitru_dosha,
     icon: Moon,
     badge: 'Ancestral Lineage'
   },
@@ -42,8 +42,8 @@ export function AncestralHealing() {
         </p>
       </div>
 
-      {/* 2-Column Dosha Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+      {/* Cards List */}
+      <div className="flex flex-col gap-12">
         {DOSHAS.map((dosha, idx) => (
           <motion.div
             key={dosha.id}
@@ -51,49 +51,47 @@ export function AncestralHealing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: idx * 0.2 }}
-            className="group relative h-auto md:h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 dark:border-white/5 cursor-pointer flex flex-col bg-[#0a0e17]"
+            className="group overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-white/10 shadow-2xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 flex flex-col md:flex-row min-h-[450px] cursor-pointer"
             onClick={() => scrollToSection('birth-form')}
           >
-            {/* Background Image (Stacked on mobile, Absolute on desktop) */}
-            <div className="relative h-[250px] md:absolute md:inset-0 md:h-full z-0 overflow-hidden shrink-0">
+            {/* Background Image (Left side) */}
+            <div className="w-full md:w-[45%] h-[300px] md:h-auto relative overflow-hidden shrink-0">
               <img
                 src={dosha.image}
                 alt={dosha.title}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ease-out"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
               />
-              {/* Gradients only needed on desktop since mobile text is below the image */}
-              <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 z-0 opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-              <div className="hidden md:block absolute inset-0 bg-amber-900/20 mix-blend-overlay z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              {/* Soft inner shadow on image edge */}
+              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-amber-50/50 dark:from-[#0f172a] to-transparent pointer-events-none hidden md:block" />
             </div>
 
-            {/* Content */}
-            <div className="relative z-10 flex flex-col flex-1 justify-between p-8 md:p-10 md:h-full bg-[#0a0e17] md:bg-transparent">
-              {/* Badge & Icon */}
-              <div className="flex justify-between items-start transform md:translate-y-4 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 mb-8 md:mb-0">
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 md:bg-white/20 backdrop-blur-md border border-white/20 md:border-white/30 text-white text-[10px] font-mono uppercase tracking-[0.2em] font-semibold shadow-sm">
-                  {dosha.badge}
-                </span>
-                <div className="w-12 h-12 rounded-full bg-white/5 md:bg-white/10 backdrop-blur-md border border-white/10 md:border-white/20 flex items-center justify-center text-white">
-                  <dosha.icon className="w-5 h-5" />
+            {/* Content (Right side) */}
+            <div className="w-full md:w-[55%] p-10 sm:p-14 md:p-16 flex flex-col justify-center bg-white/40 dark:bg-transparent backdrop-blur-md">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-600 dark:text-amber-400">
+                    <dosha.icon className="w-5 h-5" />
+                  </div>
+                  <span className="text-amber-600 dark:text-amber-500 font-2xl sm:text-xl uppercase tracking-[0.2em] font-bold">
+                    {dosha.badge}
+                  </span>
                 </div>
-              </div>
 
-              {/* Text & CTA */}
-              <div className="mt-auto transform md:translate-y-8 group-hover:translate-y-0 transition-all duration-500 ease-out">
-                <h4 className="font-sans text-3xl md:text-4xl text-amber-500 md:text-white tracking-wide leading-tight mb-4 group-hover:text-xl md:text-2xl transition-colors duration-300">
+                <h3 className="font-sans text-4xl md:text-5xl lg:text-5xl text-midnight dark:text-cream font-medium tracking-tight mb-6">
                   {dosha.title}
-                </h4>
-                <p className="font-body text-cream/80 leading-relaxed text-sm md:text-base mb-8 max-w-md md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                </h3>
+
+                <p className="font-body text-sm md:text-base text-gray-600 dark:text-gray-400 mb-10 max-w-md leading-relaxed">
                   {dosha.desc}
                 </p>
+              </div>
 
-                <div className="inline-flex items-center gap-3 text-xs font-mono uppercase tracking-widest font-bold text-white relative overflow-hidden group/cta">
-                  <span className="relative z-10 flex items-center gap-2">
-                    {dosha.cta}
-                    <ArrowRight className="w-4 h-4 group-hover/cta:translate-x-1 transition-transform" />
-                  </span>
-                  <div className="absolute bottom-0 left-0 w-full h-[2px] bg-amber-500 transform origin-left scale-x-0 group-hover/cta:scale-x-100 transition-transform duration-500" />
-                </div>
+              <div>
+                <button
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-amber-500 text-midnight font-sans text-xs sm:text-sm uppercase tracking-widest font-bold hover:bg-amber-400 transition-colors shadow-[0_4px_14px_0_rgba(245,158,11,0.39)]"
+                >
+                  {dosha.cta} <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
           </motion.div>

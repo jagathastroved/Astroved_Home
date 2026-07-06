@@ -5,15 +5,17 @@ import { ChandraMoon, guru_pushya_yoga, pradosham, Rahu_Ketu_Node_shift, sun_tra
 
 export function LiveHorologicalStream() {
   return (
-    <section className="py-12 border-y border-black/10 dark:border-white/10 bg-ivory dark:bg-[#0a0514] overflow-hidden transition-colors duration-500" id="live-moments">
+    <section className="py-12 border-y border-black/10 dark:border-white/10 relative overflow-hidden transition-colors duration-500 z-10" id="live-moments">
 
 
 
-      <div className="max-w-7xl mx-auto px-6 mb-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-4 relative z-20">
-        <div>
-          <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">LIVE HOROLOGICAL STREAM</span>
-          <h2 className="font-sans text-3xl text-midnight dark:text-cream mt-1 tracking-wider">Auspicious Portals & Transits</h2>
-        </div>
+      <div className="max-w-7xl mx-auto px-6 mb-12 flex flex-col items-center justify-center text-center relative z-20">
+        <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
+          LIVE HOROLOGICAL STREAM
+        </span>
+        <h2 className="font-sans text-4xl md:text-5xl text-midnight dark:text-cream tracking-wider">
+          Auspicious Portals & Transits
+        </h2>
       </div>
 
       {/* Marquee dual-row stream */}

@@ -13,7 +13,7 @@ export function PremiumPanchang() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-panel rounded-[2rem] p-6 lg:p-10 relative overflow-hidden shadow-2xl border border-white/40 dark:border-white/10"
+          className="bg-white dark:bg-[#0c0f24] rounded-[2rem] p-6 lg:p-10 relative overflow-hidden shadow-2xl border border-black/5 dark:border-white/10 hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500"
         >
           {/* Top Astronomical Header Bar */}
           <div className="flex flex-col xl:flex-row justify-between items-center gap-6 border-b border-black/5 dark:border-white/5 pb-8 mb-8">

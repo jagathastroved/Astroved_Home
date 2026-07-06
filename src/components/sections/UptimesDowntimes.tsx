@@ -50,7 +50,7 @@ const CARDS = [
 
 export function UptimesDowntimes() {
   return (
-    <section className="py-12 md:py-16 bg-cream/30 dark:bg-[#0a0514] transition-colors duration-500 relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-transparent transition-colors duration-500 relative overflow-hidden z-10">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/5 dark:bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
@@ -84,19 +84,27 @@ export function UptimesDowntimes() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-[#0a0e17]/60 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
 
-            <div className="relative z-10 p-8 md:p-12 flex flex-col justify-between flex-1 bg-transparent">
-              <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white font-mono text-[10px] uppercase tracking-widest backdrop-blur-md mb-6">
-                Expansion or Contraction
-              </span>
-              <h3 className="font-sans text-3xl md:text-5xl font-bold text-cream leading-tight mb-4 drop-shadow-md">
-                Identify Your Current Phase
-              </h3>
-              <p className="font-body text-cream/90 text-sm md:text-base mb-8 max-w-sm drop-shadow-sm leading-relaxed">
-                Instantly calculate your current cosmic phase and know exactly whether to aggressively build or patiently wait out the storm.
-              </p>
+            <div className="relative z-10 p-8 md:p-12 flex flex-col justify-end flex-1 bg-transparent">
+              <div className="md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col">
+                <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white font-mono text-[10px] uppercase tracking-widest backdrop-blur-md mb-4 w-fit">
+                  Expansion or Contraction
+                </span>
 
-              <div className="inline-flex items-center gap-2 text-white font-sans text-xs uppercase tracking-widest font-bold hover:text-amber-400 group-hover:text-amber-400 transition-colors cursor-pointer w-fit">
-                Check Phase <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <h3 className="font-sans text-3xl md:text-5xl font-bold text-cream leading-tight mb-2 md:mb-4 drop-shadow-md">
+                  Identify Your Current Phase
+                </h3>
+
+                <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                  <div className="overflow-hidden">
+                    <p className="font-body text-cream/90 text-sm md:text-base mb-6 max-w-sm drop-shadow-sm leading-relaxed mt-4 md:mt-0">
+                      Instantly calculate your current cosmic phase and know exactly whether to aggressively build or patiently wait out the storm.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="inline-flex items-center gap-2 text-white font-sans text-xs uppercase tracking-widest font-bold hover:text-amber-400 group-hover:text-amber-400 transition-colors cursor-pointer w-fit mt-auto md:mt-2">
+                  Check Phase <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </div>
           </AnimatedCard>
