@@ -15,7 +15,6 @@ export function Navbar() {
     { label: 'Pilgrimages', id: 'pilgrimages' },
     { label: 'Services', id: 'services' },
     { label: 'Memberships', id: 'membership' },
-    { label: 'Your Timing', id: 'daily-widget' },
     { label: 'Right Time', id: 'daily-panchang' },
   ];
 
@@ -28,7 +27,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-indigo-50/95 via-purple-50/95 to-pink-50/95 dark:bg-gradient-to-r dark:from-indigo-950/95 dark:via-purple-950/95 dark:to-[#0a0e17]/95 backdrop-blur-md border-b border-black dark:border-gold/10 transition-colors duration-500">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-purple-100/95 via-fuchsia-100/95 to-pink-100/95 dark:bg-gradient-to-r dark:from-indigo-950/95 dark:via-purple-950/95 dark:to-[#0a0e17]/95 backdrop-blur-md transition-colors duration-500">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
         <div className="flex-1 flex items-center gap-3">
           {/* Mobile Menu Toggle (Left Side) */}
