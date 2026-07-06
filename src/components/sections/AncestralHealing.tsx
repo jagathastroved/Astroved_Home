@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Moon, Flame } from 'lucide-react';
 import { scrollToSection } from '../../utils/scroll';
@@ -28,7 +28,7 @@ const DOSHAS = [
 
 export function AncestralHealing() {
   return (
-    <section className="py-12 md:py-16 px-6 max-w-7xl mx-auto z-10" id="ancestral-healing">
+    <section className="py-6 md:py-8 md:py-16 px-6 max-w-7xl mx-auto z-10" id="ancestral-healing">
       {/* Header Section */}
       <div className="text-center max-w-3xl mx-auto mb-8 relative z-10">
         <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
@@ -51,7 +51,7 @@ export function AncestralHealing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: idx * 0.2 }}
-            className="group overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-white/10 shadow-2xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 flex flex-col md:flex-row min-h-[450px] cursor-pointer"
+            className="group overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-2xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 flex flex-col md:flex-row min-h-[450px] cursor-pointer"
             onClick={() => scrollToSection('birth-form')}
           >
             {/* Background Image (Left side) */}
@@ -88,7 +88,7 @@ export function AncestralHealing() {
 
               <div>
                 <button
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-amber-500 text-midnight font-sans text-xs sm:text-sm uppercase tracking-widest font-bold hover:bg-amber-400 transition-colors shadow-[0_4px_14px_0_rgba(245,158,11,0.39)]"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-purple-500 text-white font-sans text-xs sm:text-sm uppercase tracking-widest font-bold hover:bg-purple-400 transition-colors shadow-[0_4px_14px_0_rgba(168,85,247,0.39)]"
                 >
                   {dosha.cta} <ArrowRight className="w-4 h-4" />
                 </button>

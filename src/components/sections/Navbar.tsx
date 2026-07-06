@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../ThemeProvider';
@@ -126,18 +126,18 @@ export function Navbar() {
                   <button
                     key={link.id}
                     onClick={() => handleNavClick(link.id)}
-                    className="w-full text-left px-4 py-3 rounded-xl border border-black/5 dark:border-white/5 bg-white/50 dark:bg-white/5 backdrop-blur-md font-sans uppercase tracking-widest text-xs text-midnight dark:text-cream hover:border-purple/30 dark:hover:border-gold/30 hover:bg-purple/5 dark:hover:bg-gold/5 hover:text-purple dark:hover:text-gold transition-all shadow-sm"
+                    className="w-full text-left px-4 py-3 rounded-xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] bg-white/50 dark:bg-white/5 backdrop-blur-md font-sans uppercase tracking-widest text-xs text-midnight dark:text-cream hover:border-purple/30 dark:hover:border-gold/30 hover:bg-purple/5 dark:hover:bg-gold/5 hover:text-purple dark:hover:text-gold transition-all shadow-sm"
                   >
                     {link.label}
                   </button>
                 ))}
               </nav>
 
-              <div className="flex flex-col gap-3 pt-6 border-t border-black/5 dark:border-white/5">
+              <div className="flex flex-col gap-3 pt-6 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)]">
                 <button className="w-full py-3 rounded-xl border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-xs font-sans tracking-widest uppercase font-semibold hover:bg-gold/5 transition-all">
                   Login
                 </button>
-                <button className="w-full py-3 rounded-xl bg-gradient-to-r from-purple to-indigo text-cream text-xs font-sans tracking-widest uppercase font-semibold hover:brightness-110 transition-all shadow-md">
+                <button className="w-full py-3 rounded-xl bg-[#a855f7] hover:bg-[#9333ea] text-white text-xs font-sans tracking-widest uppercase font-semibold transition-all shadow-md">
                   Sign Up
                 </button>
               </div>

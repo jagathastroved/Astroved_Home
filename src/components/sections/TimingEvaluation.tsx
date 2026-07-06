@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Compass, ArrowRight, Calendar, User, Clock, MapPin, Sparkles, Send, X, Target, Activity } from 'lucide-react';
 import ScrollFloat from '../ui/ScrollFloat';
@@ -87,7 +87,7 @@ export function TimingEvaluation() {
 
   return (
     <>
-      <section className="py-10 md:py-12 px-6 max-w-7xl mx-auto relative z-10" id="timing-check">
+      <section className="py-6 md:py-8 md:py-12 px-6 max-w-7xl mx-auto relative z-10" id="timing-check">
 
 
         {/* Dynamic Birth Chart Input Form Section */}
@@ -130,13 +130,13 @@ export function TimingEvaluation() {
           </div>
 
           {/* Right Side: Attractive Form */}
-          <div className="lg:col-span-3 rounded-[2.5rem] bg-white dark:bg-[#110c1c] backdrop-blur-xl border border-black/5 dark:border-white/5 shadow-2xl p-8 sm:p-12 relative overflow-hidden group">
+          <div className="lg:col-span-3 rounded-[2.5rem] bg-white dark:bg-[#110c1c] backdrop-blur-xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-2xl p-8 sm:p-12 relative overflow-hidden group">
 
             {/* Subtle glow effect in the background of the form */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-700" />
 
             <div className="flex items-center gap-4 mb-10 relative z-10">
-              <div className="w-12 h-12 rounded-2xl bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 flex items-center justify-center text-amber-600 dark:text-amber-400">
+              <div className="w-12 h-12 rounded-2xl bg-black/5 dark:bg-black/40 border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex items-center justify-center text-amber-600 dark:text-amber-400">
                 <Calendar className="w-5 h-5" />
               </div>
               <div>
@@ -159,7 +159,7 @@ export function TimingEvaluation() {
                     placeholder="e.g. John Doe"
                     value={nameInput}
                     onChange={(e) => setNameInput(e.target.value)}
-                    className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 rounded-xl px-4 py-3 text-sm text-midnight dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/50 transition-all"
+                    className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] rounded-xl px-4 py-3 text-sm text-midnight dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/50 transition-all"
                   />
                 </div>
 
@@ -171,7 +171,7 @@ export function TimingEvaluation() {
                     <select
                       value={zodiacFormSelect}
                       onChange={(e) => setZodiacFormSelect(e.target.value)}
-                      className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 rounded-xl px-4 py-3 text-sm text-midnight dark:text-white focus:outline-none focus:border-amber-500/50 transition-all appearance-none cursor-pointer"
+                      className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] rounded-xl px-4 py-3 text-sm text-midnight dark:text-white focus:outline-none focus:border-amber-500/50 transition-all appearance-none cursor-pointer"
                     >
                       {ZODIAC_SIGNS.map((sign) => (
                         <option key={sign.name} value={sign.name}>
@@ -190,7 +190,7 @@ export function TimingEvaluation() {
                       required
                       value={dobInput}
                       onChange={(e) => setDobInput(e.target.value)}
-                      className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 rounded-xl px-4 py-3 text-sm text-midnight dark:text-white focus:outline-none focus:border-amber-500/50 transition-all"
+                      className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] rounded-xl px-4 py-3 text-sm text-midnight dark:text-white focus:outline-none focus:border-amber-500/50 transition-all"
                     />
                   </div>
                 </div>
@@ -204,7 +204,7 @@ export function TimingEvaluation() {
                     type="time"
                     value={tobInput}
                     onChange={(e) => setTobInput(e.target.value)}
-                    className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 rounded-xl px-4 py-3 text-sm text-midnight dark:text-white focus:outline-none focus:border-amber-500/50 transition-all"
+                    className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] rounded-xl px-4 py-3 text-sm text-midnight dark:text-white focus:outline-none focus:border-amber-500/50 transition-all"
                   />
                 </div>
 
@@ -218,7 +218,7 @@ export function TimingEvaluation() {
                     placeholder="City, Country"
                     value={pobInput}
                     onChange={(e) => setPobInput(e.target.value)}
-                    className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 rounded-xl px-4 py-3 text-sm text-midnight dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-amber-500/50 transition-all"
+                    className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] rounded-xl px-4 py-3 text-sm text-midnight dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-amber-500/50 transition-all"
                   />
                 </div>
 
@@ -234,7 +234,7 @@ export function TimingEvaluation() {
                   placeholder="e.g. I am planning a major career switch next month. Is this a good time?"
                   value={queryInput}
                   onChange={(e) => setQueryInput(e.target.value)}
-                  className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 rounded-xl px-4 py-3 text-sm text-midnight dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/50 transition-all resize-none"
+                  className="w-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] rounded-xl px-4 py-3 text-sm text-midnight dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/50 transition-all resize-none"
                 />
               </div>
 
@@ -320,7 +320,7 @@ export function TimingEvaluation() {
               <div className="sticky top-0 z-10 bg-ivory/90 dark:bg-midnight/90 backdrop-blur-xl border-b border-gold/10 px-6 py-4 flex items-center justify-between">
                 <div>
                   <h3 className="font-sans text-lg text-midnight dark:text-cream tracking-wider font-semibold">Your Cosmic Assessment</h3>
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500">For {nameInput} • {zodiacFormSelect}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500">For {nameInput} â€¢ {zodiacFormSelect}</p>
                 </div>
                 <button
                   onClick={() => setIsReadingModalOpen(false)}

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import ScrollFloat from '../ui/ScrollFloat';
 import { AnimatedGrid } from '../ui/AnimatedGrid';
@@ -12,7 +12,7 @@ const EXPERTS = [
     desc: "Speak face-to-face with a senior Vedic scholar. Receive immediate clarity on your career, relationships, and immediate planetary remedies.",
     cta: "Book Consultation",
     image: consultation,
-    titleColor: "text-blue-700 dark:text-blue-400"
+    titleColor: "text-purple-700 dark:text-purple-400"
   },
   {
     badgeText: "Nadi Reading",
@@ -20,7 +20,7 @@ const EXPERTS = [
     desc: "Access the precise karmic blueprints inscribed for you by the Maharishis thousands of years ago, complete with soul-cleansing remedies.",
     cta: "Unlock Destiny",
     image: palm_leaf,
-    titleColor: "text-emerald-700 dark:text-emerald-400"
+    titleColor: "text-purple-600 dark:text-amber-400"
   },
   {
     badgeText: "Written Report",
@@ -28,13 +28,13 @@ const EXPERTS = [
     desc: "Written reports on your career, marriage and wealth, and the dasha (planetary cycle) periods shaping the years ahead.",
     cta: "See reports",
     image: personal_report,
-    titleColor: "text-rose-700 dark:text-rose-400"
+    titleColor: "text-purple-700 dark:text-purple-400"
   }
 ];
 
 export function ExpertChart() {
   return (
-    <section className="py-12 md:py-16 transition-colors duration-500 relative overflow-hidden z-10">
+    <section className="py-6 md:py-8 md:py-16 transition-colors duration-500 relative overflow-hidden z-10">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Header */}
@@ -58,7 +58,7 @@ export function ExpertChart() {
           {EXPERTS.map((item, idx) => (
             <AnimatedCard
               key={idx}
-              className="rounded-[2.5rem] flex flex-col group cursor-pointer overflow-hidden relative min-h-[450px] md:h-[450px] border border-black/5 dark:border-white/10 shadow-xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 bg-white dark:bg-[#0a0e17]"
+              className="rounded-[2.5rem] flex flex-col group cursor-pointer overflow-hidden relative min-h-[450px] md:h-[450px] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 bg-white dark:bg-[#0a0e17]"
             >
               {/* Image Container: Stacked on mobile, absolute overlay on desktop */}
               <div className="relative md:absolute inset-0 z-0 h-[250px] md:h-full shrink-0">

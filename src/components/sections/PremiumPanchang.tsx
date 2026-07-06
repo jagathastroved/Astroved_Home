@@ -1,10 +1,10 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, MapPin, Calendar, Clock, Sun, Sunset, Moon, MoonStar, Star, Info } from 'lucide-react';
 
 export function PremiumPanchang() {
   return (
-    <section className="relative py-16 md:py-12 md:py-16 overflow-hidden" id="daily-panchang">
+    <section className="relative py-10 md:py-12 md:py-16 overflow-hidden" id="daily-panchang">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[600px] bg-indigo/5 dark:bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -13,10 +13,10 @@ export function PremiumPanchang() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white dark:bg-[#0c0f24] rounded-[2rem] p-6 lg:p-10 relative overflow-hidden shadow-2xl border border-black/5 dark:border-white/10 hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500"
+          className="bg-white dark:bg-[#0c0f24] rounded-[2rem] p-6 lg:p-10 relative overflow-hidden shadow-2xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500"
         >
           {/* Top Astronomical Header Bar */}
-          <div className="flex flex-col xl:flex-row justify-between items-center gap-6 border-b border-black/5 dark:border-white/5 pb-8 mb-8">
+          <div className="flex flex-col xl:flex-row justify-between items-center gap-6 border-b border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] pb-8 mb-8">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-orange-500 flex items-center justify-center shadow-lg shadow-gold/20 shrink-0">
                 <Sun className="w-6 h-6 text-white" />
@@ -37,7 +37,7 @@ export function PremiumPanchang() {
             </div>
 
             {/* Astronomy Ticker */}
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-6 bg-white/60 dark:bg-[#0c0f24]/50 backdrop-blur-md px-6 py-3 rounded-2xl border border-purple/10 dark:border-white/5 w-full xl:w-auto shadow-sm dark:shadow-none">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-6 bg-white/60 dark:bg-[#0c0f24]/50 backdrop-blur-md px-6 py-3 rounded-2xl border border-purple/10 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] w-full xl:w-auto shadow-sm dark:shadow-none">
               <div className="flex items-center gap-2">
                 <Sun className="w-5 h-5 text-amber-500" />
                 <div className="flex flex-col">
@@ -47,7 +47,7 @@ export function PremiumPanchang() {
               </div>
               <div className="w-px h-8 bg-black/10 dark:bg-white/10" />
               <div className="flex items-center gap-2">
-                <Sunset className="w-5 h-5 text-orange-500" />
+                <Sunset className="w-5 h-5 text-amber-500" />
                 <div className="flex flex-col">
                   <span className="text-[9px] uppercase tracking-wider font-bold text-slate-500 dark:text-slate-500">Sunset</span>
                   <span className="text-xs font-mono font-semibold text-midnight dark:text-cream">6:35 PM</span>
@@ -55,7 +55,7 @@ export function PremiumPanchang() {
               </div>
               <div className="w-px h-8 bg-black/10 dark:bg-white/10 hidden sm:block" />
               <div className="flex items-center gap-2 hidden sm:flex">
-                <Moon className="w-5 h-5 text-indigo-500 dark:text-indigo-300" />
+                <Moon className="w-5 h-5 text-purple-500 dark:text-purple-300" />
                 <div className="flex flex-col">
                   <span className="text-[9px] uppercase tracking-wider font-bold text-slate-500 dark:text-slate-500">Moonrise</span>
                   <span className="text-xs font-mono font-semibold text-midnight dark:text-cream">9:54 PM</span>
@@ -78,7 +78,7 @@ export function PremiumPanchang() {
             <div className="lg:col-span-4 space-y-8">
 
               {/* Tamil Date & Additional Info */}
-              <div className="bg-white/70 dark:bg-black/20 p-5 rounded-2xl border border-purple/10 dark:border-white/5 shadow-sm space-y-3 relative overflow-hidden">
+              <div className="bg-white/70 dark:bg-black/20 p-5 rounded-2xl border border-purple/10 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-sm space-y-3 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 blur-[20px] rounded-full pointer-events-none" />
                 <div className="relative z-10 flex justify-between items-center">
                   <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400">Tamil Date</span>
@@ -133,7 +133,7 @@ export function PremiumPanchang() {
             <div className="lg:col-span-4 space-y-8">
 
               {/* Additional Elements Box */}
-              <div className="bg-white/70 dark:bg-black/20 p-5 rounded-2xl border border-indigo/10 dark:border-white/5 shadow-sm space-y-3 relative overflow-hidden">
+              <div className="bg-white/70 dark:bg-black/20 p-5 rounded-2xl border border-indigo/10 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-sm space-y-3 relative overflow-hidden">
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo/5 blur-[20px] rounded-full pointer-events-none" />
                 <div className="relative z-10 flex justify-between items-center">
                   <span className="text-[12px] font-bold text-slate-500 dark:text-slate-400">Energy (Yoga)</span>
@@ -153,9 +153,9 @@ export function PremiumPanchang() {
                 <div className="space-y-3 pl-2 border-l-2 border-indigo/20 dark:border-saffron/20">
                   <div className="pl-4 relative">
                     <div className="absolute top-1.5 -left-[5px] w-2 h-2 rounded-full bg-indigo dark:bg-saffron" />
-                    <p className="text-[13px] font-semibold text-indigo-700 dark:text-saffron flex justify-between items-center">
+                    <p className="text-[13px] font-semibold text-purple-700 dark:text-saffron flex justify-between items-center">
                       Avittam
-                      <span className="text-[10px] bg-indigo/10 dark:bg-saffron/10 px-2 py-0.5 rounded text-indigo-600 dark:text-saffron/80 uppercase tracking-wider">Active</span>
+                      <span className="text-[10px] bg-purple-500/10 dark:bg-saffron/10 px-2 py-0.5 rounded text-purple-600 dark:text-saffron/80 uppercase tracking-wider">Active</span>
                     </p>
                     <p className="text-[11px] font-mono text-slate-600 dark:text-slate-400 mt-1">Jul 03, 11:46 AM &mdash; Jul 04, 01:43 PM</p>
                   </div>
@@ -170,11 +170,11 @@ export function PremiumPanchang() {
               {/* Auspicious Quick Info */}
               <div className="pt-4 space-y-4">
                 <div className="flex gap-3 items-start">
-                  <span className="text-[9px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 min-w-[50px] pt-[2px]">To Do</span>
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400 min-w-[50px] pt-[2px]">To Do</span>
                   <span className="text-[12px] text-slate-600 dark:text-slate-400 leading-relaxed font-medium">Monetary transactions, litigation, progressive acts</span>
                 </div>
                 <div className="flex gap-3 items-start">
-                  <span className="text-[9px] font-bold uppercase tracking-widest text-rose-600 dark:text-rose-400 min-w-[50px] pt-[2px]">Avoid</span>
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-purple-600 dark:text-purple-400 min-w-[50px] pt-[2px]">Avoid</span>
                   <span className="text-[12px] text-slate-600 dark:text-slate-400 leading-relaxed font-medium">Travel, new meetings, important signings</span>
                 </div>
               </div>
@@ -250,11 +250,11 @@ export function PremiumPanchang() {
           </div>
 
           {/* CTA Footer */}
-          <div className="mt-12 pt-8 border-t border-black/5 dark:border-white/5 flex flex-col sm:flex-row items-center justify-center gap-6">
+          <div className="mt-12 pt-8 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex flex-col sm:flex-row items-center justify-center gap-6">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-8 py-3.5 rounded-full font-sans font-semibold tracking-wide shadow-lg shadow-orange-500/20 flex items-center justify-center gap-3 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-purple-500 text-white font-sans text-xs sm:text-sm uppercase tracking-widest font-bold hover:bg-purple-400 transition-colors shadow-[0_4px_14px_0_rgba(168,85,247,0.39)]"
             >
               Get Your Tamil Horoscope
               <ArrowRight className="w-4 h-4" />

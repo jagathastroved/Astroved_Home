@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Activity, Sun, Moon, Home, Clock, ArrowRight } from 'lucide-react';
 import ScrollFloat from '../ui/ScrollFloat';
 import { AnimatedGrid } from '../ui/AnimatedGrid';
@@ -19,8 +19,8 @@ const CARDS = [
     title: "Your Benefic Influences",
     subtitle: "Active Cosmic Allies",
     linkText: "Reveal Planets",
-    color: "text-orange-500",
-    bgHover: "hover:bg-orange-500/10"
+    color: "text-amber-500",
+    bgHover: "hover:bg-amber-500/10"
   },
   {
     icon: Moon,
@@ -35,22 +35,22 @@ const CARDS = [
     title: "Optimal Property Windows",
     subtitle: "Real Estate Auspices",
     linkText: "Check Timing",
-    color: "text-emerald-500",
-    bgHover: "hover:bg-emerald-500/10"
+    color: "text-purple-500",
+    bgHover: "hover:bg-purple-500/10"
   },
   {
     icon: Clock,
     title: "Next Power Manifestation",
     subtitle: "Upcoming Ritual Timing",
     linkText: "Find Window",
-    color: "text-indigo-500",
-    bgHover: "hover:bg-indigo-500/10"
+    color: "text-amber-500",
+    bgHover: "hover:bg-amber-500/10"
   }
 ];
 
 export function UptimesDowntimes() {
   return (
-    <section className="py-12 md:py-16 bg-transparent transition-colors duration-500 relative overflow-hidden z-10">
+    <section className="py-6 md:py-8 md:py-16 bg-transparent transition-colors duration-500 relative overflow-hidden z-10">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/5 dark:bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
@@ -74,7 +74,7 @@ export function UptimesDowntimes() {
         <AnimatedGrid className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mt-12">
 
           {/* Large Hero Card (Card 1) */}
-          <AnimatedCard className="md:col-span-2 md:row-span-2 rounded-[2.5rem] flex flex-col group cursor-pointer transition-all duration-500 overflow-hidden relative min-h-[350px] md:min-h-[400px] border border-black/5 dark:border-white/10 shadow-xl bg-[#0a0e17]">
+          <AnimatedCard className="md:col-span-2 md:row-span-2 rounded-[2.5rem] flex flex-col group cursor-pointer transition-all duration-500 overflow-hidden relative min-h-[350px] md:min-h-[400px] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-xl bg-[#0a0e17]">
             <div className="absolute inset-0 h-full z-0 overflow-hidden shrink-0">
               <img
                 src={current_phase}
@@ -115,36 +115,36 @@ export function UptimesDowntimes() {
               title: "Your Benefic Influences",
               subtitle: "Active Cosmic Allies",
               linkText: "Reveal Planets",
-              color: "text-orange-400",
+              color: "text-purple-600 dark:text-purple-400",
               image: befific_planets
             },
             {
               title: "Your Malefic Pressures",
               subtitle: "Current Karmic Blocks",
               linkText: "Reveal Planets",
-              color: "text-purple-400",
+              color: "text-purple-600 dark:text-purple-400",
               image: malfic
             },
             {
               title: "Optimal Property Windows",
               subtitle: "Real Estate Auspices",
               linkText: "Check Timing",
-              color: "text-emerald-400",
+              color: "text-purple-600 dark:text-purple-400",
               image: real_estate_img
             },
             {
               title: "Next Power Manifestation",
               subtitle: "Upcoming Ritual Timing",
               linkText: "Find Window",
-              color: "text-indigo-400",
+              color: "text-purple-600 dark:text-purple-400",
               image: Upcoming_Ritual_Timing
             }
           ].map((card, idx) => (
             <AnimatedCard
               key={idx}
-              className="rounded-[2rem] flex flex-col group cursor-pointer overflow-hidden relative min-h-[220px] md:min-h-[250px] border border-black/5 dark:border-white/10 shadow-lg bg-white dark:bg-[#0a0e17]"
+              className="rounded-[2rem] flex flex-col group cursor-pointer overflow-hidden relative min-h-[220px] md:min-h-[250px] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-lg bg-white dark:bg-[#0a0e17]"
             >
-              <div className="relative h-[120px] md:h-[150px] z-0 overflow-hidden shrink-0">
+              <div className="relative aspect-video lg:aspect-auto lg:h-[160px] z-0 overflow-hidden shrink-0">
                 <img
                   src={card.image}
                   alt={card.title}

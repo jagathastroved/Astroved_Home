@@ -1,9 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 import { LIVE_MOMENTS } from '../../utils/data';
 
 export function LiveMarquee() {
   return (
-    <section className="py-12 border-y border-gold/10 bg-cream/30 dark:bg-midnight/20 overflow-hidden" id="live-moments">
+    <section className="py-6 md:py-8 border-y border-gold/10 bg-cream/30 dark:bg-midnight/20 overflow-hidden" id="live-moments">
       <div className="max-w-7xl mx-auto px-6 mb-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
         <div>
           <span className="text-xs font-mono uppercase tracking-widest text-purple dark:text-saffron block">LIVE HOROLOGICAL STREAM</span>

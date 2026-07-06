@@ -1,11 +1,11 @@
-import React from 'react';
+﻿import React from 'react';
 import { HoverGlowCard } from '../HoverGlowCard';
 import { Star, ScrollText, Sparkles, Zap, Map, Heart, Users } from 'lucide-react';
 import ScrollFloat from '../ui/ScrollFloat';
 
 export function ServicesSections() {
   return (
-    <div className="relative py-24 z-10 space-y-32" id="guidance-services">
+    <div className="relative py-10 z-10 space-y-32" id="guidance-services">
       {/* Background decorations */}
       <div className="absolute top-[20%] left-0 w-1/3 h-1/3 bg-purple-500/5 dark:bg-purple-900/10 blur-[150px] rounded-full pointer-events-none -z-10" />
       <div className="absolute top-[60%] right-0 w-1/4 h-1/4 bg-amber-500/5 dark:bg-amber-900/10 blur-[120px] rounded-full pointer-events-none -z-10" />

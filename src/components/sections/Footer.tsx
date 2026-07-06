@@ -1,9 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 import { scrollToSection } from '../../utils/scroll';
 
 export function Footer() {
   return (
-    <footer className="relative z-10 bg-gradient-to-br from-ivory via-cream to-amber-50/30 dark:bg-gradient-to-br dark:from-[#0a0514] dark:via-[#1a0b2e] dark:to-[#0a0e17] backdrop-blur-xl border-t border-purple/10 dark:border-white/10 py-10 md:py-16 px-6 transition-all duration-500 overflow-hidden">
+    <footer className="relative z-10 bg-gradient-to-br from-ivory via-cream to-amber-50/30 dark:bg-gradient-to-br dark:from-[#0a0514] dark:via-[#1a0b2e] dark:to-[#0a0e17] backdrop-blur-xl border-t border-purple/10 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] py-10 md:py-16 px-6 transition-all duration-500 overflow-hidden">
 
       {/* Subtle background glow effect */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-purple/5 dark:bg-gold/5 rounded-[100%] blur-[100px] pointer-events-none" />
@@ -89,22 +89,19 @@ export function Footer() {
           <h4 className="font-sans text-[13px] font-bold uppercase tracking-[0.1em] text-midnight dark:text-cream">Corporate Office</h4>
           <div className="space-y-3 text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
             <p className="flex gap-2">
-              <span className="text-amber-500 mt-0.5">📍</span>
               <span>4th Floor, A-Block, Prince Info Park,<br />Plot No. 81-B, 2nd Main Road,<br />Ambattur Industrial Estate, Chennai 600058.</span>
             </p>
             <p className="flex gap-2">
-              <span className="text-amber-500">📞</span>
               <span>Phone: +91-44-43419898</span>
             </p>
             <p className="flex gap-2">
-              <span className="text-amber-500">🕒</span>
               <span>Hours: Opens daily at 09:30 AM</span>
             </p>
           </div>
 
           {/* Badges from screenshot */}
           <div className="flex items-center gap-4 pt-4">
-            <div className="w-12 h-12 bg-blue-600 rounded-full flex flex-col items-center justify-center text-white p-1">
+            <div className="w-12 h-12 bg-purple-600 rounded-full flex flex-col items-center justify-center text-white p-1">
               <span className="text-[6px] font-bold uppercase text-center leading-tight">25 Years<br />Excellence</span>
             </div>
             <div className="text-xs font-bold text-slate-500">
@@ -116,7 +113,7 @@ export function Footer() {
       </div>
 
       {/* Legal bar */}
-      <div className="relative max-w-7xl mx-auto pt-8 border-t border-purple/10 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="relative max-w-7xl mx-auto pt-8 border-t border-purple/10 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex flex-col md:flex-row items-center justify-between gap-4">
         <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-slate-500 dark:text-slate-500/80">
           &copy; {new Date().getFullYear()} AstroVed. All traditional rights reserved.
         </span>

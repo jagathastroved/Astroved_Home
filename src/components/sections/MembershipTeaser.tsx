@@ -1,11 +1,11 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { Compass, ArrowRight } from 'lucide-react';
 import { scrollToSection } from '../../utils/scroll';
 
 export function MembershipTeaser() {
   return (
-    <section className="py-12 md:py-16 relative overflow-hidden z-10" id="membership">
+    <section className="py-6 md:py-8 md:py-16 relative overflow-hidden z-10" id="membership">
       
       {/* Slow moving ambient gradient field behind the card */}
       <div className="absolute inset-0 pointer-events-none">

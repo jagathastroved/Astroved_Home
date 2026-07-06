@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Clock, Compass, ArrowRight } from 'lucide-react';
 import { ZODIAC_SIGNS, HOROSCOPES } from '../../utils/data';
@@ -12,9 +12,10 @@ interface DailyRadarProps {
 export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
   const [selectedZodiac, setSelectedZodiac] = useState('Aries');
   const [horoscopeTab, setHoroscopeTab] = useState<'Today' | 'Week' | 'Month'>('Today');
+  const contentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-12 md:py-16 relative overflow-hidden" id="daily-widget">
+    <section className="py-6 md:py-8 md:py-16 relative overflow-hidden" id="daily-widget">
       <TargetCursor 
         targetSelector=".cursor-target" 
         spinDuration={2}
@@ -55,10 +56,17 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                 return (
                   <button
                     key={sign.name}
-                    onClick={() => setSelectedZodiac(sign.name)}
+                    onClick={() => {
+                      setSelectedZodiac(sign.name);
+                      if (window.innerWidth < 1024) {
+                        setTimeout(() => {
+                          contentRef.current?.scrollIntoView({ behavior: 'smooth' });
+                        }, 50);
+                      }
+                    }}
                     className={`cursor-target relative p-4 rounded-[1.5rem] text-center flex flex-col items-center justify-center gap-3 transition-all duration-300 group ${isActive
                       ? 'bg-white dark:bg-[#110c1c] shadow-xl scale-[1.02] border border-amber-500/30'
-                      : 'bg-white dark:bg-[#110c1c] border border-black/5 dark:border-white/5 hover:border-amber-500/20 hover:shadow-lg hover:scale-[1.02]'
+                      : 'bg-white dark:bg-[#110c1c] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] hover:border-amber-500/20 hover:shadow-lg hover:scale-[1.02]'
                       }`}
                   >
                     {isActive && (
@@ -86,16 +94,16 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
           </div>
 
           {/* Right Column: Tabbed glass panel for reading details */}
-          <div className="lg:col-span-8 relative group h-full">
+          <div ref={contentRef} className="lg:col-span-8 relative group h-full scroll-mt-24">
             {/* Ambient glow behind card */}
             <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/20 to-purple-500/20 rounded-[3rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
 
-            <div className="h-full rounded-[2.5rem] bg-white dark:bg-[#110c1c] p-8 sm:p-12 border border-black/5 dark:border-white/5 relative overflow-hidden shadow-2xl transition-all duration-500 flex flex-col">
+            <div className="h-full rounded-[2.5rem] bg-white dark:bg-[#110c1c] p-8 sm:p-12 border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] relative overflow-hidden shadow-2xl transition-all duration-500 flex flex-col">
 
               {/* Visual sign banner */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-black/5 dark:border-white/5 pb-8 mb-8">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] pb-8 mb-8">
                 <div className="flex items-center gap-6">
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-lg border border-black/5 dark:border-white/10 flex-shrink-0">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-lg border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex-shrink-0">
                     <img
                       src={ZODIAC_SIGNS.find(s => s.name === selectedZodiac)?.imageUrl}
                       alt={selectedZodiac}
@@ -104,7 +112,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                   </div>
                   <div>
                     <h3 className="font-sans text-2xl sm:text-3xl text-midnight dark:text-cream tracking-wide font-medium flex items-center gap-3">
-                      {selectedZodiac} <span className="text-amber-500/40 text-xl font-light hidden sm:inline">·</span> <span className="text-gray-400 dark:text-gray-500 text-xl hidden sm:inline">{ZODIAC_SIGNS.find(s => s.name === selectedZodiac)?.sanskrit}</span>
+                      {selectedZodiac} <span className="text-amber-500/40 text-xl font-light hidden sm:inline">Â·</span> <span className="text-gray-400 dark:text-gray-500 text-xl hidden sm:inline">{ZODIAC_SIGNS.find(s => s.name === selectedZodiac)?.sanskrit}</span>
                     </h3>
                     <div className="flex flex-wrap items-center gap-2 mt-3">
                       <span className="px-2 py-1 rounded-md bg-black/5 dark:bg-white/5 text-[9px] sm:text-[10px] font-mono text-gray-500 dark:text-gray-400 uppercase tracking-widest">
@@ -118,7 +126,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                 </div>
 
                 {/* Tabs today/week/month */}
-                <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-xl border border-black/5 dark:border-white/5 w-full sm:w-fit self-start sm:self-auto">
+                <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] w-full sm:w-fit self-start sm:self-auto">
                   {(['Today', 'Week', 'Month'] as const).map((tab) => {
                     const isActive = horoscopeTab === tab;
                     return (
@@ -182,7 +190,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
               </div>
 
               {/* Bottom interactive action */}
-              <div className="mt-10 pt-8 border-t border-black/5 dark:border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+              <div className="mt-10 pt-8 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                 <span className="text-xs sm:text-sm font-body text-gray-500 max-w-sm">
                   Get a custom chart built just for you.
                 </span>

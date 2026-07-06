@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Flame, Star, Zap, Clock } from 'lucide-react';
 
 const portals = [
@@ -7,7 +7,7 @@ const portals = [
     time: "Next 48 Hours",
     description: "A rare celestial configuration opening portals for wealth and karma clearing.",
     icon: Star,
-    color: "from-purple-500/20 to-indigo-500/20",
+    color: "from-purple-500/20 to-purple-800/20",
     borderGlow: "group-hover:border-purple-400/50",
     iconColor: "text-purple-300"
   },
@@ -16,7 +16,7 @@ const portals = [
     time: "Ends in 3 Days",
     description: "Sun entering an exalted state. Perfect timing for career moves and leadership.",
     icon: Flame,
-    color: "from-amber-500/20 to-orange-500/20",
+    color: "from-amber-500/20 to-amber-700/20",
     borderGlow: "group-hover:border-amber-400/50",
     iconColor: "text-amber-300"
   },
@@ -25,15 +25,15 @@ const portals = [
     time: "Active Now",
     description: "Favorable energies for deep meditation and sudden breakthroughs.",
     icon: Zap,
-    color: "from-emerald-500/20 to-teal-500/20",
-    borderGlow: "group-hover:border-emerald-400/50",
-    iconColor: "text-emerald-300"
+    color: "from-purple-500/20 to-amber-500/20",
+    borderGlow: "group-hover:border-purple-400/50",
+    iconColor: "text-purple-300"
   }
 ];
 
 export function AuspiciousPortals() {
   return (
-    <section className="relative py-12 md:py-16 bg-[#0c0618] overflow-hidden z-10" id="portals">
+    <section className="relative py-6 md:py-8 bg-[#0c0618] overflow-hidden z-10" id="portals">
       {/* Background glow effects */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />

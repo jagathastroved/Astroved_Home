@@ -82,19 +82,20 @@ export function SpecialEvents() {
                   <div className="group/card flex flex-col md:flex-row min-h-[450px] relative">
                     
                     {/* Background Image (Left side) */}
-                    <div className="w-full md:w-[60%] h-[300px] md:h-auto relative overflow-hidden shrink-0">
+                    <div className="absolute top-0 bottom-0 left-0 w-full md:w-[65%] h-[300px] md:h-auto overflow-hidden pointer-events-none">
                       <img
                         src={ev.image}
                         alt={ev.title}
                         className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-[1500ms] ease-out"
+                        style={{
+                          WebkitMaskImage: 'linear-gradient(to right, black 50%, transparent 100%)',
+                          maskImage: 'linear-gradient(to right, black 50%, transparent 100%)'
+                        }}
                       />
-                      {/* Gradient mask to blend image into the dark background on the right */}
-                      <div className="absolute inset-y-0 right-0 w-32 md:w-48 bg-gradient-to-l from-[#0b0e14] to-transparent pointer-events-none" />
-                      <div className="absolute inset-x-0 bottom-0 h-32 md:h-0 bg-gradient-to-t from-[#0b0e14] to-transparent pointer-events-none md:hidden" />
                     </div>
 
                     {/* Content (Right side) */}
-                    <div className="w-full md:w-[40%] p-8 sm:p-12 md:p-16 flex flex-col justify-center items-end text-right bg-[#0b0e14] z-10 relative">
+                    <div className="w-full md:w-[45%] ml-auto p-8 sm:p-12 md:p-16 flex flex-col justify-center items-end text-right z-10 relative pt-[320px] md:pt-16">
                       <div className="w-full">
                         <div className="flex items-center justify-end mb-4">
                           <span className={`font-serif italic text-xl md:text-2xl text-amber-500 dark:text-amber-400`}>

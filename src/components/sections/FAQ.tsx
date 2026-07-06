@@ -5,33 +5,33 @@ import { Plus } from 'lucide-react';
 const FAQ_DATA = [
   {
     id: 1,
-    q: "What is the difference between a 'Building' and a 'Waiting' phase?",
-    a: "A Building phase is a great time to start new projects and expand. A Waiting phase is a time to rest, reflect, and fix old problems. Pushing too hard during a Waiting phase can lead to burnout."
+    q: "How accurate are the new AI Kundali and Numerology reports?",
+    a: "Our advanced AI engines are trained on centuries of authentic Vedic astrological data and numerology principles, ensuring highly accurate, personalized, and insightful readings tailored specifically to your birth details."
   },
   {
     id: 2,
-    q: "Are the remote temple rituals real?",
-    a: "Yes. All rituals are performed physically at real temples by our certified priests. You will receive photos, videos, and the sacred ashes in the mail."
+    q: "Can I participate in temple rituals if I live outside of India?",
+    a: "Absolutely. We specialize in performing remote rituals on your behalf. Our certified priests conduct the ceremonies physically in sacred temples, and we share the spiritual benefits, photos, and blessed prasad with you directly."
   },
   {
     id: 3,
-    q: "How does the astrological calculation work?",
-    a: "We use your exact birth details (date, time, and place) to calculate your unique star positions. We then use modern AI to explain these complex star charts in simple, easy-to-understand language."
+    q: "What is included in the Premium Alliance membership?",
+    a: "The Premium Alliance gives you maximum spiritual support, including custom AI chart readings, 1 monthly temple ritual performed on your behalf, priority event seating, and the ability to talk to an expert priest anytime."
   },
   {
     id: 4,
-    q: "Why is my Vedic sign different from my Western sign?",
-    a: "Western astrology is based on seasons, while Vedic astrology looks at the actual physical stars in the sky right now. Because of the Earth's tilt, your Vedic sign is usually one sign behind your Western sign."
+    q: "Why is Vedic astrology considered more precise than Western astrology?",
+    a: "Vedic astrology relies on the sidereal zodiac, which tracks the actual, current positions of the constellations in the sky. This accounts for the Earth's tilt (Ayanamsa), offering a much more precise and karma-focused reading."
   },
   {
     id: 5,
-    q: "What is a Nakshatra?",
-    a: "In Vedic astrology, the sky is divided into 27 'Nakshatras' (star clusters) instead of just 12 signs. Your Nakshatra gives a much deeper look into your mind and personality."
+    q: "How do I know which astrological remedy or product is right for me?",
+    a: "You can start by generating a free AI Kundali report, or consult with our expert astrologers. We provide personalized recommendations for energized products and specific rituals based on your unique planetary doshas (afflictions)."
   },
   {
     id: 6,
-    q: "Are my personal details safe?",
-    a: "Absolutely. We never sell or share your birth details or personal information. Your data is kept entirely private and secure."
+    q: "Is my personal birth data kept private?",
+    a: "Yes, your privacy is our top priority. We use strict encryption protocols to secure your exact birth time, date, and location. Your data is only used to generate your personalized astrological charts and is never shared."
   }
 ];
 
@@ -39,7 +39,7 @@ export function FAQ() {
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
 
   return (
-    <section className="py-16 px-6 max-w-7xl mx-auto z-10 relative overflow-hidden" id="faq-section">
+    <section className="py-8 md:py-10 px-6 max-w-7xl mx-auto z-10 relative overflow-hidden" id="faq-section">
 
       {/* Background ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[300px] bg-purple-500/5 dark:bg-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
@@ -65,7 +65,7 @@ export function FAQ() {
               key={item.id}
               className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
                 ? 'border-amber-500/30 bg-white dark:bg-[#1a1f3c] shadow-lg shadow-amber-500/5'
-                : 'border-black/5 dark:border-white/5 bg-white dark:bg-[#110c1c] hover:border-amber-500/20 hover:bg-gray-50 dark:hover:bg-[#1a1f3c]'
+                : 'border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] bg-white dark:bg-[#110c1c] hover:border-amber-500/20 hover:bg-gray-50 dark:hover:bg-[#1a1f3c]'
                 }`}
             >
               <button
@@ -88,7 +88,7 @@ export function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
                   >
-                    <div className="px-6 pb-6 pt-2 border-t border-black/5 dark:border-white/5">
+                    <div className="px-6 pb-6 pt-2 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)]">
                       <p className="font-body text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed font-light">
                         {item.a}
                       </p>

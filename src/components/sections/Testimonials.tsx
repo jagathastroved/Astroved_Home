@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 import ScrollFloat from '../ui/ScrollFloat';
@@ -18,13 +18,13 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 relative z-10" id="trust-platform">
+    <section className="py-6 md:py-8 md:py-16 max-w-7xl mx-auto px-6 relative z-10" id="trust-platform">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
         {/* Left Column - Company Branding (4 Image Slices) */}
-        <div className="relative h-[500px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 dark:border-white/5 group flex">
+        <div className="relative h-[500px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] group flex">
           {BRAND_IMAGES.map((src, idx) => (
-            <div key={idx} className={`flex-1 relative overflow-hidden ${idx !== BRAND_IMAGES.length - 1 ? 'border-r border-white/20 dark:border-white/10' : ''}`}>
+            <div key={idx} className={`flex-1 relative overflow-hidden ${idx !== BRAND_IMAGES.length - 1 ? 'border-r border-white/20 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)]' : ''}`}>
               <img
                 src={src}
                 alt="Vedic Service"
@@ -56,13 +56,13 @@ export function Testimonials() {
                 ))}
               </div>
               <p className="font-body text-sm text-midnight dark:text-cream font-medium">
-                4.8 <span className="text-gray-500 dark:text-gray-400 font-normal">average rating · 12,000+ verified reviews</span>
+                4.8 <span className="text-gray-500 dark:text-gray-400 font-normal">average rating Â· 12,000+ verified reviews</span>
               </p>
             </div>
           </div>
 
           {/* Premium Testimonials Feedback Card */}
-          <div className="rounded-[2rem] bg-white dark:bg-[#110c1c] border border-black/5 dark:border-white/5 p-8 md:p-10 relative overflow-hidden shadow-xl">
+          <div className="rounded-[2rem] bg-white dark:bg-[#110c1c] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] p-8 md:p-10 relative overflow-hidden shadow-xl">
 
             {/* Soft background glow */}
             <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full blur-[50px] pointer-events-none" />
@@ -86,7 +86,7 @@ export function Testimonials() {
                       {TESTIMONIALS[activeTestimonial].name}
                     </h4>
                     <p className="font-mono text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-widest mt-1">
-                      {TESTIMONIALS[activeTestimonial].role} · {TESTIMONIALS[activeTestimonial].stats}
+                      {TESTIMONIALS[activeTestimonial].role} Â· {TESTIMONIALS[activeTestimonial].stats}
                     </p>
                   </div>
                 </motion.div>
@@ -94,7 +94,7 @@ export function Testimonials() {
             </div>
 
             {/* Controls */}
-            <div className="flex items-center justify-between pt-6 mt-6 border-t border-black/5 dark:border-white/10 relative z-10">
+            <div className="flex items-center justify-between pt-6 mt-6 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] relative z-10">
 
               <div className="flex items-center gap-1.5">
                 {TESTIMONIALS.map((_, idx) => (
@@ -111,13 +111,13 @@ export function Testimonials() {
               <div className="flex gap-2">
                 <button
                   onClick={() => setActiveTestimonial((prev) => (prev > 0 ? prev - 1 : TESTIMONIALS.length - 1))}
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-midnight dark:text-cream hover:bg-amber-500 hover:text-white hover:border-amber-500 active:scale-95 transition-all"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] text-midnight dark:text-cream hover:bg-amber-500 hover:text-white hover:border-amber-500 active:scale-95 transition-all"
                 >
                   <ArrowLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setActiveTestimonial((prev) => (prev < TESTIMONIALS.length - 1 ? prev + 1 : 0))}
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-midnight dark:text-cream hover:bg-amber-500 hover:text-white hover:border-amber-500 active:scale-95 transition-all"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] text-midnight dark:text-cream hover:bg-amber-500 hover:text-white hover:border-amber-500 active:scale-95 transition-all"
                 >
                   <ArrowRight className="w-4 h-4" />
                 </button>

@@ -32,7 +32,7 @@ export const RitualAnimatedBeam: React.FC = () => {
   };
 
   return (
-    <section className="py-32 relative overflow-hidden" id="rituals-beam">
+    <section className="py-10 relative overflow-hidden" id="rituals-beam">
       {/* Soft background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[400px] bg-amber-500/5 dark:bg-amber-500/10 blur-[100px] rounded-full pointer-events-none" />
 

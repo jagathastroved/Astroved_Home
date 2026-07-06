@@ -1,11 +1,11 @@
-import React from 'react';
+﻿import React from 'react';
 import { LIVE_MOMENTS } from '../../utils/data';
 import { ChandraMoon, guru_pushya_yoga, pradosham, Rahu_Ketu_Node_shift, sun_transit } from '../../assets/Auspicious_portal/index';
 
 
 export function LiveHorologicalStream() {
   return (
-    <section className="py-12 border-y border-black/10 dark:border-white/10 relative overflow-hidden transition-colors duration-500 z-10" id="live-moments">
+    <section className="py-6 md:py-8 border-y border-black/10 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] relative overflow-hidden transition-colors duration-500 z-10" id="live-moments">
 
 
 
@@ -33,7 +33,7 @@ export function LiveHorologicalStream() {
             return (
               <div
                 key={`${item.id}-r1-${idx}`}
-                className="w-72 h-48 rounded-2xl relative overflow-hidden flex-shrink-0 group border border-black/5 dark:border-white/10 shadow-lg cursor-pointer"
+                className="w-72 h-48 rounded-2xl relative overflow-hidden flex-shrink-0 group border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-lg cursor-pointer"
               >
                 <img
                   src={imgUrl}
@@ -70,7 +70,7 @@ export function LiveHorologicalStream() {
             return (
               <div
                 key={`${item.id}-r2-${idx}`}
-                className="w-72 h-48 rounded-2xl relative overflow-hidden flex-shrink-0 group border border-black/5 dark:border-white/10 shadow-lg cursor-pointer"
+                className="w-72 h-48 rounded-2xl relative overflow-hidden flex-shrink-0 group border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-lg cursor-pointer"
               >
                 <img
                   src={imgUrl}

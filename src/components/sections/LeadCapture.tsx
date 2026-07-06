@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Star, ArrowRight, Check } from 'lucide-react';
 import { AnimatedGrid } from '../ui/AnimatedGrid';
@@ -8,7 +8,7 @@ export function LeadCapture() {
   const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <section className="relative py-16 px-6 overflow-hidden border-t border-black/5 dark:border-white/5 transition-colors duration-500 z-10" id="membership">
+    <section className="relative py-10 px-6 overflow-hidden border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] transition-colors duration-500 z-10" id="membership">
 
       {/* Background ambient glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[600px] bg-amber-500/10 dark:bg-amber-500/5 blur-[150px] rounded-full pointer-events-none" />
@@ -29,7 +29,7 @@ export function LeadCapture() {
 
           {/* Monthly / Yearly Toggle */}
           <div className="flex items-center justify-center mt-10">
-            <div className="bg-black/5 dark:bg-white/5 backdrop-blur-md p-1.5 rounded-full inline-flex border border-black/5 dark:border-white/10">
+            <div className="bg-black/5 dark:bg-white/5 backdrop-blur-md p-1.5 rounded-full inline-flex border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)]">
               <button
                 onClick={() => setIsYearly(false)}
                 className={`px-6 py-2 rounded-full font-sans text-xs sm:text-sm uppercase tracking-widest font-semibold transition-all ${!isYearly
@@ -56,7 +56,7 @@ export function LeadCapture() {
         <AnimatedGrid className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch relative z-10">
 
           {/* Bronze Tier (Free Lead Capture) */}
-          <AnimatedCard className="bg-white dark:bg-[#110c1c] border border-black/5 dark:border-white/5 rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full relative overflow-hidden group">
+          <AnimatedCard className="bg-white dark:bg-[#110c1c] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full relative overflow-hidden group">
             {/* Subtle highlight */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-[40px] pointer-events-none transition-all group-hover:bg-amber-500/10" />
 
@@ -96,36 +96,36 @@ export function LeadCapture() {
               />
             </div>
 
-            <button className="w-full py-3.5 rounded-xl border border-black/10 dark:border-white/10 font-sans text-xs uppercase tracking-widest font-bold text-midnight dark:text-cream hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+            <button className="w-full py-3.5 rounded-xl border border-black/10 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] font-sans text-xs uppercase tracking-widest font-bold text-midnight dark:text-cream hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
               Activate Membership
             </button>
 
             <div className="text-center mt-4 flex items-center justify-center gap-1.5 opacity-80">
               <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
-              <span className="text-[9px] font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400">4.8★ from 12k+ reviews</span>
+              <span className="text-[9px] font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400">4.8â˜… from 12k+ reviews</span>
             </div>
           </AnimatedCard>
 
           {/* Seeker Tier */}
-          <AnimatedCard className="bg-white dark:bg-[#110c1c] border border-black/5 dark:border-white/5 rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full">
+          <AnimatedCard className="bg-white dark:bg-[#110c1c] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500 flex flex-col h-full">
             <h3 className="font-sans text-xl text-midnight dark:text-cream font-medium">Seeker Tier</h3>
             <p className="font-body text-xs text-gray-500 dark:text-gray-400 mt-2">Essential astrological guidance</p>
 
             <div className="mt-6 mb-8 flex items-baseline gap-2">
-              <span className="text-4xl font-sans text-midnight dark:text-cream font-semibold">{isYearly ? '₹8,999' : '₹999'}</span>
+              <span className="text-4xl font-sans text-midnight dark:text-cream font-semibold">{isYearly ? '₹5,499' : '₹499'}</span>
               <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">/{isYearly ? 'yr' : 'mo'}</span>
             </div>
 
             <ul className="space-y-4 mb-10 flex-grow">
               {['Daily Best Times', 'Basic Planetary Alerts', 'Community Access', 'Monthly Horoscope'].map((feature, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                  <Check className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
                   <span className="font-body text-sm text-gray-600 dark:text-gray-300">{feature}</span>
                 </li>
               ))}
             </ul>
 
-            <button className="w-full py-4 mt-auto rounded-full border border-black/10 dark:border-white/10 font-sans text-xs uppercase tracking-widest font-bold text-midnight dark:text-cream hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+            <button className="w-full py-4 mt-auto rounded-full border border-black/10 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] font-sans text-xs uppercase tracking-widest font-bold text-midnight dark:text-cream hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
               Begin Journey
             </button>
           </AnimatedCard>
@@ -143,8 +143,8 @@ export function LeadCapture() {
             <p className="font-body text-xs text-amber-700 dark:text-amber-400 mt-2">Maximum spiritual support</p>
 
             <div className="mt-6 mb-8 flex items-baseline gap-2">
-              <span className="text-5xl font-sans text-midnight dark:text-cream font-bold">{isYearly ? '₹22,999' : '₹2,499'}</span>
-              <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">/{isYearly ? 'yr' : 'mo'}</span>
+              <span className="text-5xl font-sans text-midnight dark:text-cream font-bold">{isYearly ? '₹12,499' : '₹999'}</span>
+              <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">/{isYearly ? 'year' : 'month'}</span>
             </div>
 
             <ul className="space-y-4 mb-10 flex-grow">
@@ -156,7 +156,7 @@ export function LeadCapture() {
               ))}
             </ul>
 
-            <button className="w-full py-4 mt-auto rounded-full bg-midnight dark:bg-white text-white dark:text-midnight font-sans text-xs uppercase tracking-widest font-bold hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white transition-colors shadow-lg shadow-amber-500/20">
+            <button className="w-full py-4 mt-auto rounded-full bg-[#a855f7] text-white font-sans text-xs uppercase tracking-widest font-bold hover:bg-[#9333ea] transition-colors shadow-lg">
               Join The Alliance
             </button>
           </AnimatedCard>

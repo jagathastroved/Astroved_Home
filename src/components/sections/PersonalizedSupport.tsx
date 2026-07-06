@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import ScrollFloat from '../ui/ScrollFloat';
@@ -21,7 +21,7 @@ export function PersonalizedSupport() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 relative z-0">
-          <ScrollFloat containerClassName="font-2xl uppercase tracking-[0.2em] text-[#facc15] font-bold block mb-4">
+          <ScrollFloat containerClassName="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
             Personalized Support
           </ScrollFloat>
           <ScrollFloat containerClassName="font-sans text-4xl md:text-5xl text-midnight dark:text-cream tracking-wide leading-tight font-medium mb-6 drop-shadow-lg">
@@ -35,7 +35,7 @@ export function PersonalizedSupport() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 relative z-10">
 
           {/* Card 1: Shreem Brzee Membership */}
-          <div className="group relative overflow-hidden rounded-[2.5rem] min-h-[500px] border border-gray-100 dark:border-white/10 transition-all hover:border-[#facc15]/60 shadow-xl hover:shadow-[0_0_40px_rgba(250,204,21,0.25)] flex flex-col justify-end p-8 md:p-12">
+          <div className="group relative overflow-hidden rounded-[2.5rem] min-h-[500px] border border-gray-100 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] transition-all hover:border-[#facc15]/60 shadow-xl hover:shadow-[0_0_40px_rgba(250,204,21,0.25)] flex flex-col justify-end p-8 md:p-12">
 
             {/* Full Background Image */}
             <div className="absolute inset-0 w-full h-full">
@@ -60,14 +60,14 @@ export function PersonalizedSupport() {
               <p className="font-body text-gray-200 mb-8 leading-relaxed drop-shadow-md">
                 Receive ongoing abundance-focused guidance, exclusive rituals, personalized recommendations, and premium spiritual resources.
               </p>
-              <button className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#facc15] hover:bg-[#eab308] text-black font-semibold uppercase tracking-widest text-sm hover:scale-105 transition-transform shadow-[0_4px_14px_0_rgba(250,204,21,0.39)]">
+              <button className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#a855f7] hover:bg-[#9333ea] text-white font-semibold uppercase tracking-widest text-sm hover:scale-105 transition-transform shadow-lg">
                 Join Membership <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
 
           {/* Card 2: Yearlong Tarpanam */}
-          <div className="group relative overflow-hidden rounded-[2.5rem] min-h-[500px] border border-gray-100 dark:border-white/10 transition-all hover:border-orange-500/60 shadow-xl hover:shadow-[0_0_40px_rgba(249,115,22,0.25)] flex flex-col justify-end p-8 md:p-12">
+          <div className="group relative overflow-hidden rounded-[2.5rem] min-h-[500px] border border-gray-100 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] transition-all hover:border-orange-500/60 shadow-xl hover:shadow-[0_0_40px_rgba(249,115,22,0.25)] flex flex-col justify-end p-8 md:p-12">
 
             {/* Full Background Image */}
             <div className="absolute inset-0 w-full h-full">
@@ -89,7 +89,7 @@ export function PersonalizedSupport() {
               <p className="font-body text-gray-200 mb-8 leading-relaxed drop-shadow-md">
                 Honor your ancestors throughout the year with scheduled sacred rituals performed by experienced temple priests.
               </p>
-              <button className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold uppercase tracking-widest text-sm hover:scale-105 transition-transform shadow-[0_4px_14px_0_rgba(249,115,22,0.39)]">
+              <button className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#a855f7] hover:bg-[#9333ea] text-white font-semibold uppercase tracking-widest text-sm hover:scale-105 transition-transform shadow-lg">
                 Learn More <ArrowRight className="w-4 h-4" />
               </button>
             </div>
