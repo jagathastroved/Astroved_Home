@@ -37,6 +37,24 @@ const events = [
 
 export function SpecialEvents() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > 50) nextSlide();
+    if (distance < -50) prevSlide();
+  };
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev === events.length - 1 ? 0 : prev + 1));
@@ -71,7 +89,12 @@ export function SpecialEvents() {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative group px-0">
+        <div 
+          className="relative group px-0 touch-pan-y"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className="overflow-hidden rounded-[2.5rem] bg-[#0b0e14] border border-white/5 hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500">
             <div 
               className="flex transition-transform duration-500 ease-in-out" 
@@ -140,15 +163,15 @@ export function SpecialEvents() {
           {/* Navigation Buttons (Placed inside the card bounds) */}
           <button 
             onClick={prevSlide} 
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 border border-white/20 p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 hidden md:block backdrop-blur-sm"
+            className="absolute left-2 md:left-4 top-[35%] md:top-1/2 -translate-y-1/2 bg-black/50 border border-white/20 p-2 md:p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 backdrop-blur-sm"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
           </button>
           <button 
             onClick={nextSlide} 
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 border border-white/20 p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 hidden md:block backdrop-blur-sm"
+            className="absolute right-2 md:right-4 top-[35%] md:top-1/2 -translate-y-1/2 bg-black/50 border border-white/20 p-2 md:p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 backdrop-blur-sm"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
           </button>
 
           {/* Dots Indicator */}
