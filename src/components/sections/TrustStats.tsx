@@ -29,7 +29,7 @@ export function TrustStats() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-        className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-10 items-center"
+        className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-4 gap-4 lg:gap- items-center"
       >
 
         {/* Title Area */}

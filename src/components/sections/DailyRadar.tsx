@@ -29,7 +29,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-        <div className="text-center max-w-3xl mx-auto mb-8">
+        <div className="text-center max-w-3xl mx-auto mb-4">
           <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
             Daily <em className="text-amber-600 dark:text-amber-400 italic">Horoscope.</em>
           </h2>
@@ -41,7 +41,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
           </p> */}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 w-full max-w-6xl mx-auto">
 
           {/* Left Column: 12 Sign Grid Selector (No Swiping) */}
           <div className="lg:col-span-4 flex flex-col space-y-4">
@@ -100,7 +100,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
             <div className="h-full rounded-[2.5rem] bg-white dark:bg-[#110c1c] p-8 sm:p-12 border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] relative overflow-hidden shadow-2xl transition-all duration-500 flex flex-col">
 
               {/* Visual sign banner */}
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between flex-wrap gap-6 border-b border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] pb-8 mb-8">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between flex-wrap gap-6">
                 <div className="flex items-center gap-6">
                   <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-lg border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex-shrink-0">
                     <img
@@ -163,7 +163,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
               </div>
 
               {/* Bottom interactive action */}
-              <div className="mt-10 pt-8 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+              <div className="mt-4 pt-4 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                 <button
                   onClick={() => onCalculateChart(selectedZodiac)}
                   className="w-full sm:w-auto px-6 py-4 rounded-xl bg-midnight dark:bg-white text-white dark:text-midnight hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white font-sans text-[10px] sm:text-xs tracking-widest uppercase font-bold transition-all shadow-md flex items-center justify-center gap-3 group/btn flex-shrink-0"

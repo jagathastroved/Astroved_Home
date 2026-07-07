@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { banner_1, banner_2, banner_3, banner_4 } from '../../assets/Banner_image/index';
+import { banner_1, banner_2, banner_3, banner_4, hero_banner } from '../../assets/Banner_image/index';
 
 interface BannerItem {
   id: number;
@@ -19,6 +19,7 @@ interface BannerItem {
   hugeText?: string;
   size?: 'small' | 'large' | string;
   imageWidth?: string;
+  mobileImage?: string;
 }
 
 const BANNERS: BannerItem[] = [
@@ -30,6 +31,7 @@ const BANNERS: BannerItem[] = [
     description: "Guidance. Remedies. Rituals. Peace of Mind.\nAll at AstroVed.",
     buttonText: "Explore Now",
     image: banner_1,
+    mobileImage: hero_banner,
     bg: "bg-[#faf9f6] dark:bg-[#0b1120]",
     titlePrefixAccent: "text-white",
     accent: "text-white block mt-1",
@@ -82,48 +84,13 @@ const BANNERS: BannerItem[] = [
 ];
 
 export function HeroSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEndHandler = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    if (distance > minSwipeDistance) nextSlide();
-    if (distance < -minSwipeDistance) prevSlide();
-  };
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % BANNERS.length);
-    }, 8000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % BANNERS.length);
-  const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + BANNERS.length) % BANNERS.length);
-
-  const currentBanner = BANNERS[currentIndex];
+  const currentBanner = BANNERS[0];
 
   return (
     <div className="w-full">
       <section
-        className={`relative w-full bg-[#0b1120] shadow-2xl overflow-hidden transition-colors duration-1000 min-h-[420px] md:min-h-[600px] flex items-end justify-center touch-pan-y pb-16 md:pb-24`}
+        className={`relative w-full bg-[#0b1120] shadow-2xl overflow-hidden transition-colors duration-1000 min-h-[420px] md:min-h-[600px] flex items-end justify-center pb-16 md:pb-24`}
         id="hero-section"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEndHandler}
       >
 
         {/* Background Image & Gradient Blend */}
@@ -155,7 +122,7 @@ export function HeroSection() {
               {/* Mobile Background Image (Full background) */}
               <div className="md:hidden absolute inset-0 pointer-events-none">
                 <img
-                  src={currentBanner.image}
+                  src={currentBanner.mobileImage || currentBanner.image}
                   alt={currentBanner.titlePrefix || 'Astroved Banner'}
                   className="w-full h-full object-cover object-center"
                 />
@@ -165,33 +132,6 @@ export function HeroSection() {
           )}
         </AnimatePresence>
 
-        {/* Carousel Arrows */}
-        <button
-          onClick={prevSlide}
-          className="flex absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/20 hover:bg-black/40 items-center justify-center border border-white/20 backdrop-blur-sm transition-colors"
-        >
-          <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-white" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="flex absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/20 hover:bg-black/40 items-center justify-center border border-white/20 backdrop-blur-sm transition-colors"
-        >
-          <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-white" />
-        </button>
-
-        {/* Slide Indicators */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
-          {BANNERS.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentIndex(idx)}
-              className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex
-                ? 'bg-white w-6'
-                : 'bg-white/20 hover:bg-white/40 w-2'
-                }`}
-            />
-          ))}
-        </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 w-full py-4 md:py-6">
           <AnimatePresence mode="wait">
