@@ -155,7 +155,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     className="space-y-8"
                   >
-                    <p className="font-body text-xl sm:text-2xl text-gray-800 dark:text-gray-200 leading-relaxed font-medium mt-6">
+                    <p className="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-light mt-6">
                       {HOROSCOPES[selectedZodiac]?.[horoscopeTab]}
                     </p>
                   </motion.div>
