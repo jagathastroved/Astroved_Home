@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sun, Moon, Menu, X, ChevronRight } from 'lucide-react';
+import { Sun, Moon, Menu, X, ChevronRight, Sparkles, ShoppingBag, Map, Hand, Crown, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../ThemeProvider';
 import { scrollToSection } from '../../utils/scroll';
@@ -9,12 +9,12 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Special Events', id: 'special-events' },
-    { label: 'Products', id: 'products' },
-    { label: 'Pilgrimages', id: 'pilgrimages' },
-    { label: 'Services', id: 'auspicious-actions' },
-    { label: 'Membership', id: 'personalized-support' },
-    { label: 'Right Time', id: 'daily-panchang' },
+    { label: 'Special Events', id: 'special-events', icon: Sparkles, color: 'text-amber-400', borderColor: 'border-amber-400/40', bgIcon: 'bg-amber-400/5' },
+    { label: 'Products', id: 'products', icon: ShoppingBag, color: 'text-purple-400', borderColor: 'border-purple-400/40', bgIcon: 'bg-purple-400/5' },
+    { label: 'Pilgrimages', id: 'pilgrimages', icon: Map, color: 'text-purple-400', borderColor: 'border-purple-400/40', bgIcon: 'bg-purple-400/5' },
+    { label: 'Services', id: 'auspicious-actions', icon: Hand, color: 'text-purple-400', borderColor: 'border-purple-400/40', bgIcon: 'bg-purple-400/5' },
+    { label: 'Membership', id: 'personalized-support', icon: Crown, color: 'text-purple-400', borderColor: 'border-purple-400/40', bgIcon: 'bg-purple-400/5' },
+    { label: 'Right Time', id: 'daily-panchang', icon: Clock, color: 'text-amber-400', borderColor: 'border-amber-400/40', bgIcon: 'bg-amber-400/5' },
   ];
 
   const handleNavClick = (id: string) => {
@@ -115,60 +115,79 @@ export function Navbar() {
       </div>
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, clipPath: 'inset(0% 0% 100% 0%)' }}
-            animate={{ opacity: 1, clipPath: 'inset(0% 0% 0% 0%)' }}
-            exit={{ opacity: 0, clipPath: 'inset(0% 0% 100% 0%)' }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden fixed inset-0 z-40 w-full h-screen overflow-hidden bg-ivory dark:bg-[#06080d] backdrop-blur-3xl"
-          >
-            {/* Elegant Ambient Blur */}
-            <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[150px] pointer-events-none" />
-            <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[150px] pointer-events-none" />
+          <>
+            {/* Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="lg:hidden fixed inset-0 z-30 bg-black/40 backdrop-blur-sm"
+            />
 
-            <div className="h-full px-8 pt-24 pb-12 flex flex-col relative z-10 overflow-y-auto">
-              {/* Close Button Inside Menu */}
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-midnight/5 dark:bg-white/10 text-midnight dark:text-cream hover:bg-midnight/10 dark:hover:bg-white/20 transition-colors"
-                aria-label="Close Menu"
-              >
-                <X className="w-6 h-6" />
-              </button>
+            {/* Slide-in Drawer */}
+            <motion.div
+              initial={{ x: '100%', borderTopLeftRadius: '2rem', borderBottomLeftRadius: '2rem' }}
+              animate={{ x: 0, borderTopLeftRadius: '0rem', borderBottomLeftRadius: '0rem' }}
+              exit={{ x: '100%', borderTopLeftRadius: '2rem', borderBottomLeftRadius: '2rem' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="lg:hidden fixed top-0 right-0 z-40 w-[85%] sm:w-80 h-screen overflow-hidden bg-white/90 dark:bg-[#0a0514]/90 backdrop-blur-2xl border-l border-white/20 dark:border-white/5 shadow-2xl flex flex-col"
+            >
+              {/* Attractive Animated Mesh Background (subtle) */}
+              <div className="absolute inset-0 opacity-40 mix-blend-screen pointer-events-none">
+                <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-fuchsia-400/20 dark:from-fuchsia-600/20 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-amber-400/20 dark:from-amber-600/20 via-transparent to-transparent" />
+              </div>
 
-              <nav className="flex flex-col gap-6 sm:gap-8 mt-12">
-                {navLinks.map((link, idx) => (
-                  <motion.button
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    key={link.id}
-                    onClick={() => handleNavClick(link.id)}
-                    className="group w-full text-left flex items-center justify-between border-b border-midnight/5 dark:border-white/5 pb-4"
-                  >
-                    <span className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-midnight dark:text-cream group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-all duration-300 group-hover:translate-x-2 inline-block">
-                      {link.label}
-                    </span>
-                    <ChevronRight className="w-6 h-6 opacity-0 group-hover:opacity-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-all duration-300 -translate-x-4 group-hover:translate-x-0" />
-                  </motion.button>
-                ))}
-              </nav>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: navLinks.length * 0.08 + 0.3, duration: 0.5 }}
-                className="mt-auto pt-12"
-              >
-                <button className="relative w-full py-5 rounded-full overflow-hidden group shadow-xl">
-                  <div className="absolute inset-0 bg-midnight dark:bg-white transition-transform duration-500 group-hover:scale-105" />
-                  <span className="relative z-10 text-white dark:text-midnight text-[11px] sm:text-xs font-sans tracking-[0.3em] uppercase font-bold">
-                    Sign In
-                  </span>
+              <div className="flex-1 px-6 pt-20 pb-12 flex flex-col relative z-10 overflow-y-auto">
+                {/* Close Button */}
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="absolute top-6 right-6 p-2 rounded-full bg-midnight/5 dark:bg-white/10 text-midnight dark:text-cream hover:bg-midnight/10 dark:hover:bg-white/20 transition-colors"
+                  aria-label="Close Menu"
+                >
+                  <X className="w-5 h-5" />
                 </button>
-              </motion.div>
-            </div>
-          </motion.div>
+
+                <nav className="flex flex-col gap-2 mt-4 relative">
+                  {/* Dashed connecting line */}
+                  <div className="absolute left-[2.45rem] top-8 bottom-8 w-[1px] border-l border-dashed border-gold/40 dark:border-gold/30 pointer-events-none" />
+                  
+                  {navLinks.map((link, idx) => (
+                    <motion.button
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.05 + 0.1, duration: 0.4, type: 'spring' }}
+                      key={link.id}
+                      onClick={() => handleNavClick(link.id)}
+                      className="group flex items-center w-full p-3 rounded-xl hover:bg-midnight/5 dark:hover:bg-white/5 transition-all duration-300 relative z-10"
+                    >
+                      <div className={`flex items-center justify-center w-12 h-12 rounded-full border ${link.borderColor} ${link.bgIcon} ${link.color} shrink-0 bg-white/80 dark:bg-[#0a0514]/80 backdrop-blur-sm shadow-sm`}>
+                         <link.icon className="w-5 h-5" />
+                      </div>
+                      <span className="ml-6 font-serif text-[15px] font-semibold tracking-[0.08em] uppercase text-midnight/90 dark:text-cream group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors text-left flex-1" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                        {link.label}
+                      </span>
+                    </motion.button>
+                  ))}
+                </nav>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: navLinks.length * 0.05 + 0.2, duration: 0.4 }}
+                  className="mt-auto pt-8"
+                >
+                  <button className="relative w-full py-4 rounded-xl overflow-hidden group shadow-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 transition-colors">
+                    <span className="relative z-10 text-white dark:text-midnight text-[11px] sm:text-xs font-sans tracking-[0.2em] uppercase font-bold">
+                      Sign In
+                    </span>
+                  </button>
+                </motion.div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header >

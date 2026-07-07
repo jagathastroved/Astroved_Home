@@ -123,20 +123,17 @@ export function SpecialEvents() {
                       </div>
 
                       {/* Background Image (Mobile) */}
-                      <div className="lg:hidden relative w-full h-[350px] sm:h-[450px] overflow-hidden pointer-events-none rounded-t-[2.5rem]">
+                      <div className="lg:hidden absolute inset-0 w-full h-full overflow-hidden pointer-events-none rounded-[2.5rem]">
                         <img
                           src={ev.image}
                           alt={ev.title}
                           className="w-full h-full object-cover"
-                          style={{
-                            WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
-                            maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)'
-                          }}
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0e14] via-[#0b0e14]/80 to-transparent"></div>
                       </div>
 
                       {/* Content (Right side on desktop, Bottom/Center on mobile) */}
-                      <div className="w-full lg:w-[45%] ml-auto p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center lg:items-end text-center lg:text-right z-10 relative -mt-[120px] sm:-mt-[160px] lg:mt-0 lg:pt-16">
+                      <div className="w-full lg:w-[45%] ml-auto p-8 sm:p-12 lg:p-16 flex flex-col justify-end lg:justify-center items-center lg:items-end text-center lg:text-right z-10 relative h-full lg:mt-0 lg:pt-16">
                         <div className="w-full">
                           <div className="flex items-center justify-center lg:justify-end mb-4">
                             <span className={`font-serif italic text-xl lg:text-2xl text-amber-500 dark:text-amber-400`}>
