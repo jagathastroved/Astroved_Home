@@ -89,7 +89,7 @@ export function HeroSection() {
   return (
     <div className="w-full bg-[#0b1120]">
       <section
-        className={`relative w-full shadow-2xl overflow-hidden transition-colors duration-1000 min-h-[550px] md:min-h-[600px] flex flex-col md:flex-row md:items-end justify-center pb-8 md:pb-24 pt-0 md:pt-0`}
+        className={`relative w-full shadow-2xl overflow-hidden transition-colors duration-1000 min-h-[550px] md:min-h-[600px] flex flex-col md:flex-row md:items-end justify-center pb-2 md:pb-24 pt-0 md:pt-0`}
         id="hero-section"
       >
 
@@ -124,7 +124,7 @@ export function HeroSection() {
                 <img
                   src={currentBanner.mobileImage || currentBanner.image}
                   alt={currentBanner.titlePrefix || 'Astroved Banner'}
-                  className="w-full h-full object-cover object-[center_35%]"
+                  className="w-full h-full object-cover object-[center_20%]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-[#0b1120]/90" />
               </div>
@@ -133,7 +133,7 @@ export function HeroSection() {
         </AnimatePresence>
 
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full py-8 md:py-6 flex-grow flex flex-col min-h-[550px] md:min-h-0">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full pt-8 pb-4 md:py-6 flex-grow flex flex-col min-h-[550px] md:min-h-0">
           <AnimatePresence mode="wait">
 
             {/* IMAGE BANNER SLIDES */}
