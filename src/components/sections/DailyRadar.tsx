@@ -100,7 +100,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
             <div className="h-full rounded-[2.5rem] bg-white dark:bg-[#110c1c] p-8 sm:p-12 border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] relative overflow-hidden shadow-2xl transition-all duration-500 flex flex-col">
 
               {/* Visual sign banner */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] pb-8 mb-8">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between flex-wrap gap-6 border-b border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] pb-8 mb-8">
                 <div className="flex items-center gap-6">
                   <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-lg border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex-shrink-0">
                     <img
@@ -125,7 +125,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                 </div>
 
                 {/* Tabs today/week/month */}
-                <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] w-full sm:w-fit self-start sm:self-auto">
+                <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] w-full sm:w-fit self-start lg:self-auto flex-shrink-0">
                   {(['Today', 'Week', 'Month'] as const).map((tab) => {
                     const isActive = horoscopeTab === tab;
                     return (
@@ -155,49 +155,20 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     className="space-y-8"
                   >
-                    <p className="font-body text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-light">
+                    <p className="font-body text-xl sm:text-2xl text-gray-800 dark:text-gray-200 leading-relaxed font-medium mt-6">
                       {HOROSCOPES[selectedZodiac]?.[horoscopeTab]}
                     </p>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="bg-amber-500/5 dark:bg-amber-500/10 p-5 rounded-2xl border border-amber-500/10 flex items-center gap-4 group/stat">
-                        <div className="w-10 h-10 rounded-full bg-amber-500/10 dark:bg-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 group-hover/stat:rotate-12 transition-transform duration-500 flex-shrink-0">
-                          <Clock className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <span className="text-[9px] sm:text-[10px] font-mono text-gray-500 uppercase tracking-widest block mb-1">Best Time</span>
-                          <span className="text-xs sm:text-sm font-mono text-midnight dark:text-cream font-bold block">
-                            {HOROSCOPES[selectedZodiac]?.hours}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="bg-purple-500/5 dark:bg-purple-500/10 p-5 rounded-2xl border border-purple-500/10 flex items-center gap-4 group/stat">
-                        <div className="w-10 h-10 rounded-full bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover/stat:-rotate-12 transition-transform duration-500 flex-shrink-0">
-                          <Compass className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <span className="text-[9px] sm:text-[10px] font-mono text-gray-500 uppercase tracking-widest block mb-1">Watch Out For</span>
-                          <span className="text-xs sm:text-sm font-mono text-midnight dark:text-cream font-bold block">
-                            {HOROSCOPES[selectedZodiac]?.obstacle}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
                   </motion.div>
                 </AnimatePresence>
               </div>
 
               {/* Bottom interactive action */}
               <div className="mt-10 pt-8 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                <span className="text-xs sm:text-sm font-body text-gray-500 max-w-sm">
-                  Get a custom chart built just for you.
-                </span>
                 <button
                   onClick={() => onCalculateChart(selectedZodiac)}
                   className="w-full sm:w-auto px-6 py-4 rounded-xl bg-midnight dark:bg-white text-white dark:text-midnight hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white font-sans text-[10px] sm:text-xs tracking-widest uppercase font-bold transition-all shadow-md flex items-center justify-center gap-3 group/btn flex-shrink-0"
                 >
-                  Calculate Exact {selectedZodiac}
+                  View full details
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>

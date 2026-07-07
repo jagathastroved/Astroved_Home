@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { Compass, ArrowRight } from 'lucide-react';
 import { scrollToSection } from '../../utils/scroll';
