@@ -33,8 +33,12 @@ const EXPERTS = [
 
 export function ExpertChart() {
   return (
-    <section className="py-2 md:py-4 transition-colors duration-500 relative overflow-hidden z-10">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="py-6 md:py-8 transition-colors duration-500 relative overflow-hidden z-10 mt-4 md:mt-6">
+      {/* Top Section Differentiator / Divider */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] max-w-md h-[1px] bg-gradient-to-r from-transparent via-amber-500/30 dark:via-amber-400/50 to-transparent shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10 mt-2">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-8">
@@ -90,7 +94,7 @@ export function ExpertChart() {
                   </div>
 
                   {/* CTA */}
-                  <div className="inline-flex items-center gap-2 text-midnight dark:text-white md:text-white md:dark:text-white font-sans text-[10px] uppercase tracking-widest font-bold group-hover:text-amber-500 md:group-hover:text-amber-400 transition-colors mt-auto md:mt-2">
+                  <div className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-sans text-[10px] uppercase tracking-widest font-bold group-hover:text-amber-400 dark:group-hover:text-amber-300 transition-colors mt-auto md:mt-2">
                     {item.cta} <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>

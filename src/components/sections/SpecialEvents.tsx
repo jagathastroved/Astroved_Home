@@ -188,7 +188,7 @@ export function SpecialEvents() {
           </div>
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-6">
           <a href="#" className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-sans text-sm uppercase tracking-widest font-semibold hover:gap-3 transition-all">
             View all special events <ArrowRight className="w-4 h-4" />
           </a>

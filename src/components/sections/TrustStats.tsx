@@ -75,7 +75,7 @@ export function TrustStats() {
               <LockKeyhole className="w-5 h-5" />
             </div>
             <span className="text-4xl md:text-5xl font-sans text-midnight dark:text-cream font-bold block mb-1">
-              <CountUp to={99} from={50} duration={2.2} suffix="%" />
+              <CountUp to={100} from={50} duration={2.2} suffix="%" />
             </span>
             <span className="text-[10px] font-mono text-gray-500 dark:text-gray-400 uppercase tracking-widest">Certified Privacy Score</span>
           </div>

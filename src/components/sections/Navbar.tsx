@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../ThemeProvider';
 import { scrollToSection } from '../../utils/scroll';
@@ -10,11 +10,10 @@ export function Navbar() {
 
   const navLinks = [
     { label: 'Special Events', id: 'special-events' },
-    { label: 'Ancestral Healing', id: 'ancestral-healing' },
     { label: 'Products', id: 'products' },
     { label: 'Pilgrimages', id: 'pilgrimages' },
-    { label: 'Services', id: 'services' },
-    { label: 'Memberships', id: 'membership' },
+    { label: 'Services', id: 'auspicious-actions' },
+    { label: 'Membership', id: 'personalized-support' },
     { label: 'Right Time', id: 'daily-panchang' },
   ];
 
@@ -114,38 +113,64 @@ export function Navbar() {
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden overflow-hidden bg-gradient-to-br from-indigo-50/95 via-purple-50/95 to-pink-50/95 dark:bg-gradient-to-r dark:from-indigo-950/95 dark:via-purple-950/95 dark:to-[#0a0e17]/95 border-b border-gold/10"
+            initial={{ opacity: 0, clipPath: 'inset(0% 0% 100% 0%)' }}
+            animate={{ opacity: 1, clipPath: 'inset(0% 0% 0% 0%)' }}
+            exit={{ opacity: 0, clipPath: 'inset(0% 0% 100% 0%)' }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:hidden fixed inset-0 z-40 w-full h-screen overflow-hidden bg-ivory dark:bg-[#06080d] backdrop-blur-3xl"
           >
-            <div className="px-6 py-6 flex flex-col gap-6">
-              <nav className="flex flex-col gap-3">
-                {navLinks.map((link) => (
-                  <button
+            {/* Elegant Ambient Blur */}
+            <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[150px] pointer-events-none" />
+            <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[150px] pointer-events-none" />
+
+            <div className="h-full px-8 pt-24 pb-12 flex flex-col relative z-10 overflow-y-auto">
+              {/* Close Button Inside Menu */}
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="absolute top-6 right-6 p-2 rounded-full bg-midnight/5 dark:bg-white/10 text-midnight dark:text-cream hover:bg-midnight/10 dark:hover:bg-white/20 transition-colors"
+                aria-label="Close Menu"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              <nav className="flex flex-col gap-6 sm:gap-8 mt-12">
+                {navLinks.map((link, idx) => (
+                  <motion.button
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     key={link.id}
                     onClick={() => handleNavClick(link.id)}
-                    className="w-full text-left px-4 py-3 rounded-xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] bg-white/50 dark:bg-white/5 backdrop-blur-md font-sans uppercase tracking-widest text-xs text-midnight dark:text-cream hover:border-purple/30 dark:hover:border-gold/30 hover:bg-purple/5 dark:hover:bg-gold/5 hover:text-purple dark:hover:text-gold transition-all shadow-sm"
+                    className="group w-full text-left flex items-center justify-between border-b border-midnight/5 dark:border-white/5 pb-4"
                   >
-                    {link.label}
-                  </button>
+                    <span className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-midnight dark:text-cream group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-all duration-300 group-hover:translate-x-2 inline-block">
+                      {link.label}
+                    </span>
+                    <ChevronRight className="w-6 h-6 opacity-0 group-hover:opacity-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-all duration-300 -translate-x-4 group-hover:translate-x-0" />
+                  </motion.button>
                 ))}
               </nav>
 
-              <div className="flex flex-col gap-3 pt-6 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)]">
-                <button className="w-full py-3 rounded-xl border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-xs font-sans tracking-widest uppercase font-semibold hover:bg-gold/5 transition-all">
-                  Sign In
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: navLinks.length * 0.08 + 0.3, duration: 0.5 }}
+                className="mt-auto pt-12"
+              >
+                <button className="relative w-full py-5 rounded-full overflow-hidden group shadow-xl">
+                  <div className="absolute inset-0 bg-midnight dark:bg-white transition-transform duration-500 group-hover:scale-105" />
+                  <span className="relative z-10 text-white dark:text-midnight text-[11px] sm:text-xs font-sans tracking-[0.3em] uppercase font-bold">
+                    Sign In
+                  </span>
                 </button>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </header >
   );
 }

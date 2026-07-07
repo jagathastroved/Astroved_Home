@@ -16,7 +16,7 @@ export function AIReports() {
         </p> */}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 auto-rows-fr">
 
         {/* AI Kundali Report */}
         <a
@@ -27,7 +27,7 @@ export function AIReports() {
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[80px] group-hover:bg-purple-500/20 transition-colors duration-500" />
 
-          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-8 h-full">
+          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-2 lg:gap-8 h-full">
             <div className="w-40 sm:w-48 h-auto flex-shrink-0 group-hover:scale-105 transition-transform duration-500 origin-center">
               <img
                 src="https://kundali-report.vercel.app/assets/Kundali_Report_book-TqjZBBfC.png"
@@ -61,7 +61,7 @@ export function AIReports() {
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] group-hover:bg-amber-500/20 transition-colors duration-500" />
 
-          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-8 h-full">
+          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-2 lg:gap-8 h-full">
             <div className="w-40 sm:w-48 h-auto flex-shrink-0 group-hover:scale-105 transition-transform duration-500 origin-center">
               <img
                 src="https://numerologyreport-umber.vercel.app/images/Numerology_Book.png"

@@ -3,6 +3,7 @@ import { ThemeProvider, useTheme } from './components/ThemeProvider';
 import { Navbar } from './components/sections/Navbar';
 import { HeroSection } from './components/sections/HeroSection';
 import { PremiumPanchang } from './components/sections/PremiumPanchang';
+import { WhyChooseAstroVed } from './components/sections/WhyChooseAstroVed';
 import { LiveHorologicalStream } from './components/unwantedsections/LiveHorologicalStream';
 import { SpecialEvents } from './components/sections/SpecialEvents';
 import { AIReports } from './components/sections/AIReports';
@@ -77,6 +78,7 @@ export default function App() {
           {/* <LiveHorologicalStream /> */}
           {/* <RitualAnimatedBeam /> */}
           <PremiumPanchang />
+          <WhyChooseAstroVed />
           <AIReports />
           <TrustTicker />
           <DailyRadar onCalculateChart={(zodiac) => { scrollToSection('birth-form'); }} />

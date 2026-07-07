@@ -117,7 +117,7 @@ export function HeroSection() {
   const currentBanner = BANNERS[currentIndex];
 
   return (
-    <div className="w-full py-3 md:py-4">
+    <div className="w-full">
       <section
         className={`relative w-full bg-[#0b1120] shadow-2xl overflow-hidden transition-colors duration-1000 min-h-[420px] md:min-h-[600px] flex items-end justify-center touch-pan-y pb-16 md:pb-24`}
         id="hero-section"
