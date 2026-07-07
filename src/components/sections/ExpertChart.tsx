@@ -1,6 +1,5 @@
-﻿import React from 'react';
+import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import ScrollFloat from '../ui/ScrollFloat';
 import { AnimatedGrid } from '../ui/AnimatedGrid';
 import { AnimatedCard } from '../ui/AnimatedCard';
 import { consultation, palm_leaf, personal_report } from '../../assets/vedic_master/index';
@@ -34,27 +33,24 @@ const EXPERTS = [
 
 export function ExpertChart() {
   return (
-    <section className="py-6 md:py-8 md:py-16 transition-colors duration-500 relative overflow-hidden z-10">
+    <section className="py-2 md:py-4 transition-colors duration-500 relative overflow-hidden z-10">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-8">
-          <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
-            Personalized Guidance
-          </span>
-          <ScrollFloat containerClassName="font-sans text-4xl md:text-5xl text-midnight dark:text-cream mb-6 tracking-wide">
-            Personalized Guidance for Your Journey
-          </ScrollFloat>
-          <p className="font-body text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-8">
+          <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
+            Personalized <em className="text-amber-600 dark:text-amber-400 italic">Guidance.</em>
+          </h2>
+          {/* <p className="font-body text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-8">
             Connect directly with our most senior astrologers in India. Receive highly personalized guidance, exhaustive transit reports, or unlock your ancient Nadi leaf to conquer your karma.
-          </p>
-          <a href="#" className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-sans text-xs uppercase tracking-widest font-bold hover:gap-3 transition-all">
+          </p> */}
+          {/* <a href="#" className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-sans text-xs uppercase tracking-widest font-bold hover:gap-3 transition-all">
             Explore our master services <ArrowRight className="w-3.5 h-3.5" />
-          </a>
+          </a> */}
         </div>
 
         {/* Premium Image Card 3-Column Layout */}
-        <AnimatedGrid className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 relative z-10">
+        <AnimatedGrid className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8 relative z-10">
           {EXPERTS.map((item, idx) => (
             <AnimatedCard
               key={idx}
@@ -73,19 +69,19 @@ export function ExpertChart() {
 
               {/* Content Container: Below image on mobile, over image on desktop */}
               <div className="relative z-10 p-8 md:p-10 flex flex-col justify-end flex-1 md:h-full bg-white dark:bg-[#0a0e17] md:bg-transparent md:dark:bg-transparent">
-                <div className="md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col">
+                <div className="lg:translate-y-8 lg:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col">
                   {/* Badge */}
                   <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/10 md:bg-white/10 md:dark:bg-white/10 border border-black/10 dark:border-white/20 md:border-white/20 md:dark:border-white/20 text-midnight dark:text-white md:text-white md:dark:text-white font-mono text-[10px] uppercase tracking-widest backdrop-blur-md mb-4 w-fit">
                     {item.badgeText}
                   </span>
 
                   {/* Title */}
-                  <h3 className={`font-sans text-2xl md:text-3xl ${item.titleColor} md:text-white md:dark:text-white font-medium leading-tight mb-2 md:mb-4 drop-shadow-md`}>
+                  <h3 className={`font-sans text-2xl md:text-3xl ${item.titleColor} md:text-white md:dark:text-white group-hover:text-amber-400 md:group-hover:text-amber-400 dark:group-hover:text-amber-400 font-medium leading-tight mb-2 md:mb-4 drop-shadow-md transition-colors`}>
                     {item.title}
                   </h3>
 
                   {/* Description - Always visible on mobile, revealed on hover on desktop */}
-                  <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                  <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
                     <div className="overflow-hidden">
                       <p className="font-body text-gray-700 dark:text-white/90 md:text-white/90 md:dark:text-white/90 text-sm leading-relaxed mb-6 mt-4 md:mt-0">
                         {item.desc}

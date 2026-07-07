@@ -1,10 +1,10 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, MapPin, Calendar, Clock, Sun, Sunset, Moon, MoonStar, Star, Info } from 'lucide-react';
 
 export function PremiumPanchang() {
   return (
-    <section className="relative py-10 md:py-12 md:py-16 overflow-hidden" id="daily-panchang">
+    <section className="relative py-4 md:py-6 overflow-hidden" id="daily-panchang">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[600px] bg-indigo/5 dark:bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -250,7 +250,7 @@ export function PremiumPanchang() {
           </div>
 
           {/* CTA Footer */}
-          <div className="mt-12 pt-8 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex flex-col sm:flex-row items-center justify-center gap-6">
+          {/* <div className="mt-12 pt-8 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex flex-col sm:flex-row items-center justify-center gap-6">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -259,7 +259,7 @@ export function PremiumPanchang() {
               Get Your Tamil Horoscope
               <ArrowRight className="w-4 h-4" />
             </motion.button>
-          </div>
+          </div> */}
 
         </motion.div>
       </div>

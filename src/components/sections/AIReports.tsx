@@ -1,22 +1,22 @@
-﻿import React from 'react';
+import React from 'react';
 import { Sparkles, ArrowRight, BookOpen } from 'lucide-react';
 
 export function AIReports() {
   return (
-    <section className="py-10 px-6 max-w-7xl mx-auto z-10 relative" id="ai-reports">
-      <div className="max-w-4xl mx-auto text-center mb-12">
-        <span className="font-2xl uppercase tracking-[0.2em] text-purple-600 dark:text-purple-400 font-bold block mb-4">
-          Advanced AI Insights
-        </span>
-        <h2 className="font-sans text-4xl md:text-5xl text-midnight dark:text-cream tracking-wide leading-tight mb-6 font-bold">
+    <section className="py-4 md:py-6 px-6 max-w-7xl mx-auto z-10 relative" id="ai-reports">
+      <div className="max-w-4xl mx-auto text-center mb-6">
+        <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
+          Advanced AI <em className="text-amber-600 dark:text-amber-400 italic">Insights.</em>
+        </h2>
+        {/* <h2 className="font-sans text-4xl md:text-5xl text-midnight dark:text-cream tracking-wide leading-tight mb-6 font-bold">
           Unlock Your Future with AI
         </h2>
         <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
           Experience the next generation of astrology and numerology. Our advanced AI engines generate highly personalized, instantly accessible reports tailored specifically to your cosmic blueprint.
-        </p>
+        </p> */}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
         {/* AI Kundali Report */}
         <a

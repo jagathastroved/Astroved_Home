@@ -1,7 +1,6 @@
-﻿import React from 'react';
+import React from 'react';
 import { HoverGlowCard } from '../HoverGlowCard';
 import { Star, ScrollText, Sparkles, Zap, Map, Heart, Users } from 'lucide-react';
-import ScrollFloat from '../ui/ScrollFloat';
 
 export function ServicesSections() {
   return (
@@ -13,19 +12,11 @@ export function ServicesSections() {
       <div className="max-w-7xl mx-auto px-6">
 
         {/* SECTION 2: Personalized Guidance */}
-        <section className="mb-32">
-          <div className="text-center mb-16">
-            <ScrollFloat
-              animationDuration={1}
-              ease='back.inOut(2)'
-              scrollStart='center bottom+=50%'
-              scrollEnd='bottom bottom-=40%'
-              stagger={0.03}
-              containerClassName="font-ui text-4xl md:text-5xl font-semibold text-midnight dark:text-white leading-tight mb-0"
-              textClassName="bg-clip-text"
-            >
-              Personalized Guidance
-            </ScrollFloat>
+        <section className="mb-5">
+          <div className="text-center mb-5">
+            <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
+              Personalized <em className="text-amber-600 dark:text-amber-400 italic">Guidance.</em>
+            </h2>
             <p className="mt-4 font-body text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Unlock the secrets of your past, present, and future with our expert astrological readings and ancient Nadi wisdom.
             </p>
@@ -51,19 +42,11 @@ export function ServicesSections() {
         </section>
 
         {/* SECTION 3: Personalized Solutions */}
-        <section className="mb-32">
-          <div className="text-center mb-16">
-            <ScrollFloat
-              animationDuration={1}
-              ease='back.inOut(2)'
-              scrollStart='center bottom+=50%'
-              scrollEnd='bottom bottom-=40%'
-              stagger={0.03}
-              containerClassName="font-ui text-4xl md:text-5xl font-semibold text-midnight dark:text-white leading-tight mb-0"
-              textClassName="bg-clip-text"
-            >
-              Personalized Solutions
-            </ScrollFloat>
+        <section className="mb-10">
+          <div className="text-center mb-8">
+            <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
+              Personalized <em className="text-amber-600 dark:text-amber-400 italic">Solutions.</em>
+            </h2>
             <p className="mt-4 font-body text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Transform your destiny through powerful rituals, consecrated items, and transformative spiritual journeys.
             </p>
@@ -98,18 +81,10 @@ export function ServicesSections() {
 
         {/* SECTION 4: Personalized Support */}
         <section>
-          <div className="text-center mb-16">
-            <ScrollFloat
-              animationDuration={1}
-              ease='back.inOut(2)'
-              scrollStart='center bottom+=50%'
-              scrollEnd='bottom bottom-=40%'
-              stagger={0.03}
-              containerClassName="font-ui text-4xl md:text-5xl font-semibold text-midnight dark:text-white leading-tight mb-0"
-              textClassName="bg-clip-text"
-            >
-              Personalized Support
-            </ScrollFloat>
+          <div className="text-center mb-6">
+            <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
+              Personalized <em className="text-amber-600 dark:text-amber-400 italic">Support.</em>
+            </h2>
             <p className="mt-4 font-body text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Ongoing spiritual support programs designed to continuously uplift your consciousness and clear ancestral blocks.
             </p>

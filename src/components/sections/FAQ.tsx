@@ -39,21 +39,21 @@ export function FAQ() {
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
 
   return (
-    <section className="py-8 md:py-10 px-6 max-w-7xl mx-auto z-10 relative overflow-hidden" id="faq-section">
+    <section className="py-4 md:py-6 px-6 max-w-7xl mx-auto z-10 relative overflow-hidden" id="faq-section">
 
       {/* Background ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[300px] bg-purple-500/5 dark:bg-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="text-center max-w-3xl mx-auto mb-8 relative z-10">
-        <span className="font-2xl uppercase tracking-[0.25em] text-purple-600 dark:text-purple-400 font-bold block mb-3">
+        {/* <span className="font-2xl uppercase tracking-[0.25em] text-purple-600 dark:text-purple-400 font-bold block mb-3">
           Common Questions
-        </span>
+        </span> */}
         <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight">
           Frequently Asked <em className="text-amber-600 dark:text-amber-400 italic">Questions.</em>
         </h2>
-        <p className="font-body text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-6 leading-relaxed max-w-lg mx-auto">
+        {/* <p className="font-body text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-6 leading-relaxed max-w-lg mx-auto">
           Find simple answers about our astrological readings and services.
-        </p>
+        </p> */}
       </div>
 
       {/* 1-column stacked layout (One by One) */}

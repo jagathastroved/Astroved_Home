@@ -3,22 +3,22 @@ import { ThemeProvider, useTheme } from './components/ThemeProvider';
 import { Navbar } from './components/sections/Navbar';
 import { HeroSection } from './components/sections/HeroSection';
 import { PremiumPanchang } from './components/sections/PremiumPanchang';
-import { LiveHorologicalStream } from './components/sections/LiveHorologicalStream';
+import { LiveHorologicalStream } from './components/unwantedsections/LiveHorologicalStream';
 import { SpecialEvents } from './components/sections/SpecialEvents';
 import { AIReports } from './components/sections/AIReports';
 import { TrustTicker } from './components/sections/TrustTicker';
-import { UptimesDowntimes } from './components/sections/UptimesDowntimes';
+import { UptimesDowntimes } from './components/unwantedsections/UptimesDowntimes';
 import { ExpertChart } from './components/sections/ExpertChart';
-import { TimingEvaluation } from './components/sections/TimingEvaluation';
+import { TimingEvaluation } from './components/unwantedsections/TimingEvaluation';
 import { TrustStats } from './components/sections/TrustStats';
 import { AuspiciousActions } from './components/sections/AuspiciousActions';
 import { PersonalizedSupport } from './components/sections/PersonalizedSupport';
-import { RitualAnimatedBeam } from './components/RitualAnimatedBeam';
-import { AncestralHealing } from './components/sections/AncestralHealing';
+import { RitualAnimatedBeam } from './components/unwantedsections/RitualAnimatedBeam';
+import { AncestralHealing } from './components/unwantedsections/AncestralHealing';
 import { DailyRadar } from './components/sections/DailyRadar';
 import { Testimonials } from './components/sections/Testimonials';
 import { FAQ } from './components/sections/FAQ';
-import { LeadCapture } from './components/sections/LeadCapture';
+import { LeadCapture } from './components/unwantedsections/LeadCapture';
 import { Footer } from './components/sections/Footer';
 import { scrollToSection } from './utils/scroll';
 import ClickSpark from './components/ui/ClickSpark';
@@ -73,18 +73,18 @@ export default function App() {
           <ExpertChart />
           <AuspiciousActions />
           <PersonalizedSupport />
-          <UptimesDowntimes />
-          <LiveHorologicalStream />
-          <RitualAnimatedBeam />
+          {/* <UptimesDowntimes /> */}
+          {/* <LiveHorologicalStream /> */}
+          {/* <RitualAnimatedBeam /> */}
           <PremiumPanchang />
           <AIReports />
           <TrustTicker />
           <DailyRadar onCalculateChart={(zodiac) => { scrollToSection('birth-form'); }} />
-          <AncestralHealing />
-          <TimingEvaluation />
+          {/* <AncestralHealing /> */}
+          {/* <TimingEvaluation /> */}
           <Testimonials />
           <TrustStats />
-          <LeadCapture />
+          {/* <LeadCapture /> */}
           <FAQ />
         </main>
 

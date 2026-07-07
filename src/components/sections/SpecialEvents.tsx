@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Flame, Clock, CalendarDays, ArrowRight } from 'lucide-react';
-import ScrollFloat from '../ui/ScrollFloat';
 import { jupiter_welth, murugan_SE, rekease_old_karma } from '../../assets/Special_events/index';
 const events = [
   {
@@ -72,20 +71,20 @@ export function SpecialEvents() {
   }, []);
 
   return (
-    <section id="special-events" className="py-12 md:py-16 relative overflow-hidden transition-colors duration-500 z-10">
+    <section id="special-events" className="py-4 md:py-6 relative overflow-hidden transition-colors duration-500 z-10">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
-            SPECIAL EVENTS
-          </span>
-          <ScrollFloat containerClassName="font-sans text-4xl md:text-5xl text-midnight dark:text-cream mb-6 leading-tight">
+        <div className="text-center max-w-3xl mx-auto mb-6">
+          <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
+            Special <em className="text-amber-600 dark:text-amber-400 italic">Events.</em>
+          </h2>
+          {/* <h1 className="font-sans text-4xl md:text-5xl text-midnight dark:text-cream mb-6 leading-tight">
             Powerful Fire Rituals at the Perfect Moment
-          </ScrollFloat>
+          </h1>
           <p className="font-body text-gray-700 dark:text-gray-400 text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
             These events are matched with this month's special planetary changes and festivals. Once the time passes, the chance is gone.
-          </p>
+          </p> */}
         </div>
 
         {/* Carousel Container */}
@@ -102,10 +101,10 @@ export function SpecialEvents() {
             >
               {events.map((ev) => (
                 <div key={ev.id} className="w-full flex-shrink-0">
-                  <div className="group/card flex flex-col md:flex-row min-h-[450px] relative">
+                  <div className="group/card flex flex-col lg:flex-row min-h-[450px] relative">
 
                     {/* Background Image (Desktop) */}
-                    <div className="hidden md:block absolute top-0 bottom-0 left-0 w-[65%] overflow-hidden pointer-events-none">
+                    <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-[65%] overflow-hidden pointer-events-none">
                       <img
                         src={ev.image}
                         alt={ev.title}
@@ -118,7 +117,7 @@ export function SpecialEvents() {
                     </div>
 
                     {/* Background Image (Mobile) */}
-                    <div className="md:hidden absolute top-0 left-0 w-full h-[450px] overflow-hidden pointer-events-none">
+                    <div className="lg:hidden relative w-full h-[350px] sm:h-[450px] overflow-hidden pointer-events-none rounded-t-[2.5rem]">
                       <img
                         src={ev.image}
                         alt={ev.title}
@@ -131,24 +130,24 @@ export function SpecialEvents() {
                     </div>
 
                     {/* Content (Right side on desktop, Bottom/Center on mobile) */}
-                    <div className="w-full md:w-[45%] ml-auto p-8 sm:p-12 md:p-16 flex flex-col justify-center items-center md:items-end text-center md:text-right z-10 relative pt-[360px] md:pt-16">
+                    <div className="w-full lg:w-[45%] ml-auto p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center lg:items-end text-center lg:text-right z-10 relative -mt-[120px] sm:-mt-[160px] lg:mt-0 lg:pt-16">
                       <div className="w-full">
-                        <div className="flex items-center justify-center md:justify-end mb-4">
-                          <span className={`font-serif italic text-xl md:text-2xl text-amber-500 dark:text-amber-400`}>
+                        <div className="flex items-center justify-center lg:justify-end mb-4">
+                          <span className={`font-serif italic text-xl lg:text-2xl text-amber-500 dark:text-amber-400`}>
                             {ev.tagline}
                           </span>
                         </div>
 
-                        <h3 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white font-bold tracking-wider mb-6 leading-tight uppercase">
+                        <h3 className="font-serif text-2xl lg:text-3xl xl:text-4xl text-white font-bold tracking-wider mb-6 leading-tight uppercase">
                           {ev.title}
                         </h3>
 
-                        <p className="font-sans text-sm md:text-base text-gray-400 mb-8">
+                        <p className="font-sans text-sm lg:text-base text-gray-400 mb-8">
                           {ev.deadline}
                         </p>
                       </div>
 
-                      <div className="mt-4 flex justify-center md:justify-end w-full">
+                      <div className="mt-4 flex justify-center lg:justify-end w-full">
                         <button className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-amber-400 text-black font-sans text-sm font-bold hover:bg-amber-500 transition-colors">
                           {ev.cta} <ArrowRight className="w-4 h-4" />
                         </button>

@@ -1,7 +1,6 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Compass, ArrowRight, Calendar, User, Clock, MapPin, Sparkles, Send, X, Target, Activity } from 'lucide-react';
-import ScrollFloat from '../ui/ScrollFloat';
 import { SpotlightCard } from '../SpotlightCard';
 import { scrollToSection } from '../../utils/scroll';
 import { ZODIAC_SIGNS } from '../../utils/data';
@@ -87,7 +86,7 @@ export function TimingEvaluation() {
 
   return (
     <>
-      <section className="py-6 md:py-8 md:py-12 px-6 max-w-7xl mx-auto relative z-10" id="timing-check">
+      <section className="py-6 md:py-8 md:py-10 px-6 max-w-7xl mx-auto relative z-10" id="timing-check">
 
 
         {/* Dynamic Birth Chart Input Form Section */}
@@ -97,9 +96,9 @@ export function TimingEvaluation() {
           <div className="lg:col-span-2 space-y-8 flex flex-col justify-center">
             <div>
               <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4 mb-3">Free Evaluation</span>
-              <ScrollFloat containerClassName="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
+              <h1 className="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
                 Get your personalized cosmic reading.
-              </ScrollFloat>
+              </h1>
             </div>
 
             <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed text-base">
@@ -320,7 +319,7 @@ export function TimingEvaluation() {
               <div className="sticky top-0 z-10 bg-ivory/90 dark:bg-midnight/90 backdrop-blur-xl border-b border-gold/10 px-6 py-4 flex items-center justify-between">
                 <div>
                   <h3 className="font-sans text-lg text-midnight dark:text-cream tracking-wider font-semibold">Your Cosmic Assessment</h3>
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500">For {nameInput} â€¢ {zodiacFormSelect}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500">For {nameInput} • {zodiacFormSelect}</p>
                 </div>
                 <button
                   onClick={() => setIsReadingModalOpen(false)}

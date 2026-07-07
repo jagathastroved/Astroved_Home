@@ -1,6 +1,5 @@
-﻿import React from 'react';
+import React from 'react';
 import { Activity, Sun, Moon, Home, Clock, ArrowRight } from 'lucide-react';
-import ScrollFloat from '../ui/ScrollFloat';
 import { AnimatedGrid } from '../ui/AnimatedGrid';
 import { AnimatedCard } from '../ui/AnimatedCard';
 import { befific_planets, current_phase, malfic, real_estate_img, Upcoming_Ritual_Timing } from '../../assets/Cosmic_timing_engine/index';
@@ -50,7 +49,7 @@ const CARDS = [
 
 export function UptimesDowntimes() {
   return (
-    <section className="py-6 md:py-8 md:py-16 bg-transparent transition-colors duration-500 relative overflow-hidden z-10">
+    <section className="py-6 md:py-8 md:py-10 bg-transparent transition-colors duration-500 relative overflow-hidden z-10">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/5 dark:bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
@@ -62,9 +61,9 @@ export function UptimesDowntimes() {
           <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
             Cosmic Timing Engine
           </span>
-          <ScrollFloat containerClassName="font-sans text-4xl md:text-5xl text-midnight dark:text-cream mb-6 tracking-wide">
+          <h1 className="font-sans text-4xl md:text-5xl text-midnight dark:text-cream mb-6 tracking-wide">
             Navigate your life with absolute precision.
-          </ScrollFloat>
+          </h1>
           <p className="font-body text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
             Discover the best times to act. Push forward during your peak days, and rest or reflect when the stars suggest a break.
           </p>

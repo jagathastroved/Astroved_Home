@@ -1,8 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Moon, Flame } from 'lucide-react';
 import { scrollToSection } from '../../utils/scroll';
-import ScrollFloat from '../ui/ScrollFloat';
 import { naga_dosha, Pitru_dosha } from '../../assets/Karma_Resolution/index';
 
 const DOSHAS = [
@@ -28,15 +27,15 @@ const DOSHAS = [
 
 export function AncestralHealing() {
   return (
-    <section className="py-6 md:py-8 md:py-16 px-6 max-w-7xl mx-auto z-10" id="ancestral-healing">
+    <section className="py-6 md:py-8 md:py-10 px-6 max-w-7xl mx-auto z-10" id="ancestral-healing">
       {/* Header Section */}
       <div className="text-center max-w-3xl mx-auto mb-8 relative z-10">
         <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
           Karma Resolution
         </span>
-        <ScrollFloat containerClassName="font-sans text-4xl md:text-5xl font-medium text-midnight dark:text-cream leading-tight tracking-wide mb-6">
+        <h1 className="font-sans text-4xl md:text-5xl font-medium text-midnight dark:text-cream leading-tight tracking-wide mb-6">
           Ancestral & Karmic Healing
-        </ScrollFloat>
+        </h1>
         <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed text-base max-w-2xl mx-auto">
           In Vedic philosophy, sudden delays in your finances, career, or relationships are often not planetary transits, but ancestral energetic loops. Unresolved patterns flow down the lineage until actively cleared.
         </p>

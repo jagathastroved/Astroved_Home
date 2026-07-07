@@ -1,12 +1,11 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import ScrollFloat from '../ui/ScrollFloat';
 import { Shreem_Membership, tarpanam } from '../../assets/personalized_support';
 
 export function PersonalizedSupport() {
   return (
-    <section className="relative py-24 px-6 overflow-hidden" id="personalized-support">
+    <section className="relative py-4 md:py-6 px-6 overflow-hidden" id="personalized-support">
 
       {/* Floating Diamond (Decorative SVG replacing Lotus) */}
       <motion.div
@@ -20,16 +19,16 @@ export function PersonalizedSupport() {
       </motion.div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16 relative z-0">
-          <ScrollFloat containerClassName="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
-            Personalized Support
-          </ScrollFloat>
-          <ScrollFloat containerClassName="font-sans text-4xl md:text-5xl text-midnight dark:text-cream tracking-wide leading-tight font-medium mb-6 drop-shadow-lg">
+        <div className="text-center mb-6 relative z-0">
+          <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
+            Personalized <em className="text-amber-600 dark:text-amber-400 italic">Support.</em>
+          </h2>
+          {/* <h1 className="font-sans text-4xl md:text-5xl text-midnight dark:text-cream tracking-wide leading-tight font-medium mb-6 drop-shadow-lg">
             Ongoing Spiritual Support
-          </ScrollFloat>
+          </h1>
           <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto text-lg drop-shadow-md">
             Stay spiritually connected every day with continuous blessings and personalized rituals.
-          </p>
+          </p> */}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 relative z-10">

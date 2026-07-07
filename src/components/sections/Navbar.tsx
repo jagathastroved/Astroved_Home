@@ -32,7 +32,7 @@ export function Navbar() {
         <div className="flex-1 flex items-center gap-3">
           {/* Mobile Menu Toggle (Left Side) */}
           <button
-            className="md:hidden p-2 -ml-2 rounded-full border border-gold/25 text-purple dark:text-saffron hover:bg-gold/10 transition-colors"
+            className="lg:hidden p-2 -ml-2 rounded-full border border-gold/25 text-purple dark:text-saffron hover:bg-gold/10 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -53,7 +53,7 @@ export function Navbar() {
           </button>
         </div>
 
-        <nav className="hidden md:flex items-center gap-3 lg:gap-5 text-sm font-medium mt-2">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 text-sm font-medium mt-2">
           {navLinks.map((link) => (
             <button
               key={link.id}
@@ -108,7 +108,7 @@ export function Navbar() {
           </button>
 
           <button
-            className="hidden md:block px-5 py-2 rounded-[2rem] border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-[10px] sm:text-xs font-sans tracking-widest uppercase font-semibold hover:bg-gold/5 hover:border-gold/20 transition-all shadow-sm whitespace-nowrap"
+            className="hidden lg:block px-5 py-2 rounded-[2rem] border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-[10px] sm:text-xs font-sans tracking-widest uppercase font-semibold hover:bg-gold/5 hover:border-gold/20 transition-all shadow-sm whitespace-nowrap"
           >
             Sign In
           </button>
@@ -122,7 +122,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden bg-gradient-to-br from-indigo-50/95 via-purple-50/95 to-pink-50/95 dark:bg-gradient-to-r dark:from-indigo-950/95 dark:via-purple-950/95 dark:to-[#0a0e17]/95 border-b border-gold/10"
+            className="lg:hidden overflow-hidden bg-gradient-to-br from-indigo-50/95 via-purple-50/95 to-pink-50/95 dark:bg-gradient-to-r dark:from-indigo-950/95 dark:via-purple-950/95 dark:to-[#0a0e17]/95 border-b border-gold/10"
           >
             <div className="px-6 py-6 flex flex-col gap-6">
               <nav className="flex flex-col gap-3">

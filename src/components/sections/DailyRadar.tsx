@@ -1,8 +1,7 @@
-﻿import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Clock, Compass, ArrowRight } from 'lucide-react';
 import { ZODIAC_SIGNS, HOROSCOPES } from '../../utils/data';
-import ScrollFloat from '../ui/ScrollFloat';
 import TargetCursor from '../ui/TargetCursor';
 
 interface DailyRadarProps {
@@ -15,31 +14,31 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-6 md:py-8 md:py-16 relative overflow-hidden" id="daily-widget">
-      <TargetCursor 
-        targetSelector=".cursor-target" 
+    <section className="py-4 md:py-6 relative overflow-hidden" id="daily-widget">
+      <TargetCursor
+        targetSelector=".cursor-target"
         spinDuration={2}
         hideDefaultCursor={false}
         parallaxOn={true}
         cursorColor="#f59e0b" // amber-500
         cursorColorOnTarget="#f59e0b"
       />
-      
+
       {/* Soft background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[300px] bg-amber-500/5 dark:bg-amber-500/10 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         <div className="text-center max-w-3xl mx-auto mb-8">
-          <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
-            Daily Horoscope
-          </span>
-          <ScrollFloat containerClassName="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
+          <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
+            Daily <em className="text-amber-600 dark:text-amber-400 italic">Horoscope.</em>
+          </h2>
+          {/* <h1 className="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
             Vedic Signs Horoscope.
-          </ScrollFloat>
+          </h1>
           <p className="font-body text-gray-600 dark:text-gray-400 mt-4 leading-relaxed max-w-xl mx-auto">
             Select your sign to get simple daily guidance and know your best times.
-          </p>
+          </p> */}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full max-w-6xl mx-auto">
@@ -112,7 +111,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
                   </div>
                   <div>
                     <h3 className="font-sans text-2xl sm:text-3xl text-midnight dark:text-cream tracking-wide font-medium flex items-center gap-3">
-                      {selectedZodiac} <span className="text-amber-500/40 text-xl font-light hidden sm:inline">Â·</span> <span className="text-gray-400 dark:text-gray-500 text-xl hidden sm:inline">{ZODIAC_SIGNS.find(s => s.name === selectedZodiac)?.sanskrit}</span>
+                      {selectedZodiac} <span className="text-amber-500/40 text-xl font-light hidden sm:inline">·</span> <span className="text-gray-400 dark:text-gray-500 text-xl hidden sm:inline">{ZODIAC_SIGNS.find(s => s.name === selectedZodiac)?.sanskrit}</span>
                     </h3>
                     <div className="flex flex-wrap items-center gap-2 mt-3">
                       <span className="px-2 py-1 rounded-md bg-black/5 dark:bg-white/5 text-[9px] sm:text-[10px] font-mono text-gray-500 dark:text-gray-400 uppercase tracking-widest">

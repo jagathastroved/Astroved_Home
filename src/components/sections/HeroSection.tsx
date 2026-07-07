@@ -117,9 +117,9 @@ export function HeroSection() {
   const currentBanner = BANNERS[currentIndex];
 
   return (
-    <div className="w-full px-4 py-3 sm:px-4 md:py-4 lg:py-4 max-w-[1400px] mx-auto">
+    <div className="w-full py-3 md:py-4">
       <section
-        className={`relative w-full bg-[#0b1120] rounded-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden transition-colors duration-1000 min-h-[420px] md:min-h-[600px] flex items-start md:items-center justify-center`}
+        className={`relative w-full bg-[#0b1120] shadow-2xl overflow-hidden transition-colors duration-1000 min-h-[420px] md:min-h-[600px] flex items-end justify-center touch-pan-y pb-16 md:pb-24`}
         id="hero-section"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
@@ -152,17 +152,14 @@ export function HeroSection() {
                 />
               </div>
 
-              {/* Mobile Background Image (Top-aligned, 100% bright, fading down) */}
-              <div className="md:hidden absolute top-0 left-0 right-0 pointer-events-none">
+              {/* Mobile Background Image (Full background) */}
+              <div className="md:hidden absolute inset-0 pointer-events-none">
                 <img
                   src={currentBanner.image}
                   alt={currentBanner.titlePrefix || 'Astroved Banner'}
-                  className="w-full h-auto object-cover"
-                  style={{
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-                    maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
-                  }}
+                  className="w-full h-full object-cover object-center"
                 />
+                <div className="absolute inset-0 bg-black/60" />
               </div>
             </motion.div>
           )}
@@ -171,15 +168,15 @@ export function HeroSection() {
         {/* Carousel Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center border border-white/10 transition-colors"
+          className="flex absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/20 hover:bg-black/40 items-center justify-center border border-white/20 backdrop-blur-sm transition-colors"
         >
-          <ChevronLeft className="w-5 h-5 text-cream/70" />
+          <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-white" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center border border-white/10 transition-colors"
+          className="flex absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/20 hover:bg-black/40 items-center justify-center border border-white/20 backdrop-blur-sm transition-colors"
         >
-          <ChevronRight className="w-5 h-5 text-cream/70" />
+          <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-white" />
         </button>
 
         {/* Slide Indicators */}
@@ -196,7 +193,7 @@ export function HeroSection() {
           ))}
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full py-6 md:py-16">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full py-4 md:py-6">
           <AnimatePresence mode="wait">
 
             {/* IMAGE BANNER SLIDES */}
@@ -206,7 +203,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className={`flex flex-col justify-start md:justify-center pt-2 md:pt-0 space-y-4 md:space-y-6 relative z-20 h-full max-w-[95%] md:max-w-4xl mx-auto ${currentBanner.align === 'right' ? 'items-end text-right ml-auto md:mr-0' : currentBanner.align === 'left' ? 'items-start text-left mr-auto md:ml-0' : 'items-center text-center'}`}
+              className={`flex flex-col justify-center space-y-4 md:space-y-6 relative z-20 h-full max-w-[95%] md:max-w-4xl mx-auto ${currentBanner.align === 'right' ? 'items-center md:items-end text-center md:text-right md:ml-auto md:mr-0' : currentBanner.align === 'left' ? 'items-center md:items-start text-center md:text-left md:mr-auto md:ml-0' : 'items-center text-center'}`}
             >
               {currentBanner.badge && (
                 <span className="inline-block px-3 py-1 bg-gold/90 text-black text-xs font-bold uppercase tracking-wider rounded-sm mb-2">
@@ -219,7 +216,7 @@ export function HeroSection() {
               </h1>
 
               {currentBanner.hugeText && (
-                <div className={`font-sans font-bold tracking-tighter my-2 flex flex-wrap items-baseline gap-2 md:gap-3 lg:gap-4 uppercase drop-shadow-lg ${currentBanner.align === 'right' ? 'justify-end' : currentBanner.align === 'left' ? 'justify-start' : 'justify-center'}`}>
+                <div className={`font-sans font-bold tracking-tighter my-2 flex flex-wrap items-baseline gap-2 md:gap-3 lg:gap-4 uppercase drop-shadow-lg ${currentBanner.align === 'right' ? 'justify-center md:justify-end' : currentBanner.align === 'left' ? 'justify-center md:justify-start' : 'justify-center'}`}>
                   {currentBanner.hugeText.split(' ').map((word, i) => {
                     const isNumber = word.includes('%') || word.includes('₹') || !isNaN(parseInt(word));
                     return (

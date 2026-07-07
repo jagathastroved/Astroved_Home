@@ -1,22 +1,21 @@
 import React from 'react';
 import { ArrowRight, ArrowUpRight, Flame, ShoppingBag } from 'lucide-react';
 import { scrollToSection } from '../../utils/scroll';
-import ScrollFloat from '../ui/ScrollFloat';
 import { astroved_store, Community_Fire, Pilgrimage_Tours } from '../../assets/Auspicious_Involvements/index';
 
 export function AuspiciousActions() {
   return (
-    <section className="py-8 md:py-10 px-6 max-w-7xl mx-auto z-10" id="auspicious-actions">
-      <div className="max-w-3xl mx-auto text-center mb-12">
-        <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
-          Personalized Solutions
-        </span>
-        <ScrollFloat containerClassName="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
+    <section className="py-4 md:py-6 px-6 max-w-7xl mx-auto z-10" id="auspicious-actions">
+      <div className="max-w-3xl mx-auto text-center mb-6">
+        <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
+          Personalized <em className="text-amber-600 dark:text-amber-400 italic">Solutions.</em>
+        </h2>
+        {/* <h1 className="font-sans text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
           Spiritual Solutions Designed for Every Need
-        </ScrollFloat>
-        <p className="font-body text-gray-600 dark:text-gray-400 mt-4 leading-relaxed max-w-xl mx-auto">
+        </h1> */}
+        {/* <p className="font-body text-gray-600 dark:text-gray-400 mt-4 leading-relaxed max-w-xl mx-auto">
           No heavy initial commitment required. Begin your journey by participating in our monthly group energy circles or incorporating sacred tools into your daily routine.
-        </p>
+        </p> */}
       </div>
 
       <div className="flex flex-col gap-8">
@@ -43,7 +42,7 @@ export function AuspiciousActions() {
                 </span>
               </div>
 
-              <h3 className="font-sans text-3xl md:text-4xl lg:text-5xl text-midnight dark:text-cream font-medium tracking-tight mb-4">
+              <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl text-midnight dark:text-cream font-medium tracking-tight mb-4">
                 Vedic Fire Ritual
               </h3>
 
@@ -85,7 +84,7 @@ export function AuspiciousActions() {
                 </span>
               </div>
 
-              <h3 className="font-sans text-3xl md:text-4xl lg:text-5xl text-midnight dark:text-cream font-medium tracking-tight mb-4">
+              <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl text-midnight dark:text-cream font-medium tracking-tight mb-4">
                 Energized Products
               </h3>
 
@@ -129,7 +128,7 @@ export function AuspiciousActions() {
                 </span>
               </div>
 
-              <h3 className="font-sans text-3xl md:text-4xl lg:text-5xl text-midnight dark:text-cream font-medium tracking-tight mb-4">
+              <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl text-midnight dark:text-cream font-medium tracking-tight mb-4">
                 Holy Temples
               </h3>
 

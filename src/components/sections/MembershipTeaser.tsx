@@ -5,33 +5,33 @@ import { scrollToSection } from '../../utils/scroll';
 
 export function MembershipTeaser() {
   return (
-    <section className="py-6 md:py-8 md:py-16 relative overflow-hidden z-10" id="membership">
-      
+    <section className="py-6 md:py-8 md:py-10 relative overflow-hidden z-10" id="membership">
+
       {/* Slow moving ambient gradient field behind the card */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             x: [0, 40, -20, 0],
             y: [0, -30, 20, 0],
           }}
-          transition={{ 
-            duration: 20, 
-            repeat: Infinity, 
+          transition={{
+            duration: 20,
+            repeat: Infinity,
             repeatType: 'mirror',
-            ease: 'easeInOut' 
+            ease: 'easeInOut'
           }}
           className="absolute top-[20%] left-[25%] w-80 h-80 rounded-full bg-gold/15 blur-[90px]"
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             x: [0, -30, 40, 0],
             y: [0, 20, -40, 0],
           }}
-          transition={{ 
-            duration: 25, 
-            repeat: Infinity, 
+          transition={{
+            duration: 25,
+            repeat: Infinity,
             repeatType: 'mirror',
-            ease: 'easeInOut' 
+            ease: 'easeInOut'
           }}
           className="absolute bottom-[20%] right-[25%] w-96 h-96 rounded-full bg-indigo/20 blur-[100px]"
         />

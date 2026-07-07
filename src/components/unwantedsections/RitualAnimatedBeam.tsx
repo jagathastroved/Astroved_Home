@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Mail, Flame, PackageCheck } from 'lucide-react';
-import ScrollFloat from './ui/ScrollFloat';
 
 export const RitualAnimatedBeam: React.FC = () => {
   const containerVariants = {
@@ -32,7 +31,7 @@ export const RitualAnimatedBeam: React.FC = () => {
   };
 
   return (
-    <section className="py-10 relative overflow-hidden" id="rituals-beam">
+    <section className="py-6 md:py-8 md:py-10 relative overflow-hidden" id="rituals-beam">
       {/* Soft background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[400px] bg-amber-500/5 dark:bg-amber-500/10 blur-[100px] rounded-full pointer-events-none" />
 
@@ -40,9 +39,9 @@ export const RitualAnimatedBeam: React.FC = () => {
         <span className="font-2xl uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold block mb-4">
           Consecrated Transmission
         </span>
-        <ScrollFloat containerClassName="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
+        <h1 className="font-ui text-4xl text-midnight dark:text-cream tracking-wide leading-tight">
           Rituals Run On Your Behalf.
-        </ScrollFloat>
+        </h1>
         <p className="font-body text-gray-600 dark:text-gray-400 mt-4 leading-relaxed">
           The precise path of a remote ritual. See exactly how we route your physical intention directly from our client core to the traditional temples.
         </p>
@@ -54,7 +53,7 @@ export const RitualAnimatedBeam: React.FC = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className="relative w-full mx-auto py-12"
+          className="relative w-full mx-auto py-10"
           id="ritual-beam-section"
         >
           {/* Horizontal Beam for Desktop */}

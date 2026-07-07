@@ -65,7 +65,7 @@ export function LeadCapture() {
 
             <div className="mt-6 mb-8 flex items-baseline gap-2">
               <span className="text-4xl font-sans text-midnight dark:text-cream font-semibold">Free</span>
-              <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">/ 3 mo</span>
+              <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">/ 3 months </span>
             </div>
 
             <ul className="space-y-4 mb-8 flex-grow">
