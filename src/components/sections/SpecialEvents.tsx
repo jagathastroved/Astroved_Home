@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Flame, Clock, CalendarDays, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { jupiter_welth, murugan_SE, rekease_old_karma } from '../../assets/Special_events/index';
 const events = [
   {
@@ -94,69 +95,75 @@ export function SpecialEvents() {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="overflow-hidden rounded-[2.5rem] bg-[#0b0e14] border border-white/5 hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {events.map((ev) => (
-                <div key={ev.id} className="w-full flex-shrink-0">
-                  <div className="group/card flex flex-col lg:flex-row min-h-[450px] relative">
+          <div className="overflow-hidden rounded-[2.5rem] bg-[#0b0e14] border border-white/5 hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 relative min-h-[450px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="w-full h-full absolute inset-0"
+              >
+                {(() => {
+                  const ev = events[currentIndex];
+                  return (
+                    <div className="group/card flex flex-col lg:flex-row h-full relative">
+                      {/* Background Image (Desktop) */}
+                      <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-[65%] overflow-hidden pointer-events-none">
+                        <img
+                          src={ev.image}
+                          alt={ev.title}
+                          className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-[1500ms] ease-out"
+                          style={{
+                            WebkitMaskImage: 'linear-gradient(to right, black 50%, transparent 100%)',
+                            maskImage: 'linear-gradient(to right, black 50%, transparent 100%)'
+                          }}
+                        />
+                      </div>
 
-                    {/* Background Image (Desktop) */}
-                    <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-[65%] overflow-hidden pointer-events-none">
-                      <img
-                        src={ev.image}
-                        alt={ev.title}
-                        className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-[1500ms] ease-out"
-                        style={{
-                          WebkitMaskImage: 'linear-gradient(to right, black 50%, transparent 100%)',
-                          maskImage: 'linear-gradient(to right, black 50%, transparent 100%)'
-                        }}
-                      />
-                    </div>
+                      {/* Background Image (Mobile) */}
+                      <div className="lg:hidden relative w-full h-[350px] sm:h-[450px] overflow-hidden pointer-events-none rounded-t-[2.5rem]">
+                        <img
+                          src={ev.image}
+                          alt={ev.title}
+                          className="w-full h-full object-cover"
+                          style={{
+                            WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
+                            maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)'
+                          }}
+                        />
+                      </div>
 
-                    {/* Background Image (Mobile) */}
-                    <div className="lg:hidden relative w-full h-[350px] sm:h-[450px] overflow-hidden pointer-events-none rounded-t-[2.5rem]">
-                      <img
-                        src={ev.image}
-                        alt={ev.title}
-                        className="w-full h-full object-cover"
-                        style={{
-                          WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
-                          maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)'
-                        }}
-                      />
-                    </div>
+                      {/* Content (Right side on desktop, Bottom/Center on mobile) */}
+                      <div className="w-full lg:w-[45%] ml-auto p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center lg:items-end text-center lg:text-right z-10 relative -mt-[120px] sm:-mt-[160px] lg:mt-0 lg:pt-16">
+                        <div className="w-full">
+                          <div className="flex items-center justify-center lg:justify-end mb-4">
+                            <span className={`font-serif italic text-xl lg:text-2xl text-amber-500 dark:text-amber-400`}>
+                              {ev.tagline}
+                            </span>
+                          </div>
 
-                    {/* Content (Right side on desktop, Bottom/Center on mobile) */}
-                    <div className="w-full lg:w-[45%] ml-auto p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center lg:items-end text-center lg:text-right z-10 relative -mt-[120px] sm:-mt-[160px] lg:mt-0 lg:pt-16">
-                      <div className="w-full">
-                        <div className="flex items-center justify-center lg:justify-end mb-4">
-                          <span className={`font-serif italic text-xl lg:text-2xl text-amber-500 dark:text-amber-400`}>
-                            {ev.tagline}
-                          </span>
+                          <h3 className="font-serif text-2xl lg:text-3xl xl:text-4xl text-white font-bold tracking-wider mb-6 leading-tight uppercase">
+                            {ev.title}
+                          </h3>
+
+                          <p className="font-sans text-sm lg:text-base text-gray-400 mb-8">
+                            {ev.deadline}
+                          </p>
                         </div>
 
-                        <h3 className="font-serif text-2xl lg:text-3xl xl:text-4xl text-white font-bold tracking-wider mb-6 leading-tight uppercase">
-                          {ev.title}
-                        </h3>
-
-                        <p className="font-sans text-sm lg:text-base text-gray-400 mb-8">
-                          {ev.deadline}
-                        </p>
-                      </div>
-
-                      <div className="mt-4 flex justify-center lg:justify-end w-full">
-                        <button className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-amber-400 text-black font-sans text-sm font-bold hover:bg-amber-500 transition-colors">
-                          {ev.cta} <ArrowRight className="w-4 h-4" />
-                        </button>
+                        <div className="mt-4 flex justify-center lg:justify-end w-full">
+                          <button className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-amber-400 text-black font-sans text-sm font-bold hover:bg-amber-500 transition-colors">
+                            {ev.cta} <ArrowRight className="w-4 h-4" />
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+                  );
+                })()}
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Navigation Buttons (Placed inside the card bounds) */}
