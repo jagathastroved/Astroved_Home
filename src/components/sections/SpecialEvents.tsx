@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Flame, Clock, CalendarDays, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { jupiter_welth1, murugan_ritual, rekease_old_karma1, karuppasamy_ritual } from '../../assets/Special_events/index';
+import { jupiter_welth1, murugan_ritual, murugan_ritual1, karuppasamy_ritual, karuppasamy_ritual1 } from '../../assets/Special_events/index';
 const events = [
   {
     id: 1,
@@ -10,6 +10,8 @@ const events = [
     deadline: "Closes Tonight",
     cta: "Join Now",
     image: murugan_ritual,
+    mobileImage: murugan_ritual1,
+    imagePosition: "object-left",
     bgGradient: "from-orange-100 via-rose-50 to-purple-100 dark:from-orange-900/60 dark:via-red-900/60 dark:to-purple-900/60",
     iconColor: "text-orange-500 dark:text-orange-400"
   },
@@ -19,7 +21,9 @@ const events = [
     tagline: "Divine Remedies",
     deadline: "Starts in 2 Days",
     cta: "Save My Spot",
-    image: rekease_old_karma1,
+    image: karuppasamy_ritual1,
+    mobileImage: karuppasamy_ritual,
+    imagePosition: "object-top",
     bgGradient: "from-indigo-100 via-purple-50 to-fuchsia-100 dark:from-indigo-900/60 dark:via-purple-900/60 dark:to-fuchsia-900/60",
     iconColor: "text-purple-500 dark:text-purple-400"
   },
@@ -124,11 +128,14 @@ export function SpecialEvents() {
 
                       {/* Background Image (Mobile & Tablet) */}
                       <div className="lg:hidden absolute inset-0 w-full h-full overflow-hidden pointer-events-none rounded-[2.5rem]">
-                        <img
-                          src={ev.image}
-                          alt={ev.title}
-                          className="w-full h-full object-cover"
-                        />
+                        <picture>
+                          <source media="(min-width: 768px)" srcSet={ev.image} />
+                          <img
+                            src={(ev as any).mobileImage || ev.image}
+                            alt={ev.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </picture>
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0b0e14]/60 via-transparent to-transparent"></div>
                       </div>
 

@@ -1,91 +1,195 @@
-import React from 'react';
-import { Sparkles, ArrowRight, BookOpen } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import aiNumerology from '../../'
+
+const reports = [
+  {
+    id: 1,
+    title: "AI Kundali Report",
+    // tagline: "Vedic Astrology",
+    description: "Get an instant, comprehensive analysis of your birth chart. Discover your planetary positions, doshas, and predictions powered by cutting-edge AI.",
+    cta: "Generate Report",
+    image: "https://kundali-report.vercel.app/assets/Kundali_Report_book-TqjZBBfC.png",
+    imageFit: "object-contain p-4 lg:p-8 drop-shadow-2xl scale-125 lg:scale-110",
+    imagePosition: "object-center",
+    bgGradient: "bg-[#f8f9fa] dark:bg-[#0b0e14]",
+    buttonColor: "bg-[#a855f7] hover:bg-[#9333ea]",
+    taglineColor: "text-[#a855f7]",
+    link: "https://kundali-report.vercel.app/"
+  },
+  {
+    id: 2,
+    title: "AI Numerology Report",
+    // tagline: "Numerology Secrets",
+    description: "Uncover the hidden meanings behind your numbers. Get an AI-driven report on your life path, expression, and soul urge numbers.",
+    cta: "Generate Report",
+    image: "https://numerologyreport-umber.vercel.app/images/Numerology_Book.png",
+    imageFit: "object-contain p-4 lg:p-8 drop-shadow-2xl scale-125 lg:scale-110",
+    imagePosition: "object-center",
+    bgGradient: "bg-[#f8f9fa] dark:bg-[#0b0e14]",
+    buttonColor: "bg-[#f59e0b] hover:bg-[#d97706]",
+    taglineColor: "text-[#f59e0b]",
+    link: "https://numerologyreport-umber.vercel.app/"
+  }
+];
 
 export function AIReports() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > 50) nextSlide();
+    if (distance < -50) prevSlide();
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === reports.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? reports.length - 1 : prev - 1));
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="py-4 md:py-6 px-6 max-w-7xl mx-auto z-10 relative" id="ai-reports">
-      <div className="max-w-4xl mx-auto text-center mb-6">
+    <section className="py-4 md:py-6 px-6 max-w-5xl mx-auto z-10 relative" id="ai-reports">
+      <div className="max-w-3xl mx-auto text-center mb-6">
         <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
           Advanced AI <em className="text-amber-600 dark:text-amber-400 italic">Insights.</em>
         </h2>
-        {/* <h2 className="font-sans text-4xl md:text-5xl text-midnight dark:text-cream tracking-wide leading-tight mb-6 font-bold">
-          Unlock Your Future with AI
-        </h2>
-        <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
-          Experience the next generation of astrology and numerology. Our advanced AI engines generate highly personalized, instantly accessible reports tailored specifically to your cosmic blueprint.
-        </p> */}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 auto-rows-fr">
+      {/* Carousel Container */}
+      <div
+        className="relative group px-0 touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Main Card */}
+        <div className="overflow-hidden rounded-[2.5rem] bg-[#f8f9fa] dark:bg-[#0b0e14] border border-gray-100 dark:border-white/5 hover:border-[#b052ff]/30 hover:shadow-[0_0_40px_rgba(176,82,255,0.15)] transition-all duration-500 relative h-[450px] lg:h-[350px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="w-full h-full absolute inset-0"
+            >
+              {(() => {
+                const ev = reports[currentIndex];
+                return (
+                  <div className="group/card flex flex-col lg:flex-row h-full relative">
+                    {/* Image Area (Desktop) */}
+                    <div className="hidden lg:flex absolute top-0 bottom-0 left-0 w-[45%] pointer-events-none items-center justify-center relative z-10">
+                      <div className="absolute inset-0 bg-gradient-to-r from-gray-100/50 to-transparent dark:from-black/30 dark:to-transparent z-0"></div>
+                      <img
+                        src={ev.image}
+                        alt={ev.title}
+                        className={`w-full h-full ${ev.imageFit} group-hover/card:scale-105 transition-transform duration-[1500ms] ease-out ${ev.imagePosition} relative z-10`}
+                      />
+                    </div>
 
-        {/* AI Kundali Report */}
-        <a
-          href="https://kundali-report.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-indigo-50/80 to-purple-50/80 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-purple-500/30 py-6 px-6 sm:py-8 sm:px-10 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.2)] transition-all duration-500 flex flex-col"
-        >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[80px] group-hover:bg-purple-500/20 transition-colors duration-500" />
+                    {/* Image Area (Mobile & Tablet) */}
+                    <div className="lg:hidden absolute inset-0 w-full h-[60%] pointer-events-none flex items-center justify-center z-10">
+                      <img
+                        src={ev.image}
+                        alt={ev.title}
+                        className={`w-full h-full object-contain p-8 group-hover/card:scale-105 transition-transform duration-[1500ms] ease-out ${ev.imagePosition}`}
+                      />
+                    </div>
 
-          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-2 lg:gap-8 h-full">
-            <div className="w-40 sm:w-48 h-auto flex-shrink-0 group-hover:scale-105 transition-transform duration-500 origin-center">
-              <img
-                src="https://kundali-report.vercel.app/assets/Kundali_Report_book-TqjZBBfC.png"
-                alt="AI Kundali Report Book"
-                className="w-full h-auto drop-shadow-2xl"
-              />
-            </div>
+                    {/* Mobile Gradient Fade */}
+                    <div className="lg:hidden absolute inset-0 w-full h-full pointer-events-none rounded-[2.5rem] z-0">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#f8f9fa] dark:from-[#0b0e14] via-[#f8f9fa]/90 dark:via-[#0b0e14]/90 to-transparent bottom-0 h-3/4"></div>
+                    </div>
 
-            <div className="flex flex-col flex-grow text-center sm:text-left h-full justify-center">
-              <h3 className="font-sans text-2xl sm:text-3xl font-bold text-midnight dark:text-cream mb-3">
-                AI Kundali Report
-              </h3>
+                    {/* Content */}
+                    <div className="w-full lg:w-[55%] ml-auto p-8 sm:p-12 lg:p-16 flex flex-col justify-end lg:justify-center items-center lg:items-start text-center lg:text-left z-20 relative h-full lg:mt-0 pt-32 lg:pt-0">
+                      <div className="w-full">
+                        <div className="flex items-center justify-center lg:justify-start mb-2">
+                          <span className={`font-serif font-bold tracking-[0.2em] text-sm lg:text-base ${ev.taglineColor} uppercase`}>
+                            {/* {ev.tagline} */}
+                          </span>
+                        </div>
 
-              <p className="font-body text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                Get an instant, comprehensive analysis of your birth chart. Discover your planetary positions, doshas, and predictions powered by cutting-edge AI.
-              </p>
+                        <h3 className="font-serif text-2xl lg:text-3xl xl:text-4xl text-midnight dark:text-white font-bold tracking-tight mb-4 leading-tight">
+                          {ev.title}
+                        </h3>
 
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-purple-600 dark:text-purple-400 font-bold uppercase tracking-widest text-xs sm:text-sm">
-                Generate Report <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
-              </div>
-            </div>
-          </div>
-        </a>
+                        <p className="font-body text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed mb-8 max-w-sm mx-auto lg:mx-0">
+                          {ev.description}
+                        </p>
 
-        {/* AI Numerology Report */}
-        <a
-          href="https://numerologyreport-umber.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-amber-50/80 to-orange-50/80 dark:from-[#0a0e17] dark:to-[#17140f] border border-black/5 dark:border-amber-500/30 py-6 px-6 sm:py-8 sm:px-10 hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] transition-all duration-500 flex flex-col"
-        >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] group-hover:bg-amber-500/20 transition-colors duration-500" />
+                        <a
+                          href={ev.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-full ${ev.buttonColor} text-white font-semibold tracking-wide text-sm hover:scale-105 transition-transform shadow-lg pointer-events-auto`}
+                        >
+                          {ev.cta} <ArrowUpRight className="w-4 h-4" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-2 lg:gap-8 h-full">
-            <div className="w-40 sm:w-48 h-auto flex-shrink-0 group-hover:scale-105 transition-transform duration-500 origin-center">
-              <img
-                src="https://numerologyreport-umber.vercel.app/images/Numerology_Book.png"
-                alt="AI Numerology Report Book"
-                className="w-full h-auto drop-shadow-2xl"
-              />
-            </div>
+        {/* Navigation Controls */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-2 sm:px-4 md:-mx-6 pointer-events-none z-30">
+          <button
+            onClick={prevSlide}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white dark:bg-black/30 dark:hover:bg-black/50 backdrop-blur-md border border-gray-200 dark:border-white/10 flex items-center justify-center text-[#b052ff] dark:text-white transition-all hover:scale-110 pointer-events-auto shadow-lg"
+            aria-label="Previous report"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white dark:bg-black/30 dark:hover:bg-black/50 backdrop-blur-md border border-gray-200 dark:border-white/10 flex items-center justify-center text-[#b052ff] dark:text-white transition-all hover:scale-110 pointer-events-auto shadow-lg"
+            aria-label="Next report"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
+        </div>
 
-            <div className="flex flex-col flex-grow text-center sm:text-left h-full justify-center">
-              <h3 className="font-sans text-2xl sm:text-3xl font-bold text-midnight dark:text-cream mb-3">
-                AI Numerology
-              </h3>
-
-              <p className="font-body text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                Uncover the hidden meanings behind your numbers. Get an AI-driven report on your life path, expression, and soul urge numbers.
-              </p>
-
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-amber-600 dark:text-amber-400 font-bold uppercase tracking-widest text-xs sm:text-sm">
-                Generate Report <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
-              </div>
-            </div>
-          </div>
-        </a>
-
+        {/* Pagination Indicators */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-50 lg:bottom-8 lg:right-12 lg:left-auto lg:translate-x-0">
+          {reports.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              className={`transition-all duration-500 rounded-full ${idx === currentIndex
+                ? 'w-6 h-1.5 bg-[#b052ff] dark:bg-[#b052ff] shadow-sm'
+                : 'w-1.5 h-1.5 bg-gray-400 hover:bg-gray-500 dark:bg-white/40 dark:hover:bg-white/60 shadow-sm'
+                }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

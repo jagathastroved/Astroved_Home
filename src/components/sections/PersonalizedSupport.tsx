@@ -1,110 +1,83 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { tarpanam, Shreem_Membership1 } from '../../assets/personalized_support';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ChevronLeft, ChevronRight, Sparkles, ArrowRight } from 'lucide-react';
+import { tarpanam, Shreem_Membership1, Shreem_Membership2 } from '../../assets/personalized_support';
+
+const solutions = [
+  {
+    id: 1,
+    title: "Shreem Brzee Membership",
+    tagline: "Abundance & Prosperity",
+    description: "Receive ongoing abundance-focused guidance, exclusive rituals, personalized recommendations, and premium spiritual resources.",
+    cta: "Join Membership",
+    image: Shreem_Membership2,
+    imagePosition: "object-center",
+    bgGradient: "from-purple-100 via-fuchsia-50 to-pink-100 dark:from-purple-900/60 dark:via-fuchsia-900/60 dark:to-pink-900/60",
+    iconColor: "text-purple-500 dark:text-purple-400",
+    buttonColor: "bg-[#a855f7] hover:bg-[#9333ea]"
+  },
+  {
+    id: 2,
+    title: "Yearlong Tarpanam",
+    tagline: "Ancestral Blessings",
+    description: "Honor your ancestors throughout the year with scheduled sacred rituals performed by experienced temple priests.",
+    cta: "Learn More",
+    image: tarpanam,
+    imageFit: "object-cover",
+    imagePosition: "object-center",
+    bgGradient: "from-orange-100 via-rose-50 to-red-100 dark:from-orange-900/60 dark:via-red-900/60 dark:to-rose-900/60",
+    iconColor: "text-orange-500 dark:text-orange-400",
+    buttonColor: "bg-orange-500 hover:bg-orange-600"
+  }
+];
 
 export function PersonalizedSupport() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > 50) nextSlide();
+    if (distance < -50) prevSlide();
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === solutions.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? solutions.length - 1 : prev - 1));
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="relative py-4 md:py-6 px-6 overflow-hidden" id="personalized-support">
+    <section id="personalized-support" className="py-4 md:py-6 relative overflow-hidden transition-colors duration-500 z-10">
 
-      {/* Floating Diamond (Decorative SVG replacing Lotus) */}
-      <motion.div
-        animate={{ y: [0, -15, 0], scale: [1, 1.05, 1], opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-10 left-10 md:top-20 md:left-20 text-[#facc15] pointer-events-none w-32 h-32 md:w-48 md:h-48 z-0 filter drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]"
-      >
-        <svg viewBox="0 0 100 100" fill="currentColor">
-          <path d="M50 0 C50 40 60 50 100 50 C60 50 50 60 50 100 C50 60 40 50 0 50 C40 50 50 40 50 0 Z" />
-        </svg>
-      </motion.div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-6 relative z-0">
-          <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
-            Personalized <em className="text-amber-600 dark:text-amber-400 italic">Support.</em>
-          </h2>
-          {/* <h1 className="font-sans text-4xl md:text-5xl text-midnight dark:text-cream tracking-wide leading-tight font-medium mb-6 drop-shadow-lg">
-            Ongoing Spiritual Support
-          </h1>
-          <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto text-lg drop-shadow-md">
-            Stay spiritually connected every day with continuous blessings and personalized rituals.
-          </p> */}
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 relative z-10">
-
-          {/* Card 1: Shreem Brzee Membership */}
-          <div className="group relative overflow-hidden rounded-[2.5rem] min-h-[500px] border border-gray-100 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] transition-all hover:border-[#facc15]/60 shadow-xl hover:shadow-[0_0_40px_rgba(250,204,21,0.25)] flex flex-col justify-end p-8 md:p-12">
-
-            {/* Full Background Image */}
-            <div className="absolute inset-0 w-full h-full">
-              <img
-                src={Shreem_Membership1}
-                alt="Shreem Brzee Membership"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3000ms] ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            </div>
-
-            {/* Glowing inner border */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#facc15]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-            <div className="relative z-20">
-              <div className="">
-                <Sparkles className="w-6 h-6" />
-              </div>
-              <h3 className="font-sans text-3xl md:text-4xl text-white font-medium mb-4 drop-shadow-lg">
-                Shreem Brzee Membership
-              </h3>
-              <p className="font-body text-gray-200 mb-8 leading-relaxed drop-shadow-md">
-                Receive ongoing abundance-focused guidance, exclusive rituals, personalized recommendations, and premium spiritual resources.
-              </p>
-              <button className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#a855f7] hover:bg-[#9333ea] text-white font-semibold uppercase tracking-widest text-sm hover:scale-105 transition-transform shadow-lg">
-                Join Membership <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-
-          {/* Card 2: Yearlong Tarpanam */}
-          <div className="group relative overflow-hidden rounded-[2.5rem] min-h-[500px] border border-gray-100 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] transition-all hover:border-orange-500/60 shadow-xl hover:shadow-[0_0_40px_rgba(249,115,22,0.25)] flex flex-col justify-end p-8 md:p-12">
-
-            {/* Full Background Image */}
-            <div className="absolute inset-0 w-full h-full">
-              <img
-                src={tarpanam}
-                alt="Yearlong Tarpanam"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3000ms] ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            </div>
-
-            {/* Glowing inner border */}
-            <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-            <div className="relative z-20">
-              <h3 className="font-sans text-3xl md:text-4xl text-white font-medium mb-4 drop-shadow-lg">
-                Yearlong Tarpanam
-              </h3>
-              <p className="font-body text-gray-200 mb-8 leading-relaxed drop-shadow-md">
-                Honor your ancestors throughout the year with scheduled sacred rituals performed by experienced temple priests.
-              </p>
-              <button className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#a855f7] hover:bg-[#9333ea] text-white font-semibold uppercase tracking-widest text-sm hover:scale-105 transition-transform shadow-lg">
-                Learn More <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Golden Particles Background (Highest Z-Index to cover everything) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-30">
-        {[...Array(25)].map((_, i) => (
+      {/* Decorative Particle Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {[...Array(20)].map((_, i) => (
           <motion.div
             key={`particle-${i}`}
             initial={{ opacity: 0, y: 0, x: 0 }}
             animate={{
-              opacity: [0, 0.8, 0],
+              opacity: [0, 0.6, 0],
               y: [-20, -150 - Math.random() * 150],
               x: [0, (Math.random() - 0.5) * 150]
             }}
@@ -114,15 +87,136 @@ export function PersonalizedSupport() {
               delay: Math.random() * 5,
               ease: "easeOut"
             }}
-            className="absolute rounded-full bg-yellow-300 blur-[1px] shadow-[0_0_8px_rgba(253,224,71,0.8)]"
+            className="absolute rounded-full bg-amber-400 blur-[1px]"
             style={{
-              width: Math.random() * 5 + 2 + 'px',
-              height: Math.random() * 5 + 2 + 'px',
+              width: Math.random() * 4 + 2 + 'px',
+              height: Math.random() * 4 + 2 + 'px',
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
           />
         ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-6 relative z-10">
+          <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
+            Personalized <em className="text-amber-600 dark:text-amber-400 italic">Support.</em>
+          </h2>
+        </div>
+
+        {/* Carousel Container */}
+        <div
+          className="relative group px-0 touch-pan-y"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Main Card */}
+          <div className="overflow-hidden rounded-[2.5rem] bg-[#0b0e14] border border-white/5 hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 relative h-[500px] lg:h-[450px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="w-full h-full absolute inset-0"
+              >
+                {(() => {
+                  const ev = solutions[currentIndex];
+                  return (
+                    <div className="group/card flex flex-col lg:flex-row h-full relative">
+                      {/* Background Image (Desktop) */}
+                      <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-[65%] overflow-hidden pointer-events-none">
+                        <img
+                          src={ev.image}
+                          alt={ev.title}
+                          className={`w-full h-full ${ev.imageFit || 'object-cover'} group-hover/card:scale-105 transition-transform duration-[1500ms] ease-out ${ev.imagePosition || 'object-center'}`}
+                          style={{
+                            WebkitMaskImage: ev.imageFit?.includes('contain') ? 'none' : 'linear-gradient(to right, black 50%, transparent 100%)',
+                            maskImage: ev.imageFit?.includes('contain') ? 'none' : 'linear-gradient(to right, black 50%, transparent 100%)'
+                          }}
+                        />
+                      </div>
+
+                      {/* Background Image (Mobile & Tablet) */}
+                      <div className="lg:hidden absolute inset-0 w-full h-full overflow-hidden pointer-events-none rounded-[2.5rem] bg-[#0b0e14]">
+                        <picture>
+                          <source media="(min-width: 768px)" srcSet={ev.image} />
+                          <img
+                            src={(ev as any).mobileImage || ev.image}
+                            alt={ev.title}
+                            className={`w-full h-full ${ev.imageFit || 'object-cover'} ${ev.imagePosition || 'object-center'} opacity-80`}
+                          />
+                        </picture>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0e14]/90 via-black/50 to-transparent"></div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="w-full lg:w-[45%] ml-auto p-8 sm:p-12 lg:p-16 flex flex-col justify-end lg:justify-center items-center lg:items-end text-center lg:text-right z-10 relative h-full lg:mt-0 lg:pt-16">
+                        <div className="w-full">
+                          <div className="flex items-center justify-center lg:justify-end mb-4">
+                            <span className={`font-serif italic text-xl lg:text-2xl text-amber-400 dark:text-amber-500`}>
+                              {ev.tagline}
+                            </span>
+                          </div>
+
+                          <h3 className="font-serif text-2xl lg:text-3xl xl:text-4xl text-white font-bold tracking-wider mb-4 leading-tight uppercase">
+                            {ev.title}
+                          </h3>
+
+                          <p className="font-body text-gray-200 dark:text-gray-300 text-sm md:text-base leading-relaxed mb-8 drop-shadow-md lg:ml-auto max-w-sm">
+                            {ev.description}
+                          </p>
+
+                          <button className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-full ${ev.buttonColor} text-white font-semibold tracking-wide text-sm hover:scale-105 transition-transform shadow-lg`}>
+                            {ev.cta} <ArrowRight className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Navigation Controls */}
+          <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-2 sm:px-4 md:-mx-6 pointer-events-none z-20">
+            <button
+              onClick={prevSlide}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all hover:scale-110 pointer-events-auto shadow-lg"
+              aria-label="Previous event"
+            >
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all hover:scale-110 pointer-events-auto shadow-lg"
+              aria-label="Next event"
+            >
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+          </div>
+
+          {/* Pagination Indicators */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20 lg:bottom-8 lg:right-12 lg:left-auto lg:translate-x-0">
+            {solutions.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`transition-all duration-500 rounded-full ${idx === currentIndex
+                  ? 'w-6 h-1.5 bg-amber-400'
+                  : 'w-1.5 h-1.5 bg-white/40 hover:bg-white/60'
+                  }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

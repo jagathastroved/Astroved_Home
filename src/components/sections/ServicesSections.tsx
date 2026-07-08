@@ -42,42 +42,9 @@ export function ServicesSections() {
         </section>
 
         {/* SECTION 3: Personalized Solutions */}
-        <section className="mb-10">
-          <div className="text-center mb-8">
-            <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
-              Personalized <em className="text-amber-600 dark:text-amber-400 italic">Solutions.</em>
-            </h2>
-            <p className="mt-4 font-body text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Transform your destiny through powerful rituals, consecrated items, and transformative spiritual journeys.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <HoverGlowCard
-              icon={Sparkles}
-              badgeText="DIVINE INTERVENTION"
-              title="Priest Services"
-              description="Perform powerful homas (fire rituals) and poojas customized to your birth chart to overcome specific life challenges and attract abundance."
-              buttonText="Explore Services"
-              glowColor="rgba(244, 63, 94, 0.25)" // Rose glow
-            />
-            <HoverGlowCard
-              icon={Zap}
-              badgeText="CONSECRATED POWER"
-              title="AstroVed Shop"
-              description="Enhance your aura and environment with authentic yantras, rudrakshas, and gemstones energized in powerful rituals."
-              buttonText="Shop Products"
-              glowColor="rgba(16, 185, 129, 0.25)" // Emerald glow
-            />
-            <HoverGlowCard
-              icon={Map}
-              badgeText="SACRED JOURNEYS"
-              title="Pilgrimage Tours"
-              description="Embark on guided transformative journeys to powerful vortexes and ancient temples in India to dissolve karma."
-              buttonText="View Tours"
-              glowColor="rgba(59, 130, 246, 0.25)" // Blue glow
-            />
-          </div>
-        </section>
+        {/* <div className="mb-10">
+          <PersonalizedSolutions />
+        </div> */}
 
         {/* SECTION 4: Personalized Support */}
         <section>
