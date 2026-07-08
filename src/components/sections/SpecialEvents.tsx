@@ -136,7 +136,7 @@ export function SpecialEvents() {
                       <div className="w-full lg:w-[45%] ml-auto p-8 sm:p-12 lg:p-16 flex flex-col justify-end lg:justify-center items-center lg:items-end text-center lg:text-right z-10 relative h-full lg:mt-0 lg:pt-16">
                         <div className="w-full">
                           <div className="flex items-center justify-center lg:justify-end mb-4">
-                            <span className={`font-serif italic text-xl lg:text-2xl text-amber-500 dark:text-amber-400`}>
+                            <span className={`font-serif italic text-xl lg:text-2xl text-amber-400 dark:text-amber-500`}>
                               {ev.tagline}
                             </span>
                           </div>
@@ -145,7 +145,7 @@ export function SpecialEvents() {
                             {ev.title}
                           </h3>
 
-                          <p className="font-sans text-sm lg:text-base text-gray-400 mb-8">
+                          <p className="font-sans text-sm lg:text-base text-gray-100 mb-8">
                             {ev.deadline}
                           </p>
                         </div>

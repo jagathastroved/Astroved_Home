@@ -15,8 +15,8 @@ const EXPERTS = [
   },
   {
     badgeText: "Nadi Reading",
-    title: "Ancient Palm Leaf Readings",
-    desc: "Access the precise karmic blueprints inscribed for you by the Maharishis thousands of years ago, complete with soul-cleansing remedies.",
+    title: "Nadi Astrology Reading",
+    desc: "Discover your destiny through the ancient Nadi system. Reveal your past karma, understand your present life, and receive powerful remedies for a better future.",
     cta: "Unlock Destiny",
     image: palm_leaf,
     titleColor: "text-purple-600 dark:text-amber-400"
@@ -80,14 +80,14 @@ export function ExpertChart() {
                   </span>
 
                   {/* Title */}
-                  <h3 className={`font-sans text-2xl md:text-3xl ${item.titleColor} md:text-white md:dark:text-white group-hover:text-amber-400 md:group-hover:text-amber-400 dark:group-hover:text-amber-400 font-medium leading-tight mb-2 md:mb-4 drop-shadow-md transition-colors`}>
+                  <h3 className={`font-sans text-2xl md:text-3xl ${item.titleColor} md:text-white md:dark:text-white group-hover:text-amber-400 md:group-hover:text-amber-400 dark:group-hover:text-amber-400 font-medium leading-tight mb-2 md:mb-4 md:drop-shadow-md transition-colors`}>
                     {item.title}
                   </h3>
 
                   {/* Description - Always visible on mobile, revealed on hover on desktop */}
                   <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
                     <div className="overflow-hidden">
-                      <p className="font-body text-gray-700 dark:text-white/90 md:text-white group-hover:text-white md:group-hover:text-white text-sm md:text-base leading-relaxed mb-6 mt-4 md:mt-0 transition-colors duration-500 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      <p className="font-body text-gray-700 dark:text-white/90 md:text-white group-hover:text-white md:group-hover:text-white text-sm md:text-base leading-relaxed mb-6 mt-4 md:mt-0 transition-colors duration-500 md:drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                         {item.desc}
                       </p>
                     </div>
