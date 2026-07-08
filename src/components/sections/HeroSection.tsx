@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { banner_1, banner_2, banner_3, banner_4, hero_banner } from '../../assets/Banner_image/index';
+import { banner_1, banner_2, banner_3, banner_4, mobile_banner1, hero_banner, home_banner1 } from '../../assets/Banner_image/index';
 
 interface BannerItem {
   id: number;
@@ -30,8 +30,8 @@ const BANNERS: BannerItem[] = [
     titleHighlight: "for Every Stage of Life",
     description: "Guidance. Remedies. Rituals. Peace of Mind.\nAll at AstroVed.",
     buttonText: "Explore Now",
-    image: banner_1,
-    mobileImage: hero_banner,
+    image: home_banner1,
+    mobileImage: mobile_banner1,
     bg: "bg-[#faf9f6] dark:bg-[#0b1120]",
     titlePrefixAccent: "text-white",
     accent: "text-white block mt-1",
@@ -111,10 +111,10 @@ export function HeroSection() {
                 <img
                   src={currentBanner.image}
                   alt={currentBanner.titlePrefix || 'Astroved Banner'}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[right_60%]"
                   style={{
                     WebkitMaskImage: `linear-gradient(to ${currentBanner.align === 'right' ? 'right' : 'left'}, black 65%, transparent 100%)`,
-                    maskImage: `linear-gradient(to ${currentBanner.align === 'right' ? 'right' : 'left'}, black 65%, transparent 100%)`
+                    maskImage: `linear-gradient(to ${currentBanner.align === 'right' ? 'right' : 'left'}, black 20%, transparent 100%)`
                   }}
                 />
               </div>
@@ -126,7 +126,7 @@ export function HeroSection() {
                   alt={currentBanner.titlePrefix || 'Astroved Banner'}
                   className="w-full h-full object-cover object-[center_20%]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-[#0b1120]/90" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-[#0b1120]/70" />
               </div>
             </motion.div>
           )}
@@ -143,7 +143,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className={`flex flex-col justify-end md:justify-center space-y-4 md:space-y-6 relative z-20 h-full flex-grow w-full max-w-[95%] md:max-w-4xl mx-auto items-center text-center md:items-start md:text-left ${currentBanner.align === 'right' ? 'md:items-end md:text-right md:ml-auto md:mr-0' : currentBanner.align === 'left' ? 'md:items-start md:text-left md:mr-auto md:ml-0' : 'md:items-center md:text-center'}`}
+              className={`flex flex-col justify-end md:justify-center space-y-4 md:space-y-6 relative z-20 h-full flex-grow w-full max-w-[95%] md:max-w-[55%] xl:max-w-[60%] mx-auto items-center text-center md:items-start md:text-left ${currentBanner.align === 'right' ? 'md:items-end md:text-right md:ml-auto md:mr-0' : currentBanner.align === 'left' ? 'md:items-start md:text-left md:mr-auto md:ml-0' : 'md:items-center md:text-center'}`}
             >
               {currentBanner.badge && (
                 <span className="inline-block px-3 py-1 bg-gold/90 text-black text-xs font-bold uppercase tracking-wider rounded-sm mb-2">

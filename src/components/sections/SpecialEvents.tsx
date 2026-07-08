@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Flame, Clock, CalendarDays, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { jupiter_welth, murugan_SE, rekease_old_karma } from '../../assets/Special_events/index';
+import { jupiter_welth1, murugan_ritual, rekease_old_karma1, karuppasamy_ritual } from '../../assets/Special_events/index';
 const events = [
   {
     id: 1,
@@ -9,17 +9,17 @@ const events = [
     tagline: "Clear Obstacles from Your Path",
     deadline: "Closes Tonight",
     cta: "Join Now",
-    image: murugan_SE,
+    image: murugan_ritual,
     bgGradient: "from-orange-100 via-rose-50 to-purple-100 dark:from-orange-900/60 dark:via-red-900/60 dark:to-purple-900/60",
     iconColor: "text-orange-500 dark:text-orange-400"
   },
   {
     id: 2,
-    title: "Lunar Eclipse Ritual",
-    tagline: "Release Old Karma and Blocks",
+    title: "Karuppasamy Divine Reading",
+    tagline: "Divine Remedies",
     deadline: "Starts in 2 Days",
     cta: "Save My Spot",
-    image: rekease_old_karma,
+    image: rekease_old_karma1,
     bgGradient: "from-indigo-100 via-purple-50 to-fuchsia-100 dark:from-indigo-900/60 dark:via-purple-900/60 dark:to-fuchsia-900/60",
     iconColor: "text-purple-500 dark:text-purple-400"
   },
@@ -29,7 +29,7 @@ const events = [
     tagline: "Attract Money and Good Luck",
     deadline: "Limited Space",
     cta: "Secure Blessing",
-    image: jupiter_welth,
+    image: jupiter_welth1,
     bgGradient: "from-amber-100 via-yellow-50 to-orange-100 dark:from-amber-900/60 dark:via-yellow-900/60 dark:to-orange-900/60",
     iconColor: "text-amber-500 dark:text-amber-400"
   }
@@ -122,14 +122,14 @@ export function SpecialEvents() {
                         />
                       </div>
 
-                      {/* Background Image (Mobile) */}
+                      {/* Background Image (Mobile & Tablet) */}
                       <div className="lg:hidden absolute inset-0 w-full h-full overflow-hidden pointer-events-none rounded-[2.5rem]">
                         <img
                           src={ev.image}
                           alt={ev.title}
                           className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0e14] via-[#0b0e14]/80 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0e14]/60 via-transparent to-transparent"></div>
                       </div>
 
                       {/* Content (Right side on desktop, Bottom/Center on mobile) */}

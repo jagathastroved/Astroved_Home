@@ -67,15 +67,15 @@ export function ExpertChart() {
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-out"
                 />
-                {/* Gradient: only needed on desktop where text overlays the image */}
-                <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Light black bg to ensure white text is readable */}
+                <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 group-hover:from-black/90 group-hover:via-black/60 group-hover:to-black/40 transition-all duration-500" />
               </div>
 
               {/* Content Container: Below image on mobile, over image on desktop */}
               <div className="relative z-10 p-8 md:p-10 flex flex-col justify-end flex-1 md:h-full bg-white dark:bg-[#0a0e17] md:bg-transparent md:dark:bg-transparent">
                 <div className="lg:translate-y-8 lg:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col">
                   {/* Badge */}
-                  <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/10 md:bg-white/10 md:dark:bg-white/10 border border-black/10 dark:border-white/20 md:border-white/20 md:dark:border-white/20 text-midnight dark:text-white md:text-white md:dark:text-white font-mono text-[10px] uppercase tracking-widest backdrop-blur-md mb-4 w-fit">
+                  <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/50 dark:bg-black/50 md:bg-white/60 md:dark:bg-black/50 group-hover:bg-white/20 md:group-hover:bg-white/20 border border-black/10 dark:border-white/20 md:border-white/30 md:dark:border-white/20 text-gray-900 dark:text-white md:text-gray-900 md:dark:text-white group-hover:text-white md:group-hover:text-white font-mono text-[10px] uppercase tracking-widest backdrop-blur-md mb-4 w-fit font-bold transition-all duration-500">
                     {item.badgeText}
                   </span>
 
@@ -87,7 +87,7 @@ export function ExpertChart() {
                   {/* Description - Always visible on mobile, revealed on hover on desktop */}
                   <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
                     <div className="overflow-hidden">
-                      <p className="font-body text-gray-700 dark:text-white/90 md:text-white/90 md:dark:text-white/90 text-sm leading-relaxed mb-6 mt-4 md:mt-0">
+                      <p className="font-body text-gray-700 dark:text-white/90 md:text-white group-hover:text-white md:group-hover:text-white text-sm md:text-base leading-relaxed mb-6 mt-4 md:mt-0 transition-colors duration-500 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                         {item.desc}
                       </p>
                     </div>

@@ -5,3 +5,5 @@ export { default as banner_1 } from './banner_1.png';
 export { default as banner_2 } from './banner_2.png';
 export { default as banner_3 } from './banner_3.png';
 export { default as banner_4 } from './banner_4.png';
+export { default as home_banner1 } from './home_banner1.png';
+export { default as mobile_banner1 } from './mobile_banner1.png';

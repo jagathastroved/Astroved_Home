@@ -163,7 +163,7 @@ export function DailyRadar({ onCalculateChart }: DailyRadarProps) {
               </div>
 
               {/* Bottom interactive action */}
-              <div className="mt-4 pt-4 border-t border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+              <div className="mt-4 pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                 <button
                   onClick={() => onCalculateChart(selectedZodiac)}
                   className="w-full sm:w-auto px-6 py-4 rounded-xl bg-midnight dark:bg-white text-white dark:text-midnight hover:bg-amber-600 dark:hover:bg-amber-400 hover:text-white font-sans text-[10px] sm:text-xs tracking-widest uppercase font-bold transition-all shadow-md flex items-center justify-center gap-3 group/btn flex-shrink-0"

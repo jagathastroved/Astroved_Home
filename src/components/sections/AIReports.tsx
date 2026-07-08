@@ -23,7 +23,7 @@ export function AIReports() {
           href="https://kundali-report.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-indigo-50/80 to-purple-50/80 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-purple-500/30 p-8 sm:p-12 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.2)] transition-all duration-500 min-h-[300px] flex flex-col justify-between"
+          className="group relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-indigo-50/80 to-purple-50/80 dark:from-[#0a0e17] dark:to-[#0f172a] border border-black/5 dark:border-purple-500/30 py-6 px-6 sm:py-8 sm:px-10 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.2)] transition-all duration-500 flex flex-col"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[80px] group-hover:bg-purple-500/20 transition-colors duration-500" />
 
@@ -57,7 +57,7 @@ export function AIReports() {
           href="https://numerologyreport-umber.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-amber-50/80 to-orange-50/80 dark:from-[#0a0e17] dark:to-[#17140f] border border-black/5 dark:border-amber-500/30 p-8 sm:p-12 hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] transition-all duration-500 min-h-[300px] flex flex-col justify-between"
+          className="group relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-amber-50/80 to-orange-50/80 dark:from-[#0a0e17] dark:to-[#17140f] border border-black/5 dark:border-amber-500/30 py-6 px-6 sm:py-8 sm:px-10 hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] transition-all duration-500 flex flex-col"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] group-hover:bg-amber-500/20 transition-colors duration-500" />
 

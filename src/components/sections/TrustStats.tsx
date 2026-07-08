@@ -1,10 +1,10 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, Variants } from 'motion/react';
 import { CountUp } from '../CountUp';
 import { ShieldCheck, Award, LockKeyhole } from 'lucide-react';
 
 export function TrustStats() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -12,7 +12,7 @@ export function TrustStats() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30, scale: 0.9 },
     show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 100, damping: 15 } }
   };
@@ -29,7 +29,7 @@ export function TrustStats() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-        className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-4 gap-4 lg:gap- items-center"
+        className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 lg:gap-12 items-center"
       >
 
         {/* Title Area */}
@@ -40,8 +40,8 @@ export function TrustStats() {
         </motion.div>
 
         {/* Stat 1 */}
-        <motion.div variants={itemVariants} className="relative group">
-          <div className="absolute inset-0 bg-white dark:bg-[#110c1c] rounded-2xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-lg group-hover:shadow-amber-500/20 group-hover:border-amber-500/30 transition-all duration-500 -z-10 scale-110 md:scale-100 md:-inset-4" />
+        <motion.div variants={itemVariants} className="relative group p-4 md:p-6 lg:p-8">
+          <div className="absolute inset-0 bg-white dark:bg-[#110c1c] rounded-2xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-lg group-hover:shadow-amber-500/20 group-hover:border-amber-500/30 transition-all duration-500 -z-10" />
           <div className="flex flex-col items-center justify-center text-center">
             <div className="w-10 h-10 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
               <Award className="w-5 h-5" />
@@ -54,8 +54,8 @@ export function TrustStats() {
         </motion.div>
 
         {/* Stat 2 */}
-        <motion.div variants={itemVariants} className="relative group">
-          <div className="absolute inset-0 bg-white dark:bg-[#110c1c] rounded-2xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-lg group-hover:shadow-amber-500/20 group-hover:border-amber-500/30 transition-all duration-500 -z-10 scale-110 md:scale-100 md:-inset-4" />
+        <motion.div variants={itemVariants} className="relative group p-4 md:p-6 lg:p-8">
+          <div className="absolute inset-0 bg-white dark:bg-[#110c1c] rounded-2xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-lg group-hover:shadow-amber-500/20 group-hover:border-amber-500/30 transition-all duration-500 -z-10" />
           <div className="flex flex-col items-center justify-center text-center">
             <div className="w-10 h-10 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
               <ShieldCheck className="w-5 h-5" />
@@ -68,8 +68,8 @@ export function TrustStats() {
         </motion.div>
 
         {/* Stat 3 */}
-        <motion.div variants={itemVariants} className="relative group">
-          <div className="absolute inset-0 bg-white dark:bg-[#110c1c] rounded-2xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-lg group-hover:shadow-amber-500/20 group-hover:border-amber-500/30 transition-all duration-500 -z-10 scale-110 md:scale-100 md:-inset-4" />
+        <motion.div variants={itemVariants} className="relative group p-4 md:p-6 lg:p-8">
+          <div className="absolute inset-0 bg-white dark:bg-[#110c1c] rounded-2xl border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-lg group-hover:shadow-amber-500/20 group-hover:border-amber-500/30 transition-all duration-500 -z-10" />
           <div className="flex flex-col items-center justify-center text-center">
             <div className="w-10 h-10 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
               <LockKeyhole className="w-5 h-5" />

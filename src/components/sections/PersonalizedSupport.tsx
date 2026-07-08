@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { Shreem_Membership, tarpanam } from '../../assets/personalized_support';
+import { tarpanam, Shreem_Membership1 } from '../../assets/personalized_support';
 
 export function PersonalizedSupport() {
   return (
@@ -39,11 +39,11 @@ export function PersonalizedSupport() {
             {/* Full Background Image */}
             <div className="absolute inset-0 w-full h-full">
               <img
-                src={Shreem_Membership}
+                src={Shreem_Membership1}
                 alt="Shreem Brzee Membership"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3000ms] ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             </div>
 
             {/* Glowing inner border */}
@@ -75,7 +75,7 @@ export function PersonalizedSupport() {
                 alt="Yearlong Tarpanam"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3000ms] ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             </div>
 
             {/* Glowing inner border */}

@@ -27,7 +27,7 @@ export function AuspiciousActions() {
             <img
               src={Community_Fire}
               alt="Vedic Fire Ritual"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
+              className="w-full h-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
             />
             {/* Soft inner shadow on image edge */}
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-orange-50/50 dark:from-[#0f172a] to-transparent pointer-events-none hidden md:block" />
@@ -69,7 +69,7 @@ export function AuspiciousActions() {
             <img
               src={astroved_store}
               alt="Energized Products"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
+              className="w-full h-full object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
             />
             {/* Soft inner shadow on image edge */}
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-purple-50/50 dark:from-[#0f172a] to-transparent pointer-events-none hidden md:block" />
@@ -113,7 +113,7 @@ export function AuspiciousActions() {
             <img
               src={Pilgrimage_Tours}
               alt="Holy Temples"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
+              className="w-full h-full object-cover object-[center_10%] group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
             />
             {/* Soft inner shadow on image edge */}
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-blue-50/50 dark:from-[#0f172a] to-transparent pointer-events-none hidden md:block" />

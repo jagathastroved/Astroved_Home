@@ -1,3 +1,4 @@
-export { default as jupiter_welth } from './jupiter_welth.png';
-export { default as murugan_SE } from './murugan_SE.png';
-export { default as rekease_old_karma } from './rekease_old_karma.png';
+export { default as jupiter_welth1 } from './jupiter_welth1.png';
+export { default as murugan_ritual } from './murugan_ritual.png';
+export { default as rekease_old_karma1 } from './rekease_old_karma1.png';
+export { default as karuppasamy_ritual } from './karuppasamy_ritual.png';
