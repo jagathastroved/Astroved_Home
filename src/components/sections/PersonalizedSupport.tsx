@@ -107,15 +107,51 @@ export function PersonalizedSupport() {
           </h2>
         </div>
 
-        {/* Carousel Container */}
+        {/* Desktop/Tablet Grid View (No Carousel) */}
+        <div className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8">
+          {solutions.map((ev, idx) => (
+            <div key={idx} className="group overflow-hidden rounded-[2.5rem] bg-[#0b0e14] border border-white/5 hover:border-[#facc15]/50 hover:shadow-[0_0_30px_rgba(250,204,21,0.15)] transition-all duration-500 flex flex-col h-full relative">
+              <div className="w-full h-56 lg:h-64 relative overflow-hidden rounded-t-[2.5rem]">
+                <img
+                  src={ev.image}
+                  alt={ev.title}
+                  className={`w-full h-full ${ev.imageFit || 'object-cover'} group-hover:scale-105 transition-transform duration-[1500ms] ease-out ${ev.imagePosition || 'object-center'}`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b0e14] to-transparent h-32 top-auto bottom-0"></div>
+              </div>
+
+              <div className="px-6 lg:px-8 pb-8 pt-2 flex flex-col flex-grow z-10 relative bg-[#0b0e14]">
+                <div className="flex items-start mb-2">
+                  <span className={`font-serif italic text-lg lg:text-xl text-amber-400 dark:text-amber-500`}>
+                    {ev.tagline}
+                  </span>
+                </div>
+                <h3 className="font-serif text-2xl lg:text-3xl text-white font-bold tracking-wider mb-3 leading-tight uppercase">
+                  {ev.title}
+                </h3>
+                <p className="font-body text-gray-200 dark:text-gray-300 text-sm leading-relaxed mb-8 flex-grow">
+                  {ev.description}
+                </p>
+
+                <div className="mt-auto flex justify-start">
+                  <button className={`inline-flex items-center gap-2 px-6 py-3 rounded-full ${ev.buttonColor} text-white font-semibold tracking-wide text-xs hover:scale-105 transition-transform shadow-md`}>
+                    {ev.cta} <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile Carousel View */}
         <div
-          className="relative group px-0 touch-pan-y"
+          className="md:hidden relative group px-0 touch-pan-y"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
           {/* Main Card */}
-          <div className="overflow-hidden rounded-[2.5rem] bg-[#0b0e14] border border-white/5 hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 relative h-[500px] lg:h-[450px]">
+          <div className="overflow-hidden rounded-[2.5rem] bg-[#0b0e14] border border-white/5 hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 relative h-[550px] lg:h-[450px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -156,7 +192,7 @@ export function PersonalizedSupport() {
                       </div>
 
                       {/* Content */}
-                      <div className="w-full lg:w-[45%] ml-auto p-8 sm:p-12 lg:p-16 flex flex-col justify-end lg:justify-center items-center lg:items-end text-center lg:text-right z-10 relative h-full lg:mt-0 lg:pt-16">
+                      <div className="w-full lg:w-[45%] ml-auto px-8 pb-20 pt-8 sm:p-12 lg:p-16 flex flex-col justify-end lg:justify-center items-center lg:items-end text-center lg:text-right z-10 relative h-full lg:mt-0 lg:pt-16">
                         <div className="w-full">
                           <div className="flex items-center justify-center lg:justify-end mb-4">
                             <span className={`font-serif italic text-xl lg:text-2xl text-amber-400 dark:text-amber-500`}>

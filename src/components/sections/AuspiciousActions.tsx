@@ -84,8 +84,59 @@ export function AuspiciousActions() {
         </h2>
       </div>
 
-      <div 
-        className="relative group px-0 touch-pan-y"
+      {/* Desktop/Tablet Grid View (No Carousel) */}
+      <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8">
+        {actions.map((ev, idx) => (
+          <div key={idx} className="group overflow-hidden rounded-[2.5rem] bg-[#f8f9fa] dark:bg-[#0b0e14] border border-gray-100 dark:border-white/5 hover:border-[#b052ff]/30 hover:shadow-[0_0_30px_rgba(176,82,255,0.15)] transition-all duration-500 flex flex-col h-full relative">
+            <div className="w-full h-48 lg:h-56 relative overflow-hidden rounded-t-[2.5rem]">
+              <img
+                src={ev.image}
+                alt={ev.title}
+                className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out ${ev.imagePosition}`}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#f8f9fa] dark:from-[#0b0e14] to-transparent h-24 top-auto bottom-0"></div>
+            </div>
+
+            <div className="px-6 lg:px-8 pb-8 pt-2 flex flex-col flex-grow z-10 relative">
+              <div className="flex items-start mb-2">
+                <span className="font-serif font-bold tracking-[0.15em] text-xs lg:text-sm text-[#b052ff] dark:text-[#b052ff] uppercase">
+                  {ev.tagline}
+                </span>
+              </div>
+              <h3 className="font-serif text-2xl lg:text-3xl text-midnight dark:text-white font-bold tracking-tight mb-3 leading-tight">
+                {ev.title}
+              </h3>
+              <p className="font-body text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-8 flex-grow">
+                {ev.description}
+              </p>
+
+              <div className="mt-auto flex justify-start">
+                {ev.isExternal ? (
+                  <a
+                    href={ev.link as string}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#b052ff] hover:bg-[#9333ea] text-white font-semibold tracking-wide text-xs hover:scale-105 transition-transform shadow-md"
+                  >
+                    {ev.cta} <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                ) : (
+                  <button
+                    onClick={ev.link as () => void}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#b052ff] hover:bg-[#9333ea] text-white font-semibold tracking-wide text-xs hover:scale-105 transition-transform shadow-md"
+                  >
+                    {ev.cta} <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Mobile Carousel View */}
+      <div
+        className="md:hidden relative group px-0 touch-pan-y"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -107,8 +158,8 @@ export function AuspiciousActions() {
                   <div className="group/card flex flex-col lg:flex-row h-full relative">
                     {/* Background Image (Desktop) */}
                     <div className="hidden lg:block absolute top-0 bottom-0 left-0 w-[55%] overflow-hidden pointer-events-none">
-                      <img 
-                        src={ev.image} 
+                      <img
+                        src={ev.image}
                         alt={ev.title}
                         className={`w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-[1500ms] ease-out ${ev.imagePosition}`}
                         style={{
@@ -122,8 +173,8 @@ export function AuspiciousActions() {
                     <div className="lg:hidden absolute inset-0 w-full h-[45%] overflow-hidden pointer-events-none rounded-t-[2.5rem]">
                       <picture>
                         <source media="(min-width: 768px)" srcSet={ev.image} />
-                        <img 
-                          src={(ev as any).mobileImage || ev.image} 
+                        <img
+                          src={(ev as any).mobileImage || ev.image}
                           alt={ev.title}
                           className={`w-full h-full object-cover ${ev.imagePosition}`}
                         />
@@ -150,7 +201,7 @@ export function AuspiciousActions() {
                         </p>
 
                         {ev.isExternal ? (
-                          <a 
+                          <a
                             href={ev.link as string}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -159,7 +210,7 @@ export function AuspiciousActions() {
                             {ev.cta} <ArrowUpRight className="w-4 h-4" />
                           </a>
                         ) : (
-                          <button 
+                          <button
                             onClick={ev.link as () => void}
                             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#b052ff] hover:bg-[#9333ea] text-white font-semibold tracking-wide text-sm hover:scale-105 transition-transform shadow-lg"
                           >
@@ -177,14 +228,14 @@ export function AuspiciousActions() {
 
         {/* Navigation Controls */}
         <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-2 sm:px-4 md:-mx-6 pointer-events-none z-20">
-          <button 
+          <button
             onClick={prevSlide}
             className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white dark:bg-black/30 dark:hover:bg-black/50 backdrop-blur-md border border-gray-200 dark:border-white/10 flex items-center justify-center text-[#b052ff] dark:text-white transition-all hover:scale-110 pointer-events-auto shadow-lg"
             aria-label="Previous event"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
-          <button 
+          <button
             onClick={nextSlide}
             className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white dark:bg-black/30 dark:hover:bg-black/50 backdrop-blur-md border border-gray-200 dark:border-white/10 flex items-center justify-center text-[#b052ff] dark:text-white transition-all hover:scale-110 pointer-events-auto shadow-lg"
             aria-label="Next event"
@@ -199,11 +250,10 @@ export function AuspiciousActions() {
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
-              className={`transition-all duration-500 rounded-full ${
-                idx === currentIndex 
-                  ? 'w-6 h-1.5 bg-[#b052ff] dark:bg-[#b052ff] shadow-sm' 
-                  : 'w-1.5 h-1.5 bg-gray-400 hover:bg-gray-500 dark:bg-white/40 dark:hover:bg-white/60 shadow-sm'
-              }`}
+              className={`transition-all duration-500 rounded-full ${idx === currentIndex
+                ? 'w-6 h-1.5 bg-[#b052ff] dark:bg-[#b052ff] shadow-sm'
+                : 'w-1.5 h-1.5 bg-gray-400 hover:bg-gray-500 dark:bg-white/40 dark:hover:bg-white/60 shadow-sm'
+                }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}

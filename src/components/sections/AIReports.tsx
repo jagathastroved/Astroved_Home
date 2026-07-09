@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
-import aiNumerology from '../../'
+import aiKundali from '../../assets/ai_reports/Kundali_Report_book.png'
+import aiNumerology from '../../assets/ai_reports/Numerology_Book.png'
 
 const reports = [
   {
@@ -10,7 +11,7 @@ const reports = [
     // tagline: "Vedic Astrology",
     description: "Get an instant, comprehensive analysis of your birth chart. Discover your planetary positions, doshas, and predictions powered by cutting-edge AI.",
     cta: "Generate Report",
-    image: "https://kundali-report.vercel.app/assets/Kundali_Report_book-TqjZBBfC.png",
+    image: aiKundali,
     imageFit: "object-contain p-4 lg:p-8 drop-shadow-2xl scale-125 lg:scale-110",
     imagePosition: "object-center",
     bgGradient: "bg-[#f8f9fa] dark:bg-[#0b0e14]",
@@ -24,7 +25,7 @@ const reports = [
     // tagline: "Numerology Secrets",
     description: "Uncover the hidden meanings behind your numbers. Get an AI-driven report on your life path, expression, and soul urge numbers.",
     cta: "Generate Report",
-    image: "https://numerologyreport-umber.vercel.app/images/Numerology_Book.png",
+    image: aiNumerology,
     imageFit: "object-contain p-4 lg:p-8 drop-shadow-2xl scale-125 lg:scale-110",
     imagePosition: "object-center",
     bgGradient: "bg-[#f8f9fa] dark:bg-[#0b0e14]",
@@ -78,15 +79,50 @@ export function AIReports() {
         </h2>
       </div>
 
-      {/* Carousel Container */}
+      {/* Desktop/Tablet Grid View (No Carousel) */}
+      <div className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8">
+        {reports.map((ev, idx) => (
+          <div key={idx} className="group overflow-hidden rounded-[2.5rem] bg-[#f8f9fa] dark:bg-[#0b0e14] border border-gray-100 dark:border-white/5 hover:border-[#b052ff]/30 hover:shadow-[0_0_30px_rgba(176,82,255,0.15)] transition-all duration-500 flex flex-col h-full relative">
+            <div className="w-full h-56 lg:h-64 relative overflow-hidden rounded-t-[2.5rem] flex items-center justify-center p-8 bg-gradient-to-b from-gray-100/50 to-transparent dark:from-black/30 dark:to-transparent">
+              <img
+                src={ev.image}
+                alt={ev.title}
+                className={`w-full h-full object-contain group-hover:scale-105 transition-transform duration-[1500ms] ease-out`}
+              />
+            </div>
+
+            <div className="px-6 lg:px-8 pb-8 pt-4 flex flex-col flex-grow z-10 relative">
+              <h3 className="font-serif text-2xl lg:text-3xl text-midnight dark:text-white font-bold tracking-tight mb-3 leading-tight text-center">
+                {ev.title}
+              </h3>
+              <p className="font-body text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-8 flex-grow text-center">
+                {ev.description}
+              </p>
+
+              <div className="mt-auto flex justify-center">
+                <a
+                  href={ev.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-full ${ev.buttonColor} text-white font-semibold tracking-wide text-xs hover:scale-105 transition-transform shadow-md`}
+                >
+                  {ev.cta} <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Mobile Carousel View */}
       <div
-        className="relative group px-0 touch-pan-y"
+        className="md:hidden relative group px-0 touch-pan-y"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         {/* Main Card */}
-        <div className="overflow-hidden rounded-[2.5rem] bg-[#f8f9fa] dark:bg-[#0b0e14] border border-gray-100 dark:border-white/5 hover:border-[#b052ff]/30 hover:shadow-[0_0_40px_rgba(176,82,255,0.15)] transition-all duration-500 relative h-[450px] lg:h-[350px]">
+        <div className="overflow-hidden rounded-[2.5rem] bg-[#f8f9fa] dark:bg-[#0b0e14] border border-gray-100 dark:border-white/5 hover:border-[#b052ff]/30 hover:shadow-[0_0_40px_rgba(176,82,255,0.15)] transition-all duration-500 relative h-[650px] lg:h-[350px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -125,15 +161,15 @@ export function AIReports() {
                     </div>
 
                     {/* Content */}
-                    <div className="w-full lg:w-[55%] ml-auto p-8 sm:p-12 lg:p-16 flex flex-col justify-end lg:justify-center items-center lg:items-start text-center lg:text-left z-20 relative h-full lg:mt-0 pt-32 lg:pt-0">
-                      <div className="w-full">
+                    <div className="w-full lg:w-[55%] ml-auto px-6 pb-20 sm:p-12 lg:p-16 flex flex-col justify-start lg:justify-center items-center lg:items-start text-center lg:text-left z-20 relative h-full lg:mt-0 pt-[310px] lg:pt-0">
+                      <div className="w-full h-full flex flex-col">
                         <div className="flex items-center justify-center lg:justify-start mb-2">
                           <span className={`font-serif font-bold tracking-[0.2em] text-sm lg:text-base ${ev.taglineColor} uppercase`}>
                             {/* {ev.tagline} */}
                           </span>
                         </div>
 
-                        <h3 className="font-serif text-2xl lg:text-3xl xl:text-4xl text-midnight dark:text-white font-bold tracking-tight mb-4 leading-tight">
+                        <h3 className="font-serif text-[22px] xs:text-2xl lg:text-3xl xl:text-4xl text-midnight dark:text-white font-bold tracking-tight mb-4 leading-tight">
                           {ev.title}
                         </h3>
 
@@ -141,14 +177,16 @@ export function AIReports() {
                           {ev.description}
                         </p>
 
-                        <a
-                          href={ev.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-full ${ev.buttonColor} text-white font-semibold tracking-wide text-sm hover:scale-105 transition-transform shadow-lg pointer-events-auto`}
-                        >
-                          {ev.cta} <ArrowUpRight className="w-4 h-4" />
-                        </a>
+                        <div className="w-full flex justify-center lg:justify-start mt-auto pt-4">
+                          <a
+                            href={ev.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-full ${ev.buttonColor} text-white font-semibold tracking-wide text-sm hover:scale-105 transition-transform shadow-lg pointer-events-auto`}
+                          >
+                            {ev.cta} <ArrowUpRight className="w-4 h-4" />
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -159,17 +197,17 @@ export function AIReports() {
         </div>
 
         {/* Navigation Controls */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-2 sm:px-4 md:-mx-6 pointer-events-none z-30">
+        <div className="absolute top-[130px] -translate-y-1/2 left-0 right-0 flex justify-between px-2 sm:px-4 md:-mx-6 pointer-events-none z-30">
           <button
             onClick={prevSlide}
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white dark:bg-black/30 dark:hover:bg-black/50 backdrop-blur-md border border-gray-200 dark:border-white/10 flex items-center justify-center text-[#b052ff] dark:text-white transition-all hover:scale-110 pointer-events-auto shadow-lg"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white dark:bg-black/30 dark:hover:bg-black/50 backdrop-blur-md border border-gray-200 dark:border-white/10 flex items-center justify-center text-[#b052ff] dark:text-white transition-all hover:scale-110 focus:outline-none pointer-events-auto shadow-lg"
             aria-label="Previous report"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white dark:bg-black/30 dark:hover:bg-black/50 backdrop-blur-md border border-gray-200 dark:border-white/10 flex items-center justify-center text-[#b052ff] dark:text-white transition-all hover:scale-110 pointer-events-auto shadow-lg"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 hover:bg-white dark:bg-black/30 dark:hover:bg-black/50 backdrop-blur-md border border-gray-200 dark:border-white/10 flex items-center justify-center text-[#b052ff] dark:text-white transition-all hover:scale-110 focus:outline-none pointer-events-auto shadow-lg"
             aria-label="Next report"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />

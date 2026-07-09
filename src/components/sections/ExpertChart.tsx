@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { AnimatedGrid } from '../ui/AnimatedGrid';
 import { AnimatedCard } from '../ui/AnimatedCard';
@@ -32,6 +32,25 @@ const EXPERTS = [
 ];
 
 export function ExpertChart() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current && window.innerWidth < 1024) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        // If we reached the end, scroll back to the start
+        if (scrollLeft + clientWidth >= scrollWidth - 20) {
+          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          // Scroll forward by one card width (approx 85% of screen width)
+          scrollRef.current.scrollBy({ left: clientWidth * 0.85, behavior: 'smooth' });
+        }
+      }
+    }, 4000); // Auto-scroll every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-6 md:py-8 transition-colors duration-500 relative overflow-hidden z-10 mt-4 md:mt-6">
       {/* Top Section Differentiator / Divider */}
@@ -45,56 +64,54 @@ export function ExpertChart() {
           <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
             Personalized <em className="text-amber-600 dark:text-amber-400 italic">Guidance.</em>
           </h2>
-          {/* <p className="font-body text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-8">
-            Connect directly with our most senior astrologers in India. Receive highly personalized guidance, exhaustive transit reports, or unlock your ancient Nadi leaf to conquer your karma.
-          </p> */}
-          {/* <a href="#" className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-sans text-xs uppercase tracking-widest font-bold hover:gap-3 transition-all">
-            Explore our master services <ArrowRight className="w-3.5 h-3.5" />
-          </a> */}
         </div>
 
         {/* Premium Image Card 3-Column Layout */}
-        <AnimatedGrid className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8 relative z-10">
+        <AnimatedGrid 
+          ref={scrollRef}
+          className="flex overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-3 gap-6 lg:gap-8 mt-8 relative z-10 pb-8 pt-4 px-6 -mx-6 lg:mx-0 lg:px-0 lg:pb-0 no-scrollbar"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {EXPERTS.map((item, idx) => (
             <AnimatedCard
               key={idx}
-              className="rounded-[2.5rem] flex flex-col group cursor-pointer overflow-hidden relative min-h-[450px] md:h-[450px] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 bg-white dark:bg-[#0a0e17]"
+              className="snap-center shrink-0 w-[85%] sm:w-[50%] lg:w-full rounded-[2.5rem] flex flex-col group cursor-pointer overflow-hidden relative min-h-[450px] lg:h-[450px] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 bg-white dark:bg-[#0a0e17]"
             >
               {/* Image Container: Stacked on mobile, absolute overlay on desktop */}
-              <div className="relative md:absolute inset-0 z-0 h-[250px] md:h-full shrink-0">
+              <div className="relative lg:absolute inset-0 z-0 h-[250px] lg:h-full shrink-0">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-out"
                 />
                 {/* Light black bg to ensure white text is readable */}
-                <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 group-hover:from-black/90 group-hover:via-black/60 group-hover:to-black/40 transition-all duration-500" />
+                <div className="hidden lg:block absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 group-hover:from-black/90 group-hover:via-black/60 group-hover:to-black/40 transition-all duration-500" />
               </div>
 
               {/* Content Container: Below image on mobile, over image on desktop */}
-              <div className="relative z-10 p-8 md:p-10 flex flex-col justify-end flex-1 md:h-full bg-white dark:bg-[#0a0e17] md:bg-transparent md:dark:bg-transparent">
-                <div className="lg:translate-y-8 lg:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col">
+              <div className="relative z-10 p-8 lg:p-10 flex flex-col justify-end flex-1 lg:h-full bg-white dark:bg-[#0a0e17] lg:bg-transparent lg:dark:bg-transparent">
+                <div className="lg:translate-y-8 lg:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col h-full">
                   {/* Badge */}
-                  <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/50 dark:bg-black/50 md:bg-white/60 md:dark:bg-black/50 group-hover:bg-white/20 md:group-hover:bg-white/20 border border-black/10 dark:border-white/20 md:border-white/30 md:dark:border-white/20 text-gray-900 dark:text-white md:text-gray-900 md:dark:text-white group-hover:text-white md:group-hover:text-white font-mono text-[10px] uppercase tracking-widest backdrop-blur-md mb-4 w-fit font-bold transition-all duration-500">
+                  <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/50 dark:bg-black/50 lg:bg-white/60 lg:dark:bg-black/50 group-hover:bg-white/20 lg:group-hover:bg-white/20 border border-black/10 dark:border-white/20 lg:border-white/30 lg:dark:border-white/20 text-gray-900 dark:text-white lg:text-gray-900 lg:dark:text-white group-hover:text-white lg:group-hover:text-white font-mono text-[10px] uppercase tracking-widest backdrop-blur-md mb-4 w-fit font-bold transition-all duration-500">
                     {item.badgeText}
                   </span>
 
                   {/* Title */}
-                  <h3 className={`font-sans text-2xl md:text-3xl ${item.titleColor} md:text-white md:dark:text-white group-hover:text-amber-400 md:group-hover:text-amber-400 dark:group-hover:text-amber-400 font-medium leading-tight mb-2 md:mb-4 md:drop-shadow-md transition-colors`}>
+                  <h3 className={`font-sans text-2xl lg:text-3xl ${item.titleColor} lg:text-white lg:dark:text-white group-hover:text-amber-400 lg:group-hover:text-amber-400 dark:group-hover:text-amber-400 font-medium leading-tight mb-2 lg:mb-4 lg:drop-shadow-md transition-colors`}>
                     {item.title}
                   </h3>
 
                   {/* Description - Always visible on mobile, revealed on hover on desktop */}
                   <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
                     <div className="overflow-hidden">
-                      <p className="font-body text-gray-700 dark:text-white/90 md:text-white group-hover:text-white md:group-hover:text-white text-sm md:text-base leading-relaxed mb-6 mt-4 md:mt-0 transition-colors duration-500 md:drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      <p className="font-body text-gray-700 dark:text-white/90 lg:text-white group-hover:text-white lg:group-hover:text-white text-sm lg:text-base leading-relaxed mb-6 mt-4 lg:mt-0 transition-colors duration-500 lg:drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                         {item.desc}
                       </p>
                     </div>
                   </div>
 
                   {/* CTA */}
-                  <div className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-sans text-[10px] uppercase tracking-widest font-bold group-hover:text-amber-400 dark:group-hover:text-amber-300 transition-colors mt-auto md:mt-2">
+                  <div className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-sans text-[10px] uppercase tracking-widest font-bold group-hover:text-amber-400 dark:group-hover:text-amber-300 transition-colors mt-auto pt-2 lg:pt-0">
                     {item.cta} <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
