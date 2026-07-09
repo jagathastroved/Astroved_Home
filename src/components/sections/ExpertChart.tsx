@@ -69,13 +69,13 @@ export function ExpertChart() {
         {/* Premium Image Card 3-Column Layout */}
         <AnimatedGrid 
           ref={scrollRef}
-          className="flex overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-3 gap-6 lg:gap-8 mt-8 relative z-10 pb-8 pt-4 px-6 -mx-6 lg:mx-0 lg:px-0 lg:pb-0 no-scrollbar"
+          className="flex items-stretch overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-3 gap-6 lg:gap-8 mt-8 relative z-10 pb-8 pt-4 px-6 -mx-6 lg:mx-0 lg:px-0 lg:pb-0 no-scrollbar"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {EXPERTS.map((item, idx) => (
             <AnimatedCard
               key={idx}
-              className="snap-center shrink-0 w-[85%] sm:w-[50%] lg:w-full rounded-[2.5rem] flex flex-col group cursor-pointer overflow-hidden relative h-full lg:h-[380px] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 bg-white dark:bg-[#0a0e17]"
+              className="snap-center shrink-0 w-[85%] sm:w-[50%] lg:w-full rounded-[2.5rem] flex flex-col group cursor-pointer overflow-hidden relative h-auto lg:h-[380px] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 bg-white dark:bg-[#0a0e17]"
             >
               {/* Image Container: Stacked on mobile, absolute overlay on desktop */}
               <div className="relative lg:absolute inset-0 z-0 h-[160px] sm:h-[180px] lg:h-full shrink-0">
@@ -90,9 +90,9 @@ export function ExpertChart() {
 
               {/* Content Container: Below image on mobile, over image on desktop */}
               <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-end flex-1 lg:h-full bg-white dark:bg-[#0a0e17] lg:bg-transparent lg:dark:bg-transparent">
-                <div className="lg:translate-y-8 lg:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col h-full">
+                <div className="lg:translate-y-8 lg:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col">
                   {/* Badge */}
-                  <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/50 dark:bg-black/50 lg:bg-white/60 lg:dark:bg-black/50 group-hover:bg-white/20 lg:group-hover:bg-white/20 border border-black/10 dark:border-white/20 lg:border-white/30 lg:dark:border-white/20 text-gray-900 dark:text-white lg:text-gray-900 lg:dark:text-white group-hover:text-white lg:group-hover:text-white font-mono text-[10px] uppercase tracking-widest backdrop-blur-md mb-3 w-fit font-bold transition-all duration-500">
+                  <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/50 dark:bg-black/50 lg:bg-white/60 lg:dark:bg-black/50 group-hover:bg-white/20 lg:group-hover:bg-white/20 border border-black/10 dark:border-white/20 lg:border-white/30 lg:dark:border-white/20 text-gray-900 dark:text-white lg:text-gray-900 lg:dark:text-white dark:group-hover:text-white lg:group-hover:text-white font-mono text-[10px] uppercase tracking-widest backdrop-blur-md mb-3 w-fit font-bold transition-all duration-500">
                     {item.badgeText}
                   </span>
 
@@ -104,7 +104,7 @@ export function ExpertChart() {
                   {/* Description - Always visible on mobile, revealed on hover on desktop */}
                   <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
                     <div className="overflow-hidden">
-                      <p className="font-body text-gray-700 dark:text-white/90 lg:text-white group-hover:text-white lg:group-hover:text-white text-xs sm:text-sm lg:text-base leading-relaxed mb-4 mt-2 lg:mt-0 transition-colors duration-500 lg:drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      <p className="font-body text-gray-700 dark:text-white/90 lg:text-white dark:group-hover:text-white lg:group-hover:text-white text-xs sm:text-sm lg:text-base leading-relaxed mb-4 mt-2 lg:mt-0 transition-colors duration-500 lg:drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                         {item.desc}
                       </p>
                     </div>
