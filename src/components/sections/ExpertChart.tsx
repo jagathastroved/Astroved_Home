@@ -8,7 +8,7 @@ const EXPERTS = [
   {
     badgeText: "Consultation",
     title: "Live Master Consultations",
-    desc: "Speak face-to-face with a senior Vedic scholar. Receive immediate clarity on your career, relationships, and immediate planetary remedies.",
+    desc: "Speak face-to-face with a senior Vedic scholar. Receive immediate clarity on your career and relationships, and get powerful planetary remedies for your life.",
     cta: "Book Consultation",
     image: consultation,
     titleColor: "text-purple-700 dark:text-purple-400"
@@ -24,7 +24,7 @@ const EXPERTS = [
   {
     badgeText: "Written Report",
     title: "Personal Reports",
-    desc: "Written reports on your career, marriage and wealth, and the dasha (planetary cycle) periods shaping the years ahead.",
+    desc: "Get comprehensive written reports on your career, marriage, and wealth. Understand the upcoming planetary dasha periods shaping the critical years ahead in your life.",
     cta: "See reports",
     image: personal_report,
     titleColor: "text-purple-700 dark:text-purple-400"
@@ -75,10 +75,10 @@ export function ExpertChart() {
           {EXPERTS.map((item, idx) => (
             <AnimatedCard
               key={idx}
-              className="snap-center shrink-0 w-[85%] sm:w-[50%] lg:w-full rounded-[2.5rem] flex flex-col group cursor-pointer overflow-hidden relative min-h-[450px] lg:h-[450px] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 bg-white dark:bg-[#0a0e17]"
+              className="snap-center shrink-0 w-[85%] sm:w-[50%] lg:w-full rounded-[2.5rem] flex flex-col group cursor-pointer overflow-hidden relative h-full lg:h-[380px] border border-black/5 dark:border-amber-500/40 dark:shadow-[0_0_15px_rgba(245,158,11,0.2)] shadow-xl hover:border-[#facc15]/50 hover:shadow-[0_0_40px_rgba(250,204,21,0.2)] transition-all duration-500 bg-white dark:bg-[#0a0e17]"
             >
               {/* Image Container: Stacked on mobile, absolute overlay on desktop */}
-              <div className="relative lg:absolute inset-0 z-0 h-[250px] lg:h-full shrink-0">
+              <div className="relative lg:absolute inset-0 z-0 h-[160px] sm:h-[180px] lg:h-full shrink-0">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -89,22 +89,22 @@ export function ExpertChart() {
               </div>
 
               {/* Content Container: Below image on mobile, over image on desktop */}
-              <div className="relative z-10 p-8 lg:p-10 flex flex-col justify-end flex-1 lg:h-full bg-white dark:bg-[#0a0e17] lg:bg-transparent lg:dark:bg-transparent">
+              <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-end flex-1 lg:h-full bg-white dark:bg-[#0a0e17] lg:bg-transparent lg:dark:bg-transparent">
                 <div className="lg:translate-y-8 lg:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col h-full">
                   {/* Badge */}
-                  <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/50 dark:bg-black/50 lg:bg-white/60 lg:dark:bg-black/50 group-hover:bg-white/20 lg:group-hover:bg-white/20 border border-black/10 dark:border-white/20 lg:border-white/30 lg:dark:border-white/20 text-gray-900 dark:text-white lg:text-gray-900 lg:dark:text-white group-hover:text-white lg:group-hover:text-white font-mono text-[10px] uppercase tracking-widest backdrop-blur-md mb-4 w-fit font-bold transition-all duration-500">
+                  <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/50 dark:bg-black/50 lg:bg-white/60 lg:dark:bg-black/50 group-hover:bg-white/20 lg:group-hover:bg-white/20 border border-black/10 dark:border-white/20 lg:border-white/30 lg:dark:border-white/20 text-gray-900 dark:text-white lg:text-gray-900 lg:dark:text-white group-hover:text-white lg:group-hover:text-white font-mono text-[10px] uppercase tracking-widest backdrop-blur-md mb-3 w-fit font-bold transition-all duration-500">
                     {item.badgeText}
                   </span>
 
                   {/* Title */}
-                  <h3 className={`font-sans text-2xl lg:text-3xl ${item.titleColor} lg:text-white lg:dark:text-white group-hover:text-amber-400 lg:group-hover:text-amber-400 dark:group-hover:text-amber-400 font-medium leading-tight mb-2 lg:mb-4 lg:drop-shadow-md transition-colors`}>
+                  <h3 className={`font-sans text-xl sm:text-2xl lg:text-3xl ${item.titleColor} lg:text-white lg:dark:text-white group-hover:text-amber-400 lg:group-hover:text-amber-400 dark:group-hover:text-amber-400 font-medium leading-tight mb-2 lg:mb-4 lg:drop-shadow-md transition-colors`}>
                     {item.title}
                   </h3>
 
                   {/* Description - Always visible on mobile, revealed on hover on desktop */}
                   <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
                     <div className="overflow-hidden">
-                      <p className="font-body text-gray-700 dark:text-white/90 lg:text-white group-hover:text-white lg:group-hover:text-white text-sm lg:text-base leading-relaxed mb-6 mt-4 lg:mt-0 transition-colors duration-500 lg:drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      <p className="font-body text-gray-700 dark:text-white/90 lg:text-white group-hover:text-white lg:group-hover:text-white text-xs sm:text-sm lg:text-base leading-relaxed mb-4 mt-2 lg:mt-0 transition-colors duration-500 lg:drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                         {item.desc}
                       </p>
                     </div>
