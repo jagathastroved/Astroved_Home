@@ -35,7 +35,7 @@ const actions = [
     tagline: "GUIDED PILGRIMAGE TOURS",
     description: "Guided pilgrimages to sacred temples — travel, priest access, and special darshan arranged, so you can focus on the prayer, not the planning.",
     cta: "VIEW UPCOMING TOURS",
-    footerText: "Ships across India & worldwide",
+    footerText: "Serving seekers across the globe",
     image: Pilgrimage_Tours,
     imagePosition: "object-[center_10%]",
     link: "https://www.astroved.com",
