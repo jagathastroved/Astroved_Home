@@ -80,16 +80,16 @@ export function SpecialEvents() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-6">
-          <h2 className="font-sans text-4xl sm:text-5xl text-midnight dark:text-cream leading-tight mb-4">
-            Special <em className="text-amber-600 dark:text-amber-400 italic">Events.</em>
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <p className="text-amber-600 dark:text-amber-400 font-sans text-xs md:text-sm uppercase tracking-widest font-bold mb-3">
+            LIVE THIS WEEK
+          </p>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-midnight dark:text-cream leading-tight font-bold mb-4">
+            This Week's <em className="text-amber-600 dark:text-amber-400 italic">Special Rituals.</em>
           </h2>
-          {/* <h1 className="font-sans text-4xl md:text-5xl text-midnight dark:text-cream mb-6 leading-tight">
-            Powerful Fire Rituals at the Perfect Moment
-          </h1>
-          <p className="font-body text-gray-700 dark:text-gray-400 text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
-            These events are matched with this month's special planetary changes and festivals. Once the time passes, the chance is gone.
-          </p> */}
+          <p className="font-sans text-gray-500 dark:text-gray-400 text-sm md:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto font-medium">
+            Performed live on the auspicious tithi — in your name, wherever you are.
+          </p>
         </div>
 
         {/* Carousel Container */}

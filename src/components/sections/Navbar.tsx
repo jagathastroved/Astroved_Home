@@ -52,7 +52,7 @@ export function Navbar() {
           </button>
         </div>
 
-        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 text-sm font-medium mt-2">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 text-sm font-medium">
           {navLinks.map((link) => (
             <button
               key={link.id}
@@ -74,6 +74,17 @@ export function Navbar() {
         </nav>
 
         <div className="flex-1 flex items-center justify-end gap-3 sm:gap-4">
+          <button
+            className="hidden lg:block px-5 py-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-midnight text-[10px] sm:text-xs font-sans tracking-widest uppercase font-bold hover:from-amber-500 hover:to-orange-500 transition-all shadow-lg shadow-amber-500/25 whitespace-nowrap"
+          >
+            Free Kundali
+          </button>
+          <button
+            className="hidden lg:block px-5 py-2 rounded-full border border-midnight/60 dark:border-cream/60 text-midnight dark:text-cream text-[10px] sm:text-xs font-sans tracking-widest uppercase font-bold hover:bg-midnight/5 dark:hover:bg-cream/10 transition-all whitespace-nowrap"
+          >
+            Sign In
+          </button>
+
           {/* Clean responsive theme toggle with layout transition icon */}
           <button
             id="theme-toggle-btn"
@@ -104,12 +115,6 @@ export function Navbar() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </button>
-
-          <button
-            className="hidden lg:block px-5 py-2 rounded-[2rem] border border-midnight/10 dark:border-cream/10 text-midnight dark:text-cream text-[10px] sm:text-xs font-sans tracking-widest uppercase font-semibold hover:bg-gold/5 hover:border-gold/20 transition-all shadow-sm whitespace-nowrap"
-          >
-            Sign In
           </button>
         </div>
       </div>
@@ -153,7 +158,7 @@ export function Navbar() {
                 <nav className="flex flex-col gap-2 mt-4 relative">
                   {/* Dashed connecting line */}
                   <div className="absolute left-[2.45rem] top-8 bottom-8 w-[1px] border-l border-dashed border-gold/40 dark:border-gold/30 pointer-events-none" />
-                  
+
                   {navLinks.map((link, idx) => (
                     <motion.button
                       initial={{ opacity: 0, x: 20 }}
@@ -164,7 +169,7 @@ export function Navbar() {
                       className="group flex items-center w-full p-3 rounded-xl hover:bg-midnight/5 dark:hover:bg-white/5 transition-all duration-300 relative z-10"
                     >
                       <div className={`flex items-center justify-center w-12 h-12 rounded-full border ${link.borderColor} ${link.bgIcon} ${link.color} shrink-0 bg-white/80 dark:bg-[#0a0514]/80 backdrop-blur-sm shadow-sm`}>
-                         <link.icon className="w-5 h-5" />
+                        <link.icon className="w-5 h-5" />
                       </div>
                       <span className="ml-6 font-serif text-[15px] font-semibold tracking-[0.08em] uppercase text-midnight/90 dark:text-cream group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors text-left flex-1" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
                         {link.label}
@@ -177,10 +182,15 @@ export function Navbar() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: navLinks.length * 0.05 + 0.2, duration: 0.4 }}
-                  className="mt-auto pt-8"
+                  className="mt-auto pt-8 flex flex-col gap-3"
                 >
-                  <button className="relative w-full py-4 rounded-xl overflow-hidden group shadow-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 transition-colors">
-                    <span className="relative z-10 text-white dark:text-midnight text-[11px] sm:text-xs font-sans tracking-[0.2em] uppercase font-bold">
+                  <button className="relative w-full py-3.5 rounded-xl overflow-hidden group shadow-lg shadow-amber-500/25 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-orange-500 transition-colors">
+                    <span className="relative z-10 text-midnight text-[11px] sm:text-xs font-sans tracking-[0.2em] uppercase font-bold">
+                      Free Kundali
+                    </span>
+                  </button>
+                  <button className="relative w-full py-3.5 rounded-xl overflow-hidden group border-2 border-midnight/60 dark:border-cream/60 hover:bg-midnight/5 dark:hover:bg-cream/10 transition-colors">
+                    <span className="relative z-10 text-midnight dark:text-cream text-[11px] sm:text-xs font-sans tracking-[0.2em] uppercase font-bold">
                       Sign In
                     </span>
                   </button>
