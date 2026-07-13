@@ -74,11 +74,14 @@ export function Navbar() {
         </nav>
 
         <div className="flex-1 flex items-center justify-end gap-3 sm:gap-4">
-          <button
-            className="hidden lg:block px-5 py-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-midnight text-[10px] sm:text-xs font-sans tracking-widest uppercase font-bold hover:from-amber-500 hover:to-orange-500 transition-all shadow-lg shadow-amber-500/25 whitespace-nowrap"
+          <a
+            href="https://kundali-report.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden lg:block px-5 py-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-midnight text-[10px] sm:text-xs font-sans tracking-widest uppercase font-bold hover:from-amber-500 hover:to-orange-500 transition-all shadow-lg shadow-amber-500/25 whitespace-nowrap text-center"
           >
             Free Kundali
-          </button>
+          </a>
           <button
             className="hidden lg:block px-5 py-2 rounded-full border border-midnight/60 dark:border-cream/60 text-midnight dark:text-cream text-[10px] sm:text-xs font-sans tracking-widest uppercase font-bold hover:bg-midnight/5 dark:hover:bg-cream/10 transition-all whitespace-nowrap"
           >
@@ -184,11 +187,16 @@ export function Navbar() {
                   transition={{ delay: navLinks.length * 0.05 + 0.2, duration: 0.4 }}
                   className="mt-auto pt-8 flex flex-col gap-3"
                 >
-                  <button className="relative w-full py-3.5 rounded-xl overflow-hidden group shadow-lg shadow-amber-500/25 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-orange-500 transition-colors">
+                  <a
+                    href="https://kundali-report.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative w-full py-3.5 rounded-xl overflow-hidden group shadow-lg shadow-amber-500/25 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-orange-500 transition-colors inline-block text-center"
+                  >
                     <span className="relative z-10 text-midnight text-[11px] sm:text-xs font-sans tracking-[0.2em] uppercase font-bold">
                       Free Kundali
                     </span>
-                  </button>
+                  </a>
                   <button className="relative w-full py-3.5 rounded-xl overflow-hidden group border-2 border-midnight/60 dark:border-cream/60 hover:bg-midnight/5 dark:hover:bg-cream/10 transition-colors">
                     <span className="relative z-10 text-midnight dark:text-cream text-[11px] sm:text-xs font-sans tracking-[0.2em] uppercase font-bold">
                       Sign In

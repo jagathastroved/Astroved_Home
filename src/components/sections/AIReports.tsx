@@ -8,7 +8,6 @@ const reports = [
   {
     id: 1,
     title: "AI Kundali Report",
-    // tagline: "Vedic Astrology",
     description: "Get an instant, comprehensive analysis of your birth chart. Discover your planetary positions, doshas, and predictions powered by cutting-edge AI.",
     cta: "Generate Report",
     image: aiKundali,
@@ -22,7 +21,6 @@ const reports = [
   {
     id: 2,
     title: "AI Numerology Report",
-    // tagline: "Numerology Secrets",
     description: "Uncover the hidden meanings behind your numbers. Get an AI-driven report on your life path, expression, and soul urge numbers.",
     cta: "Generate Report",
     image: aiNumerology,

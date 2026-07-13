@@ -280,13 +280,13 @@ export function SpecialEvents() {
           {/* Navigation Buttons (Placed inside the card bounds) */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 md:left-4 top-[40%] -translate-y-1/2 bg-black/50 border border-white/20 p-2 md:p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 backdrop-blur-sm"
+            className="absolute left-2 md:left-4 top-[40%] md:top-1/2 -translate-y-1/2 bg-black/50 border border-white/20 p-2 md:p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 backdrop-blur-sm"
           >
             <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-2 md:right-4 top-[35%] md:top-1/2 -translate-y-1/2 bg-black/50 border border-white/20 p-2 md:p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 backdrop-blur-sm"
+            className="absolute right-2 md:right-4 top-[40%] md:top-1/2 -translate-y-1/2 bg-black/50 border border-white/20 p-2 md:p-3 rounded-full text-white hover:bg-black/80 hover:scale-110 transition-all z-20 backdrop-blur-sm"
           >
             <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
           </button>
