@@ -210,11 +210,10 @@ export function SpecialEvents() {
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={currentIndex}
-                custom={direction}
-                initial={{ opacity: 0, x: direction > 0 ? '50%' : '-50%', scale: 0.95 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: direction > 0 ? '-50%' : '50%', scale: 0.95 }}
-                transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
                 className="w-full cursor-pointer flex flex-col items-center col-start-1 row-start-1"
               >
                 {/* Responsive Background Images */}
@@ -246,7 +245,7 @@ export function SpecialEvents() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.3, duration: 0.5, type: 'spring' }}
-                      className={`font-serif text-base sm:text-lg md:text-xl lg:text-3xl xl:text-5xl font-extrabold tracking-wider mb-1.5 md:mb-1.5 lg:mb-3 leading-tight uppercase ${events[currentIndex].titleColor} drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]`}
+                      className={`font-serif text-base sm:text-lg md:text-xl lg:text-3xl xl:text-4xl font-extrabold tracking-wider mb-1.5 md:mb-1.5 lg:mb-3 leading-tight uppercase ${events[currentIndex].titleColor} drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]`}
                     >
                       {events[currentIndex].title}
                     </motion.h3>
@@ -316,12 +315,12 @@ export function SpecialEvents() {
             ></div>
 
             <div
-              className="relative rounded-2xl p-3 md:p-4 flex flex-col md:flex-row items-center justify-between gap-4 border border-white/10 dark:border-white/5 overflow-hidden bg-gradient-to-r from-[#2a0404] via-[#5c0a0a] to-[#2a0404] dark:from-[#04091a] dark:via-[#111836] dark:to-[#04091a] premium-animated-banner"
+              className="relative rounded-2xl p-3 md:p-4 flex flex-col lg:flex-row items-center justify-between gap-4 border border-white/10 dark:border-white/5 overflow-hidden bg-gradient-to-r from-[#2a0404] via-[#5c0a0a] to-[#2a0404] dark:from-[#04091a] dark:via-[#111836] dark:to-[#04091a] premium-animated-banner"
             >
               {/* Subtle top shimmer line */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-400/40 dark:via-blue-400/30 to-transparent"></div>
 
-              <div className="text-center md:text-left z-10 px-2">
+              <div className="text-center lg:text-left z-10 px-2">
                 <h3 className="font-extrabold text-base md:text-lg uppercase tracking-wider text-amber-400 dark:text-amber-300 drop-shadow-md">
                   Elevate Your Spiritual Journey
                 </h3>
@@ -330,7 +329,7 @@ export function SpecialEvents() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row justify-center gap-3 w-full md:w-auto z-10">
+              <div className="flex flex-col sm:flex-row justify-center gap-3 w-full lg:w-auto z-10">
                 {/* White Button */}
                 <button className="animated-btn flex-1 sm:flex-none flex items-center justify-center gap-1.5 bg-white text-red-900 px-5 py-2.5 rounded-full font-bold text-xs md:text-sm hover:bg-gray-50 transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transform hover:-translate-y-0.5">
                   <span className="relative flex h-2 w-2 z-30">
